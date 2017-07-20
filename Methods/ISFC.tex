@@ -1,0 +1,196 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\usepackage{amsmath,amsfonts,amsthm}
+\usepackage[vlined, ruled]{algorithm2e}
+\usepackage{geometry}
+\usepackage[noend]{algpseudocode}
+\usetikzlibrary{bayesnet}
+\usepackage[nottoc,numbib]{tocbibind}
+\setlength{\parskip}{1em}
+\geometry{letterpaper,left=1.5in,right=1in,top=1in,bottom=1in}
+\setlength\parindent{0pt}
+\linespread{1.5}
+\newcommand{\E}{\mathrm{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\N}{\mathcal{N}}
+\newcommand{\tr}{tr}
+
+\begin{document}
+\subsection{Introduction}
+Functional Magnetic Resonance Imaging, often referred to as fMRI, was first discovered and applied in brain mapping in 1990 by Seiji Ogawa.\cite{Ogawa90} Since then, this technology quickly popularized and dominated Brain Science related research due to its ability to accurately reflect brain activities and its unprecedented low health risk to subjects. Functional magnetic resonance imaging was first applied in brain mapping in early 1990s, it has become the dominating method for visualization of brain activity. However, measurements from fMRI are often corrupted by noises created by misalignment, subject movement, etc. To address this issue, a new branch of research has emerged that specifically focuses on the extraction of useful information from noisy brain fMRI data.\\
+\begin{enumerate}
+\item Recent emergence and growing significance of inter-subject functional connectivity decoding
+\item Past approaches to this problem and their lackings
+\begin{enumerate}
+\item \cite{Friston98} We present an approach to characterizing the differences among event-related hemodynamic responses in functional magnetic resonance imaging that are evoked by different sorts of stimuli. we examined differential responses to visually presented words that had been seen prior to scanning or that were novel. The form of these differences involved both the magnitude and the latency of the response components. In this paper we focus on bilateral ventrolateral prefrontal responses that show deactivations for previously seen words and activations for novel words.
+\item \cite{Friston99} we suggest that activations common to all subjects reflect aspects of functional anatomy that may be “typical” of the population from which that group was sampled.
+\item \cite{Logothetis01} Functional magnetic resonance imaging (fMRI) is widely used to study the operational organization of the human brain, but the exact relationship between the measured fMRI signal and the underlying neural activity is unclear. These findings suggest that the BOLD contrast mechanism reflects the input and intracortical processing of a given area rather than its spiking output.
+\item \cite{Greene01} The long-standing rationalist tradition in moral psychology emphasizes the role of reason in moral judgment. A more recent trend places increased emphasis on emotion. Although both reason and emotion are likely to play important roles in moral judgment, relatively little is known about their neural correlates, the nature of their interaction, and the factors that modulate their respective behavioral influences in the context of moral judgment. In two functional magnetic resonance imaging (fMRI) studies using moral dilemmas as probes, we apply the methods of cognitive neuroscience to the study of moral judgment. We argue that moral dilemmas vary systematically in the extent to which they engage emotional processing and that these variations in emotional engagement influence moral judgment.
+\item \cite{hasson2004} VIDEO The results reveal a surprising tendency of individual brains to “tick collectively” during natural vision. The intersubject synchronization consisted of a widespread cortical activation pattern correlated with emotionally arousing scenes and regionally selective components. The characteristics of these activations were revealed with the use of an open-ended “reverse-correlation” approach, which inverts the conventional analysis by letting the brain signals themselves “pick up” the optimal stimuli for each specialized cortical area.
+\item \cite{olaf2005} First time research is conducted in brain functional connectivity, it's significance is revealed.
+\item \cite{hasson2005} AUDIO The predicted fMRI signals derived from single units and the measured fMRI signals from auditory cortex showed a highly significant correlation (r 0 0.75, P G 10j47). Thus, fMRI signals can provide a reliable measure of the firing rate of human cortical neurons.
+\item \cite{enrico2011} Sliding window, instantaneous phase synchronization to increase temporal resolution, Dynamic Functional Connectivity
+\item \cite{hasson2012} Here we show that temporal patterns of neural activity contain information that can discriminate different stimuli, even within brain regions that show no net activation to that stimulus class. Furthermore, we find that in many brain regions, responses to natural stimuli are highly context dependent. In such cases, prototypical event-related responses do not even exist for individual stimuli, so that averaging responses to the same stimulus within different contexts may worsen the effective signal-to-noise. As a result, analysis of the temporal structures of single events can re
+\item \cite{elena2012} Functional Connectivity, sliding window, resting state
+\item \cite{peterson9} various denoising methods
+\item \cite{peterson19} We suggest that, in the place of a single localized error mechanism, these findings point to a large-scale set of error-related regions across multiple systems that likely subserve different functions.
+\item \cite{peterson20} In 2011, three groups reported that small headmovements produced spurious but structured noise in brain scans, causing distance-dependent changes in signal correlations. This finding has prompted both methods development and the re-examination of prior findings with more stringentmotion correction
+\item \cite{davidson2016} we present a method to quantify individual differences in brain functional dynamics by applying hypergraph analysis, a method from dynamic network theory. age-related changes in brain function can be better understood by taking an integrative approach that incorporates information about the dynamics of functional interactions
+\item \cite{hasson2016} First time Inter-subject functional connectivity is introduced. opens new avenues for linking brain network dynamics to stimulus features and behavior.
+\item \cite{muldoon} We review current methods to quantify the structure of brain networks and compare that structure across different clinical cohorts, cognitive states, and subjects.We further introduce the emerging mathematical concept of multilayer networks and describe the advantages of this approach to model changing brain dynamics over time. We conclude by offering several concrete examples of how multilayer network approaches to neuroimaging data provide novel insights into brain structure and evolving function.
+\item \cite{peterson11} However, we find that observations of “dynamic” BOLD correlations during the resting state are largely explained by sampling variability. Beyond sampling variability, the largest part of observed “dynamics” during rest is attributable to head motion. An additional component of dynamic variability during rest is attributable to fluctuating sleep state. Thus, aside from the preceding explanatory factors, a single correlation structure—as opposed to a sequence of distinct correlation structures—may adequately describe the resting state as measured by BOLD fMRI. These results suggest that resting-state BOLD correlations do not primarily reflect moment-to-moment changes in cognitive content. Rather, resting-state BOLD correlations may predominantly reflect processes concerned with the maintenance of the long-term stability of the brain’s functional organization
+\item \cite{peterson12} Machine Learning for classification. We also report a novel adaptation of SVM binary classification that, in addition to an overall accuracy rate for the SVM, provides a confidence measure for the accurate classification of each individual. Our results support the contention that multivariate methods can better capture the complexity of some brain disorders, and hold promise for predicting prognosis and treatment outcome for individuals with TS.
+\item \cite{peterson17} Support vector regression enabled quantitative estimation of birth gestational age in single subjects using only term equivalent resting state-functional MRI data, indicating that the present approach is sensitive to the degree of disruption of brain development associatedwith pretermbirth (using gestational age as a surrogate for the extent of disruption). This suggests that support vector regression may provide a means for predicting neurodevelopmental outcome in individual infants.
+\item \cite{peterson10} We observed system features that have not been previously characterized, but 1) were reliably detected across many scanning sessions within a single individual, and 2) could be matched across many individuals. In total, we identified forty-three system features that did not match groupaverage systems, but that replicated across three independent datasets. We described the size and spatial distribution of each non-group feature. We further observed that some individuals were missing specific system features, suggesting individual differences in the system membership of cortical regions. Finally, we found that individual-specific system features could be used to increase subject-to-subject similarity. Together, this work identifies individual-specific features of human brain systems, thus providing a catalog of previously unobserved brain system features and laying the foundation for detailed examinations of brain connectivity in individuals.
+\item \cite{medaglia2017} we describe recent theoretical approaches from net-work control theory as a framework for investigating network level mechanisms underlying cognitivefunction and the dynamics of neuroplasticity in the human brain. We describe the theoretical opportunities offered by the application of network control theory at the level of the human connectome tounderstand cognitive resilience and inform translational intervention.
+\item \cite{sofer2017} Cross-species comparisons suggest an advantage of the human brain in supporting diverse network dynamics with small energetic costs, while remaining unexpectedly robust to perturbations. we use linear network control theory to analytically relate the topology of a subset of structural connections (those linking driver nodes to non-driver nodes) to the minimum energy required to control networked systems.
+\item \cite{khambhati2017} We describe recent efforts to model dynamic patterns of connectivity, dynamic patterns of activity, and patterns of activity atop connectivity. In the context of these models, we review important considerations in statistical testing, including parametric and non-parametric approaches. Finally, we offer thoughts on careful and accurate interpretation of dynamic graph architecture, and outline important future directions for method development.
+\item \cite{jeremy2017} decoding analysis, ISFC
+\end{enumerate}
+\item Advantages of using the timecorr method
+\item The goal and focus of this project
+\begin{enumerate}
+\item Develop a general toolbox to help related research in inter-subject functional connectivity research
+\item Conduct analysis on datasets to understand the significance of higher levels in decoding datasets (Mixture Analysis)
+\end{enumerate}
+\end{enumerate}
+
+
+\subsection{Single Subject Timecorr}
+Find method to find dynamic correlation without loss of data
+
+Effectively utilize information from entire dataset to achieve higher accuracy
+
+Inspiration from the regular correlation function, but applies normalized Gaussian density function so that each time point influences the calculation of dynamic correlation at time point of interest proportional to its distance from the time point of interest.
+
+Given a single subject fRMI dataset with T time points and V voxels, the Timecorr method is used to determine the temporal correlation between voxels at each time points. \\
+\begin{enumerate}
+\item Choose variance V to represent the amount of influence neighboring time points will have on the calculation of the voxel correlation at each time point.\\
+\item For each time point t:
+\begin{enumerate}
+\item Generate an array of Gaussian coefficients $w_t$ of length T and variance V with center at the $t^{th}$ element\\
+\item Element-wise multiply the time series of activations of every voxel $a_i$ with the Gaussian coefficients array to create weighted activations array for each voxel $S^i_t$\\
+\item Find the temporal dynamic correlation between voxel i and voxel j at time point t through the equation:
+\begin{align*}
+C(S^i_t,S^j_t) = \frac{1}{Z}\frac{\sum_{l=0}^T (S_l^i - \bar{S^i_t})\cdot(S^j_l - \bar{S^j_t})\cdot \mathcal{N}(l|t,\sigma)}{\sigma_{S_t^i} \cdot \sigma_{S_t^j}}
+\end{align*}
+Where
+\begin{align*}
+Z &= \sum_{l=0}^T \mathcal{N}(l|t,\sigma)\\
+\bar{S^i_t} &=\frac{1}{Z} \sum_{l=0}^T S^i_l \cdot \mathcal{N}(l|t,\sigma)\\
+\sigma_{S_t^i} &=\sqrt{ \frac{1}{Z}\sum_{l=0}^T (S_l^i-\bar{S_t^i})^2 \cdot \mathcal{N}(l|t,\sigma)}\\
+\end{align*}
+\item Repeat above process for every voxel pair to create correlation matrix for time point t
+\end{enumerate}
+\end{enumerate}
+
+After experimenting with different setups, we discovered that the best way to distribute weights for time points in the time series is to apply a Gaussian probability density function centered around the time point of interest with variance equal to the total number of time points. This finding will be discussed in more detail in the Results section.\\
+
+In contrast to the sliding window approach which is widely considered as the golden standard for fRMI dynamic correlation calculation, the Timecorr approach is able to more accurately retrieve the temporal correlation at each time point without loss of important data due to limitations from using time frames. This advantage allows us to "level up" the voxel activation matrix many times and calculate correlation at higher orders while maintaining information at all time points.\\
+
+\subsection{Inter-Subject Connectivity using Timecorr}
+The ISFC is a proces through which we find the stimulus-dependent activations in our fMRI dataset by cross referencing and averaging data from multiple subjects.\\
+\begin{enumerate}
+\item For each subject s, we find the average activation of all other subjects:
+\begin{align*}
+O_s=\frac{\sum_{i\neq s}^N S_i}{N-1}
+\end{align*}
+where $S_i$ represents the activation matrix for subject $i$ and $N$ represents the total number of subjects.
+\item Find the correlation matrices between the voxel activations for each subject $S_i$ and the average voxel activations of all other subjects $O_{i}$ using the timecorr method with variance $\sigma$. To find the correlation between voxel activation $S^i_t$ of subject $S$ for voxel $i$ at time $t$ and voxel activation $O^j_t$ of the average of other subjects for voxel $j$ at time points $t$ is obtained through the following equation:
+\begin{align*}
+C(S^i_t,O^j_t) = \frac{1}{Z}\frac{\sum_{l=0}^T (S_l^i - \bar{S^i_t})\cdot(O^j_l - \bar{O^j_t})\cdot \mathcal{N}(l|t,\sigma)}{\sigma_{S_t^i} \cdot \sigma_{O_t^j}}
+\end{align*}
+Where
+\begin{align*}
+Z &= \sum_{l=0}^T \mathcal{N}(l|t,\sigma)\\
+\bar{S^i_t} &=\frac{1}{Z} \sum_{l=0}^T S^i_l \cdot \mathcal{N}(l|t,\sigma)\\
+\bar{O^i_t} &=\frac{1}{Z} \sum_{l=0}^T O^i_l \cdot \mathcal{N}(l|t,\sigma)\\
+\sigma_{S_t^i} &=\sqrt{ \frac{1}{Z}\sum_{l=0}^T (S_l^i-\bar{S_t^i})^2 \cdot \mathcal{N}(l|t,\sigma)}\\
+\sigma_{O_t^i} &=\sqrt{ \frac{1}{Z}\sum_{l=0}^T (O_l^i-\bar{O_t^i})^2 \cdot \mathcal{N}(l|t,\sigma)}\\
+\end{align*}
+\item Apply Fisher Z-transformation to every element $r$ of the correlation matrices for each subject at each time points to obtain the corresponding Z-correlation matrices:
+\begin{align*}
+z = \frac{1}{2}\ln(\frac{1+r}{1-r})
+\end{align*}
+\item Average the Z-correlation matrices $Z_i$ acros all subjects:
+\begin{align*}
+S_Z = \frac{1}{N}\sum^N_{i=1}Z_i
+\end{align*}
+\item Apply inverse Z-transformation to the average Z-correlation matrix to obtain the Inter-subject Functional Connectivity (ISFC) mean correlation matrix:
+\begin{align*}
+ISFC = \frac{\exp(S_Z+S_Z^T)-1}{\exp(S_Z+S_Z^T)+1}
+\end{align*}
+\end{enumerate}
+
+\subsection{Multi-Subject Timecorr Level-Up}
+Add justification for using PCA\\
+
+The multi-subject Timecorr Level-Up process utilizes the functionalities of the single-subject Timecorr method to extract high-order brain dynamics patterns from brain activation data. Given a brain activation or activation correlation matrix at level $l$ of dimensions S subject, V voxels and T time points, the Level-Up function\\
+\begin{enumerate}
+\item Applies single-subject timecorr on the data matrix for each subject to obtain correlations matrix\\
+\item Concatenate the correlations matrix for each subject from the previous step together along the voxels dimension into a single matrix of dimesions $SVxT$\\
+\item Apply PCA on the concatenated matrix from the previous step to obtain a reduced representation of the correlation matrix\\
+\item Separate the reduced correlation matrix from the previous step into data for each subject to obtain a 3-D matrix of size SxVxT
+\item Repeat the above process on the output to level up again
+\end{enumerate}
+Intuitively, every time the multi-subject Timecorr Level-Up function is applied on a dataset, whether it's an activations matrix or a correlation matrix, the dynamic correlations matrix of the dataset is obtained. Using this process, we are not only able to calculate the correlation of brain activations, but also the correlation of the correlation of brain activations, etc. \\
+Another function of the multi-subject Timecorr Level-Up function that makes it standout from traditional methods is its application of the single-subject Timecorr method in calculating dynamic correlations. Traditional methods use the sliding-window approach and lose significant portion of the data with each level, and thus can only level up a limited number of iterations. In contrast, because the single-subject Timecorr method is able to retain all information of the original dataset after each application, it theoretically has the capability to level up a dataset infinite times. This advantage allows us to explore higher-order dynamic patterns within the brain that was previously impossible to access.\\
+
+\subsection{Results}
+\begin{enumerate}
+\item Synthetic dataset generation
+\item Synthetic dataset testing
+\begin{enumerate}
+\item Testing single-subject timecorr on block correlation dataset and comparison with sliding window results
+\item Testing single-subject timecorr on ramp correlation dataset and comparison with sliding window results
+\item Testing ISFC on block correlation dataset and comparison with sliding window results
+\item Testing ISFC on ramp correlation dataset and comparison with sliding window results
+\item Testing level up on multisubject ramping correlation dataset and comparison with sliding window results
+\end{enumerate}
+\item Results on the Pieman dataset
+\begin{enumerate}
+\item See Jeremy's paper for reference on order and structure of this section\\
+\item Pieman Intact
+\end{enumerate}
+\item Results on Sherlock dataset
+\item Results on Forrest dataset
+\item Level-mixture analysis
+\item Optimization and Benchmark results
+
+\end{enumerate}
+\subsection{Conclusion}
+\begin{enumerate}
+\item application in medicine for classification data enrichment
+\end{enumerate}
+\begin{thebibliography}{1}
+\bibitem{jeremy2017} Jeremy Manning, Xia Zhu, Theodore Willke, Rajesh Ranganath, Kimberly Stachenfeld, Uri Hasson, David M Blei, Kenneth A Norman. A probabilistic approach to discovering dynamic full-brain functional connectivity patterns. \textit{bioRxiv} 106690, 2017
+\bibitem{elena2012} Elena A. Allen, Eswar Damaraju, Sergey M. Plis, Erik B. Erhardt, Tom Eichele and Vince D. Calhoun. Tracking Whole-Brain Connectivity Dynamics in the Resting State. \textit{Cerebral Cortex} March 2014;24:663–676
+\bibitem{enrico2011} Enrico Glerean, Juha Salmi, Juha M. Lahnakoski, Iiro P. Jaaskelainen, and Mikko Sams. Functional Magnetic Resonance Imaging Phase Synchronization as a Measure of Dynamic Functional Connectivity. \textit{BRAIN CONNECTIVITY} Volume 2, Number 2, 2012
+\bibitem{olaf2005} Olaf Sporns, Giulio Tononi, Rolf Kotter. The Human Connectome: A Structural Description of the Human Brain. \textit{PLOS Computational Biology} September 2005
+\bibitem{hasson2016} Erez Simony, Christopher J. Honey, Janice Chen, Olga Lositsky, Yaara Yeshurun, Ami Wiesel and Uri Hasson. Dynamic reconfiguration of the default mode network during narrative comprehension. \textit{nature communications} July, 2016
+\bibitem{medaglia2017} John Dominic Medaglia, Fabio Pasqualetti, Roy H. Hamilton, Sharon L. Thompson-Schill, Danielle S. Bassett. Brain and cognitive reserve: Translation via network control theory. \textit{Neuroscience and Biobehavioral Reviews} (2017) 53–64
+\bibitem{davidson2016} Elizabeth N. Davison, Benjamin O. Turner, Kimberly J. Schlesinger, Michael B. Miller, Scott T. Grafton, Danielle S. Bassett, Jean M. Carlson. Individual Differences in Dynamic Functional Brain Connectivity Across the Human Lifespan. \textit{arXiv}:1606.09545v1
+\bibitem{tang2017} Evelyn Tang and Danielle S. Bassett. Control of Dynamics in Brain Networks. \textit{arXiv}:1701.01531v2
+\bibitem{sofer2017} Jason Kim, Jonathan M. Soer, Ari E. Kahn, Jean M. Vettel, Fabio Pasqualetti and Danielle S. Bassett. Topological Principles of Control in Dynamical Network Systems. \textit{arXiv}: 1702.00354v2
+\bibitem{khambhati2017} Ankit N. Khambhati, Ann E. Sizemore, Richard F. Betzel, and Danielle S. Bassett. Modelling and Interpreting Network Dynamics. \textit{bioRxiv} Apr. 4, 2017.
+\bibitem{muldoon} Sarah Feldt Muldoon and Danielle S. Bassett. Network and Multilayer Network Approaches to Understanding Human Brain Dynamics. \textit{UNDERSTANDING HUMAN BRAIN DYNAMICS}
+\bibitem{hasson2009} Uri Hasson, Rafael Malach and David J. Heeger. Reliability of cortical activity during natural stimulation. \textit{Cell Press} December 2009
+\bibitem{hasson2005} Roy Mukamel, Hagar Gelbard, Amos Arieli, Uri Hasson, Itzhak Fried and Rafael Malach. Coupling Between Neuronal Firing, Field Potentials, and fMRI in Human Auditory Cortex. \textit{SCIENCE} VOL 309 5 AUGUST 2005
+\bibitem{hasson2004} Uri Hasson, Yuval Nir, Ifat Levy, Galit Fuhrmann and Rafael Malach. Intersubject Synchronization of Cortical Activity During Natural Vision. \textit{SCIENCE} 12 MARCH 2004 VOL 303.
+\bibitem{hasson2012} Aya Ben-Yakova, Christopher J. Honey, Yulia Lerner and Uri Hasson. Loss of reliable temporal structure in event-related averaging of naturalistic stimuli. \textit{NeuroImage} 63 (2012) 501–506
+\bibitem{zubeidi2014} Duha Al-Zubeidi, Mathula Thangarajh, PhDb, Sheel Pathak, Chunyu Cai, Bradley L. Schlaggar, Gregory A. Storch, Dorothy K. Grange and Michael E. Watson Jr.
+\bibitem{peterson9} Gregory C. Burgess, Sridhar Kandala, Dan Nolan, Timothy O. Laumann, Jonathan D. Power, Babatunde Adeyemo, Michael P. Harms, Steven E. Petersen, and Deanna M. Barch. Evaluation of Denoising Strategies to Address Motion-Correlated Artifacts in Resting-State Functional Magnetic Resonance Imaging Data from the Human Connectome Project. \textit{BRAIN CONNECTIVITY} Volume 6, Number 9, 2016
+\bibitem{peterson10} Evan M. Gordon, Timothy O. Laumann, Babatunde Adeyemo, Adrian W. Gilmore, Steven M. Nelson, Nico U.F. Dosenbach, Steven E. Petersen. Individual-specific features of brain systems identified with resting state functional correlations. \textit{NeuroImage} 146 (2017) 918–939
+\bibitem{peterson11} Timothy O. Laumann, Abraham Z. Snyder, Anish Mitra, Evan M. Gordon, Caterina Gratton, Babatunde Adeyemo, Adrian W. Gilmore, Steven M. Nelson, Jeff J. Berg5, Deanna J. Greene, John E. McCarthy, Enzo Tagliazucchi, Helmut Laufs, Bradley L. Schlaggar, Nico U. F. Dosenbach, and Steven E. Petersen. On the Stability of BOLD fMRI Correlations
+\bibitem{peterson12} Deanna J. Greene, Jessica A. Church, Nico U.F. Dosenbach, Ashley N. Nielsen, Babatunde Adeyemo, Binyam Nardos, Steven E. Petersen, Kevin J. Black and Bradley L. Schlaggar. Multivariate pattern classification of pediatric Tourette syndrome using functional connectivity MRI. \textit{Developmental Science} 19:4 (2016), pp 581–598
+\bibitem{peterson17} Christopher D. Smyser, Nico U.F. Dosenbach, TaraA. Smyser, AbrahamZ. Snyder, Cynthia E. Rogers, Terrie E. Inder, Bradley L. Schlaggar and Jeffrey J. Neil. Prediction of brain maturity in infants using machine-learning algorithms. \textit{NeuroImage} 136 (2016) 1–9
+\bibitem{peterson19} Maital Neta, XFrancis M. Miezin, Steven M. Nelson, Joseph W. Dubis, Nico U.F. Dosenbach, Bradley L. Schlaggar and Steven E. Petersen. Spatial and Temporal Characteristics of Error-Related Activity in the Human Brain. The Journal of Neuroscience, January 7, 2015
+\bibitem{peterson20} Jonathan D. Power, Bradley L. Schlaggar, and Steven E. Petersen. Recent progress and outstanding issues in motion correction in resting state fMRI. \textit{NeuroImage} 105 (2015) 536–551
+\bibitem{Logothetis01} Nikos K. Logothetis, Jon Pauls, Mark Augath, Torsten Trinath and Axel Oeltermann. Neurophysiological investigation of the basis of the fMRI signal. \textit{Nature} 412, 150-157 (12 July 2001)
+\bibitem{Greene01}Joshua D. Greene, R. Brian Sommerville, Leigh E. Nystrom, John M. Darley and Jonathan D. Cohen. An fMRI Investigation of Emotional Engagement in Moral Judgment. \textit{Science}  14 Sep 2001: Vol. 293, Issue 5537
+\bibitem{Friston99} K.J. Friston, A. Holmes, C.J. Price, C. Buchela and K.J. Worsley. Multisubject fMRI Studies and Conjunction Analyses. \textit{NeuroImage} Volume 10, Issue 4, October 1999
+\bibitem{Friston98} K.J. Friston, P. Fletcher, O. Josephs, A. Holmes, M.D. Rugg and R. Turner. Event-Related fMRI: Characterizing Differential Responses. \textit{NeuroImage} Volume 7, Issue 1, January 1998
+\bibitem{Ogawa90} S. Ogawa, T. M. Lee, A. R. Kay, and D. W. Tank. Brain magnetic resonance imaging with contrast dependent on blood oxygenation. \textit{PNAS} December 1, 1990
+\end{thebibliography}
+\end{document}
