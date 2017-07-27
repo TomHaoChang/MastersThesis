@@ -1,4 +1,4 @@
-PWD /Users/ThousandSunny/Documents/Research/Master's Thesis/Methods
+PWD /Users/ThousandSunny/Documents/Research/MastersThesis/Methods
 INPUT /usr/local/texlive/2017/texmf.cnf
 INPUT /usr/local/texlive/2017/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2017/texmf-var/web2c/pdftex/pdflatex.fmt
@@ -224,7 +224,7 @@ INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/etexcmds.sty
 INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/etexcmds.sty
 INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
-INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 OUTPUT ISFC.pdf
 INPUT /usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map
@@ -250,7 +250,7 @@ INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsb.fd
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
-INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmti12.tfm
 INPUT ISFC.aux
