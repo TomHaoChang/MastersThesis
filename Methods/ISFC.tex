@@ -36,22 +36,25 @@ produces a correlation matrix with O(n2) entries (where n is the number of brain
 
 \end{enumerate}
 
+Here, we present the High-Order Brain Dynamics (HOBD), a model that seeks to understand the dynamics behind different "levels" of interaction between brain structures and how this information is represented in the brain. To efficiently access and analyze brain dynamics at higher levels, the HOBD model revolutionizes functional connectivity calculation methods and creates a means to repeatedly "level up" brain dynamics information, computing higher level functional connectivity from low level information. These changes have notably improved the recovery accuracy of brain correlation structures, and significantly increased decoding capabilities using a limited amount brain data.
+
 First, to find an effective replacement for the widely used sliding window method, we designed TimeCorr, an intuitive method that found inspiration directly from the fundamental correlation function. Like the sliding window method, TimeCorr is able is able to recover functional connectivity from fMRI brain images with similar if not higher accuracy. But TimeCorr goes beyond the sliding window method by (a) not requiring buffer at each end for calculation, thereby avoiding data loss, (b) offering extra stability by using all the time points in the time series for calculation of correlation at every time point, (c) provides the option to shift between locality and fluidity based on user demand by varying the resolution parameter.
 
-TimeCorr achieves all the above functions through the use of Gaussian distribution. By attaching a Gaussian coefficient to each time point component in the time series, TimeCorr is able to allocate the amount of influence each neighboring time point has on the calculation of correlation at the time point of interest. As the Gaussian center (highest density/coefficient) is always at the time point of interest, TimeCorr guarantees to return results that are highly proportional to the local ground truth. In addition, the user can choose to have more fluidity in overall results by choosing coefficients from a Gaussian distribution with a large variance; or higher resolution and more locality by choosing coefficients from a distribution with a smaller variance.
+TimeCorr achieves all the above functions through the use of Gaussian distribution. By attaching a Gaussian coefficient to each time point component in the time series, TimeCorr is able to allocate the amount of influence each neighboring time point has on the calculation of correlation at the time point of interest. As the Gaussian center (highest density/coefficient) is always at the time point of interest, TimeCorr guarantees to return highly accurate approximations of the temporal ground truth. In addition, the user can choose to have more fluidity in overall results by choosing coefficients from a Gaussian distribution with a large variance; or higher resolution and more locality by choosing coefficients from a distribution with a smaller variance.
 
 Second, we designed a "level up" method that applies TimeCorr, Inter-Subject Functional Connectivity (ISFC) and Principle Component Analysis (PCA) to calculate higher order functional connectivity. To overcome the problem of scaling and to enforce uniformity for inter-levels analysis, we use TimeCorr on each subject to calculate functional connectivity from previous level activations and then reduce the results to an arbitrary number of feature points to represent the activations for the next level. As TimeCorr avoids data loss in calculating functional connectivity and PCA maintains an uniform number of activations at each "level up", we are able to obtain $10^{th}$ order functional connectivity while ensuring linear scaling in storage and computation.
 
 We believe that different orders of functional connectivity represents information on different aspects of brain dynamics, and incorporating knowledge of the higher-order structures of the brain will expand present brain decoding capabilities. To measure the amount of information present at each level, we introduce decoding accuracy, a testing parameter that describes the proportion of time points in one level of a subject's functional connectivity graph that has the highest correlation with the same time point from the average activations of all other subjects. We are interested in how decoding accuracy changes as we reach higher order functional connectivity. Although we presumed brain dynamics would converge as we get to higher orders and decoding accuracy would increase, reality proved otherwise. This is shown and discussed in more detail in the Intra-Level Decoding Analysis section of our results.
 
-Finally, we present the High-Order Brain Dynamics (HOBD) model, a method that seeks to bring everything together. By finding an optimal mixture weight for each level, the HOBD is able to efficiently incorporate information from multiples orders of functional connectivity obtained using the "level up" approach above and achieve significantly higher decoding accuracy than any level alone. In the Multi-Level Mixture Analysis section of our results, we provide a side by side comparison to highlight the improvements HOBD achieved in its decoding capabilities.
-
+To carry out an in-depth evaluation of the effectiveness of the HOBD model, we also conducted the Multi-Level Mixture Analysis. This study aims to understand how the dynamic information of different levels of interactions between brain regions can be used to improve brain pattern decoding capabilities. In the Multi-Level Mixture Analysis section of our results, we provide a side by side comparison that highlights the improvements achieved by a mixture model that incorporates multiple levels of functional connectivity. In the process of finding the mixture model that maximizes decoding accuracy, we also explored the utility of each level of brain dynamics through analysis of the distribution of optimal level weights. The methods and findings will be discussed extensively in the results section.
 
 \section{Model Description}
-\subsection{Single Subject TimeCorr}
-The TimeCorr method was designed for the purpose of replacing the sliding window method as a lossless alternative to calculating functional connectivity (the correlation structure between brain regions within a subject's brain) from brain fMRI data. The sliding window method operates by applying the correlation calculation function on a block of data centering on the time point of interest $t$ and spanning $L_w$ time points, where $L_w$ is the sliding window length and must be of considerable magnitude for the sliding window method to achieve respectable accuracy. However, due to its inherent design flaw, using the sliding window method on a dataset of time length $T$ could only yield functional connectivity for $T-L_w$ data points, a loss not insignificant due to the typical magnitude of $L_w$. Thus, as calculating high order functional connectivity involves repeatedly applying the method of correlation calculation on the dataset, using the sliding window method would result in rapid deterioration in the amount of usable data.
+The High-Order Brain Dynamics model seeks a new perspective to understanding the dynamics behind stimulus-driven brain activities. Utilizing the capabilities and advantages of TimeCorr and "Level Up", the HOBD model attempts to incorporate information on high-order brain dynamics into its analysis of the brain.
 
-To solve this problem, we designed the TimeCorr method, which finds inspiration from the fundamental correlation function. Instead of isolating a block of points for correlation calculation, TimeCorr effectively utilizes information from the entire dataset for functional connectivity calculation at every time point. To ensure locality of TimeCorr's results, every term is multiplied by a weight drawn from a normalized Gaussian density function so that each time point influences the calculation of functional connectivity at time point of interest $t$ proportional to its distance from $t$. This adaptation of the correlation function effectively eliminates results repetition at the beginning and end of the time series, thereby increasing the number of output time points to equal to the number of inputs and avoiding any data loss.
+\subsection{Single Subject TimeCorr}
+The TimeCorr method was designed for the purpose of replacing the sliding window method as a lossless alternative to achieve more accurate calculation of functional connectivity (the correlation structure between brain regions within a subject's brain) from brain fMRI data. The sliding window method operates by applying the correlation calculation function on a block of data centering on the time point of interest $t$ and spanning $L_w$ time points, where $L_w$ is the sliding window length and must be of considerable magnitude for the sliding window method to achieve respectable accuracy. However, due to its inherent design flaw, using the sliding window method on a dataset of time length $T$ could only yield functional connectivity for $T-L_w$ data points, a loss not insignificant due to the typical magnitude of $L_w$. Thus, as calculating high order functional connectivity involves repeatedly applying the method of correlation calculation on the dataset, using the sliding window method would result in rapid deterioration in the amount of usable data. In addition, as the sliding window method uses a long block of data for correlation calculation, it can only achieve a rough approximation of the general average in the block and not the instantaneous truth at each time point.
+
+To solve these problems, we designed the TimeCorr method, which finds inspiration from the fundamental correlation function. Instead of isolating a block of points for correlation calculation, TimeCorr effectively utilizes information from the entire dataset for functional connectivity calculation at every time point. To ensure locality of TimeCorr's results, every term is multiplied by a weight drawn from a normalized Gaussian density function so that each time point influences the calculation of functional connectivity at time point of interest $t$ proportional to its distance from $t$. This adaptation of the correlation function effectively eliminates results repetition at the beginning and end of the time series, thereby increasing the number of output time points to equal to the number of inputs and avoiding any data loss. In addition, through the application of Gaussian density coefficients, TimeCorr gives more significance to information closer to the time point of interest in its calculations, thereby ensuring a more accurate estimation of instantaneous correlation.
 
 \large{\textbf{Formal Definition}}
 
@@ -89,7 +92,7 @@ In contrast to the sliding window method, which is widely considered to be the g
 
 \subsection{Inter-Subject Functional Correlations using TimeCorr}
 
-The Inter-Subject Functional Correlations (ISFC) is a process of calculating functional connectivity between brain regions of different subjects. The patterns recovered by ISFC is analogous to single subject functional connectivity (which reflect the correlational structure across brain regions within an individual's
+The Inter-Subject Functional Correlations (ISFC) is a process of calculating functional connectivity between brain regions of different subjects \cite{jeremy2017}\cite{hasson2016}. The patterns recovered by ISFC is analogous to single subject functional connectivity (which reflect the correlational structure across brain regions within an individual's
 brain), but they should reflect only activity that is specifically stimulus-driven. For every subject, we compare its brain activations time sequence $a_i$ with the average activations of all other subjects $a_{-i}$. Through the process of averaging activations of multiple subject, we dampen the effect of noise and enhance stimulus-dependent activations in $a_{-i}$. Therefore, when we calculate the functional connectivity matrix between subject activation $a_i$ and the average response from the rest of the participants $a_{-i}$, the functional connectivity we calculate are more likely to reflect activities that are stimulus-driven.
 
 Furthermore, after we obtain the functional connectivity matrix between each subject and the average of their counterparts, we use Fisher Z-transformation to average the results from all the subjects. In addition to the noise-dampening and stimulus-enhancing effects that comes with averaging, we are also able to gain an unbiased view of the overall connectivity pattern across all subjects within our analysis. Fisher Z-transformation is applied in the averaging process as a means to stabilize and reduce approximation variance to return a less biased result than from directly averaging correlations.
@@ -161,10 +164,17 @@ Given a brain activation or activation correlation matrix at level $l$ of dimens
 
 \end{enumerate}
 
-\subsection{Decoding Analysis}
-Decoding Analysis is a process through which we find the stimulus-dependent activations in our fMRI dataset by cross referencing data from multiple subjects.
+\subsection{Multi-Subject Decoding Analysis with TimeCorr ISFC}
+The Multi-Subject Decoding Analysis is a method designed to find stimulus-dependent activations in fMRI dataset by cross referencing data from multiple subjects \cite{jeremy2017}. Through application of Multi-Subject TimeCorr ISFC on two equal divisions of the subject data, "white noises" (background noise, human error, random neural activity, etc) are dampened and activities that are common across subjects are emphasized, thereby increasing the salience of patterns that reflect activities that are only stimulus-driven. Additionally, when the correlation between the same time point in both sub-groups is high, it indicates that the average brain activities in one group demonstrates very high similarity with the average brain activities of all subjects in the other group at that time point. When the brain activities of multiple subjects display high similarity for certain time points in their brain activations time sequence, then intuitively there's a high probability that their brain responses for those time points are uniformly caused by their common stimulus. Using this logic, the decoding accuracy of the dataset, percentage of time points that demonstrates highest correlation with themselves across two sub-division of subject data, gives an accurate representation of
 
-When the correlation between the same time points in $a_i$ and $a_{-i}$ is high, then it indicates that the subject's brain activities demonstrates very high similarity with the brain activities of all other subjects at that time point. When the brain activities of multiple subjects display high similarity for certain time points in their brain activations time sequence, then intuitively there's a high probability that their brain responses for those time points are uniformly caused by their common stimulus.
+\begin{enumerate}
+\item Similarity between subject responses throughout the fMRI simulation
+\item The average proportion of subject activities within the dataset that are stimulus dependent
+\item The average proportion of subject activities that shows significant distinction from the rest of the time sequence
+\item The potency of stimuli in generating salient cognitive response across all subjects
+\end{enumerate}
+
+Due to the above characteristics, the Decoding Analysis makes up a crucial part of our project as a means to evaluate the effectiveness of our newly developed methods.
 
 \large{\textbf{Formal Definition}}
 
@@ -183,12 +193,61 @@ Given a multi-subject dataset containing $S$ subjects, each possessing $T$ time 
 \item Sum the total number of time points correctly decoded for $I_1$ and $I_2$ across all repetitions, and find the average through dividing by the product between the repetition count and two times the time point count (to account for both $I_1$ and $I_2$). The result is the decoding accuracy output of the multi-subject dataset.
 \end{enumerate}
 
-\subsection{High-Order Brain Dynamics}
+\subsection{Multi-Level Mixture Analysis}
+
+Given a fMRI dataset for $S$ subjects, each possessing $T$ time points and $V$ voxels, to conduct Decoding Analysis:
+\begin{enumerate}
+\item Choose the desired number of levels of functional connectivities $L$ and the appropriate Gaussian variance for TimeCorr.
+\item Use the TimeCorr Level Up method to obtain all level functional connectivites for each subject.
+\item Randomly divide the subjects in to four equal groups $A_1$, $A_2$, $B_1$ and $B_2$.
+\item For each group, use the Multi-Subject TimeCorr ISFC method to compute the inter-subject functional connectivity for each level
+\item Compute correlation matrices for each level for A and B (i.e. for group A, correlate A1's features at each time point with A2's features at each time point; similarly for group B). This yields one correlation matrix for group A and another for group B, for each level (including level 0). So if we go up to level 10, this would be 11 correlation matrices for A and another 11 for B.
+\item Fisher Z-transform all of the correlation matrices should be z-transformed (r2z). Let's call them $z_A0, z_A1, z_ A2, ..., z_B0, z_B1, z_B2, ..., z_B10$.
+\item Use constrained optimization by linear approximation (COBYLA) on the group A correlation matrices to compute the weighting matrix w to be used for decoding-- i.e. $decoding_matrix_A = z2r(w[0]*z_A0 + w[1]*z_A1 + w[2]*z_A2 + ... + w[10]*z_A10)$. In other words, find the w that maximizes the decoding accuracy using $decoding_matrix_A$.
+\item Now use the same z2r(<weighted z-transformed sum>) formula to compute decoding accuracy for group B
+Save out w and the group B decoding accuracy
+Collect the w and group B decoding accuracies across the 100 runs and summarize them in a figure
+\end{enumerate}
 
 \section{Results}
+\subsection{Synthetic Dataset Generation}
+To test the functionalities of TimeCorr, we constructed synthetic datasets with pre-defined correlation patterns using Cholesky decomposition. This approach takes an original X variable (or matrix) and uses the Cholesky transformation to create a new, correlated, Y variable. Using this approach, we are able generate a time sequence of synthetic brain activations that exactly follows a pre-designated a dynamically correlation structure.
+
+Two kinds of synthetic datasets were generated for basic TimeCorr testing:
 \begin{enumerate}
-\item Synthetic dataset generation
-\item Synthetic dataset testing
+\item Single Subject Synthetic Dataset with block correlations
+
+In this dataset, we divide time sequence into $N$ blocks of equal time lengths. Each block possesses a different correlation that's consistent throughout the length of the block. This dataset will be used to test TimeCorr's ability to distinguish different correlations within a dataset. To generate the dataset:
+\begin{enumerate}
+\item Using random normal distribution, generate a dataset X of dimensions $T$ by $V$, where $T$ and $V$ represents the desired time length and voxel (brain region) count, respectively.
+\item Design a correlation matrix of dimensions $V$ by $V$ for each of the $N$ blocks, denoted $R_n$.
+\item For each of the $N$ blocks in X, transform the block $X_n$ into correlated structure through the equation:
+\begin{align*}
+W_n = Cholesky(R_n) \cdot X_n
+\end{align*}
+Where $Cholesky(R_n)$ represents the Cholesky decomposition of the correlation matrix $R_n$
+\item Piecing all of the blocks together to form the new synthetic dataset W that possesses the designated dynamic correlation structure.
+\end{enumerate}
+
+\item Single Subject Synthetic Dataset with ramping correlations
+
+In this dataset, we adopt a correlation structure that linearly changes from one correlation $C_1$ to another correlation $C_2$. This dataset will be used to test TimeCorr's ability to accurately recover correlation structures that are dynamically changing over time.
+
+\begin{enumerate}
+\item Using random normal distribution, generate a dataset X of dimensions $T$ by $V$, where $T$ and $V$ represents the desired time length and voxel (brain region) count, respectively.
+\item Generate two correlation matrices $C_1$ and $C_2$, then generate temporal correlation structures $C_t = z2r(\frac{(T-t) \cdot r2z(C_1)}{T} + \frac{t\cdot r2z(C_2)}{T})$, where T is the total time length of the dataset and r2z and z2r is Fisher Z-transformation and inverse Fisher Z-transformation, respectively, to ensure stable combination of correlation structures.
+\item For activations $X_t$ at each time point in X, transform the data into correlated structure through the process:
+\begin{align*}
+W_t = Cholesky(C_t) \cdot X_t
+\end{align*}
+\item Piecing all of the blocks together to form the new synthetic dataset W that possesses the designated dynamic correlation structure.
+\end{enumerate}
+\end{enumerate}
+
+\begin{enumerate}
+\subsection{TimeCorr testing on Synthetic Data}
+Given the synthetic datasets generated with the Cholesky decomposition approach mentioned in the previous section, we conduct a side-by-side comparison of the correlation recovery performance between the TimeCorr method and the sliding window method.
+
 \begin{enumerate}
 \item Testing single-subject TimeCorr on block correlation dataset and comparison with sliding window results
 \item Testing single-subject TimeCorr on ramp correlation dataset and comparison with sliding window results
