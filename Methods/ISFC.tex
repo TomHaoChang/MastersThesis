@@ -1,4 +1,4 @@
-\documentclass[12pt]{article}
+\documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage{tikz}
 \usepackage{amsmath,amsfonts,amsthm}
@@ -10,7 +10,7 @@
 \setlength{\parskip}{1em}
 \geometry{letterpaper,left=1.5in,right=1in,top=1in,bottom=1in}
 \setlength\parindent{0pt}
-\linespread{1}
+\linespread{1.5}
 \newcommand{\E}{\mathrm{E}}
 \newcommand{\Var}{\mathrm{Var}}
 \newcommand{\N}{\mathcal{N}}
@@ -193,27 +193,11 @@ Given a multi-subject dataset containing $S$ subjects, each possessing $T$ time 
 \item Sum the total number of time points correctly decoded for $I_1$ and $I_2$ across all repetitions, and find the average through dividing by the product between the repetition count and two times the time point count (to account for both $I_1$ and $I_2$). The result is the decoding accuracy output of the multi-subject dataset.
 \end{enumerate}
 
-\subsection{Multi-Level Mixture Analysis}
-
-Given a fMRI dataset for $S$ subjects, each possessing $T$ time points and $V$ voxels, to conduct Decoding Analysis:
-\begin{enumerate}
-\item Choose the desired number of levels of functional connectivities $L$ and the appropriate Gaussian variance for TimeCorr.
-\item Use the TimeCorr Level Up method to obtain all level functional connectivites for each subject.
-\item Randomly divide the subjects in to four equal groups $A_1$, $A_2$, $B_1$ and $B_2$.
-\item For each group, use the Multi-Subject TimeCorr ISFC method to compute the inter-subject functional connectivity for each level
-\item Compute correlation matrices for each level for A and B (i.e. for group A, correlate A1's features at each time point with A2's features at each time point; similarly for group B). This yields one correlation matrix for group A and another for group B, for each level (including level 0). So if we go up to level 10, this would be 11 correlation matrices for A and another 11 for B.
-\item Fisher Z-transform all of the correlation matrices should be z-transformed (r2z). Let's call them $z_A0, z_A1, z_ A2, ..., z_B0, z_B1, z_B2, ..., z_B10$.
-\item Use constrained optimization by linear approximation (COBYLA) on the group A correlation matrices to compute the weighting matrix w to be used for decoding-- i.e. $decoding_matrix_A = z2r(w[0]*z_A0 + w[1]*z_A1 + w[2]*z_A2 + ... + w[10]*z_A10)$. In other words, find the w that maximizes the decoding accuracy using $decoding_matrix_A$.
-\item Now use the same z2r(<weighted z-transformed sum>) formula to compute decoding accuracy for group B
-Save out w and the group B decoding accuracy
-Collect the w and group B decoding accuracies across the 100 runs and summarize them in a figure
-\end{enumerate}
-
 \section{Results}
-\subsection{Synthetic Dataset Generation}
-To test the functionalities of TimeCorr, we constructed synthetic datasets with pre-defined correlation patterns using Cholesky decomposition. This approach takes an original X variable (or matrix) and uses the Cholesky transformation to create a new, correlated, Y variable. Using this approach, we are able generate a time sequence of synthetic brain activations that exactly follows a pre-designated a dynamically correlation structure.
+\subsection{Testing Single Subject TimeCorr on Synthetic Datasets}
+To conduct a side-by-side comparison of the correlation recovery functionalities between the TimeCorr method and the traditional sliding window method, we constructed synthetic datasets with pre-defined correlation patterns using Cholesky decomposition. This approach takes an original X variable (or matrix) and uses the Cholesky transformation to create a new, correlated, Y variable. Using this approach, we are able generate a time sequence of synthetic brain activations that exactly follows a pre-designated a dynamically correlation structure.
 
-Two kinds of synthetic datasets were generated for basic TimeCorr testing:
+Two kinds of synthetic datasets were generated to test different features of TimeCorr:
 \begin{enumerate}
 \item Single Subject Synthetic Dataset with block correlations
 
@@ -228,6 +212,28 @@ W_n = Cholesky(R_n) \cdot X_n
 Where $Cholesky(R_n)$ represents the Cholesky decomposition of the correlation matrix $R_n$
 \item Piecing all of the blocks together to form the new synthetic dataset W that possesses the designated dynamic correlation structure.
 \end{enumerate}
+
+\begin{figure}[ht]
+\caption{Testing on 10 blocks of different correlations}
+\includegraphics[width=1\textwidth]{../figures/SyntheticTesting/10block100tCopy.png}
+\label{fig:10block100t}
+(a) In the first row, solid lines show the correlation between block correlations and TimeCorr solutions; dotted, sliding window solutions. (b) In the second row, solid lines show mean squared error(MSE) between block correlations and TimeCorr solutions; dotted, sliding window solutions. (c) In the third row, the solid line shows correlation between temporal ground truth and TimeCorr solutions; dotted, sliding window solutions. (d) In the fourth row, the solid line shows MSE between temporal ground truth and TimeCorr solutions; dotted line, sliding window solutions. (e) The columns represent TimeCorr implementations with a different Gaussian density variances.
+\end{figure}
+
+The average results of running TimeCorr and the sliding window method on 100 datasets containing 10 blocks, each occupying 100 time points, is displayed in Figure \ref{fig:10block100t}. In the graphs on the first row, each color represents the correlation between the correlation structure of a block with the solutions from the TimeCorr and the sliding window approach, which are represented by solid and dotted lines, respectively. The graphs show that both the TimeCorr and the sliding window approach are able to effectively recover the correct correlation structure for each block. In addition, the TimeCorr approach is able to more accurately recover the temporal block correlation at each time point when the Gaussian density variance for its coefficient generation is low (in other words, when the resolution is high). In contrast, when the TimeCorr Gaussian variance increases, the solutions slowly gains smoother transition in-between correlation blocks but in exchage for lower recovery resolution and lower temporal accuracy.
+
+These results are confirmed by the results shown in the second row, which shows the MSE between the block correlations and the TimeCorr and the sliding window solutions, which are represented by solid and dotted lines, respectively. TimeCorr and the sliding window approach seem to have very similar performances when the TimeCorr variance is low. But as the Guassian density variance for TimeCorr coefficients generation increases, the mean squared error of TimeCorr decreases significantly, indicating that TimeCorr is able to produce more precise solutions at block centers when the Gaussian density variance is high.
+
+The graphs in the third and fourth row show the correlation and MSE between the temporal ground truth (true correlation at each time point) and the TimeCorr and the sliding window solutions, represented by solid and dotted lines respectively. As the Gaussian variance of TimeCorr increases, the correlation between its solution and the ground truth at transitions improves drastically, and the mean squared error experiences significant improvements across the board. When comparing the TimeCorr results with the sliding window results in these two rows, we can see that TimeCorr performs significantly better in both correlation and MSE when the TimeCorr variance is high.
+
+\begin{figure}[ht]
+\caption{Testing on 2 blocks of different correlations}
+\includegraphics[width=1\textwidth]{../figures/SyntheticTesting/2block250t.png}
+\label{fig:2block250t}
+(a) In the first row, solid lines show the correlation between block correlations and TimeCorr solutions; dotted, sliding window solutions; dot-dashed, ground truth. (b) In the second row, solid lines show mean squared error(MSE) between block correlations and TimeCorr solutions; dotted, sliding window solutions; dot-dashed, ground truth. (c) In the third row, the solid line shows correlation between temporal ground truth and TimeCorr solutions; dotted, sliding window solutions; gray, random guess. (d) In the fourth row, the solid line shows MSE between temporal ground truth and TimeCorr solutions; dotted line, sliding window solutions; gray, random guess. (e) The columns represent TimeCorr implementations with a different Gaussian density variances.
+\end{figure}
+
+To further confirm our results, we rerun the test on 100 dataset containing 2 blocks of different correlations, each containing 250 time points. The average results are shown in Figure \ref{fig:2block250t}, with ground truth and random guess displayed for comparison. From these graphs, we can can confirm TimeCorr boasts significantly better performances than the sliding window approach in both correlation and MSE when the ground truth correlation is stable. Furthermore, TimeCorr is able to more effectively recover correlations structures at abrupt transitions using a high resolution setup (low Gaussian variance).
 
 \item Single Subject Synthetic Dataset with ramping correlations
 
@@ -244,13 +250,101 @@ W_t = Cholesky(C_t) \cdot X_t
 \end{enumerate}
 \end{enumerate}
 
+\begin{figure}[ht]
+\caption{Testing on 1000 time point ramping dataset}
+\includegraphics[width=1\textwidth]{../figures/SyntheticTesting/ramp1000t4var.png}
+\label{fig:ramp1000t4var}
+(a) In the first row, solid lines show the correlation between block correlations and TimeCorr solutions; dotted, sliding window solutions; dot-dashed, ground truth. (b) In the second row, solid lines show mean squared error(MSE) between block correlations and TimeCorr solutions; dotted, sliding window solutions; dot-dashed, ground truth. (c) In the third row, the solid line shows correlation between temporal ground truth and TimeCorr solutions; dotted, sliding window solutions; gray, random guess. (d) In the fourth row, the solid line shows MSE between temporal ground truth and TimeCorr solutions; dotted line, sliding window solutions; gray, random guess. (e) The columns represent TimeCorr implementations with a different Gaussian density variances. (f) In the first two rows, the blue lines represent the relationship between recovered solution and the left terminal correlation; red line, right terminal correlation.
+\end{figure}
+
+First, 100 ramping datasets with 1000 time points were generated to produce a gradual linear transition between two distinct correlation structures. The average results are displayed in Figure \ref{fig:ramp1000t4var}. At Gaussian variance equal to 100, TimeCorr shows very similar performance with the sliding window method with a window length of 51, albeit TimeCorr results do not come at the expense of extensive data-loss. When the Gaussian variance of TimeCorr is increased to above 100, the TimeCorr solutions' advantages over the sliding window solution immediately becomes obvious in both MSE and their correlation with the temporal ground truths. This phenomenon is most evident in the third and fourth row, where the TimeCorr solutions consistently shows higher correlation and lower MSE with the ground truth at almost every time point.
+
+\begin{figure}[ht]
+\caption{Testing on 500 time point ramping dataset}
+\includegraphics[width=1\textwidth]{../figures/SyntheticTesting/ramp500t4var.png}
+\label{fig:ramp500t4var}
+(a) In the first row, solid lines show the correlation between block correlations and TimeCorr solutions; dotted, sliding window solutions; dot-dashed, ground truth. (b) In the second row, solid lines show mean squared error(MSE) between block correlations and TimeCorr solutions; dotted, sliding window solutions; dot-dashed, ground truth. (c) In the third row, the solid line shows correlation between temporal ground truth and TimeCorr solutions; dotted, sliding window solutions; gray, random guess. (d) In the fourth row, the solid line shows MSE between temporal ground truth and TimeCorr solutions; dotted line, sliding window solutions; gray, random guess. (e) The columns represent TimeCorr implementations with a different Gaussian density variances. (f) In the first two rows, the blue lines represent the relationship between recovered solution and the left terminal correlation; red line, right terminal correlation.
+\end{figure}
+
+TimeCorr's performance advantage is further verified by the testing results from 100 ramping datasets of 500 time points, where the linear transitions between the two distinct terminal correlation structures are accelerated from the 1000 time point datasets. The average results are shown in Figure \ref{fig:ramp500t4var}. In contrast to the results from the 1000 time point datasets, the performance difference is more evident in the results from the 500 time point datasets. As the temporal ground truth correlation linearly transitions from the left terminal correlation structure to the right terminal correlation structure within 500 time points, the rate of change at each time point is much greater than that of the 1000 time point dataset. Under these conditions, the TimeCorr results consistently shows significantly higher correlation and lower MSE with the temporal ground truths than the sliding window results. This result indicates that the TimeCorr approach is better at recovering rapidly changing dynamic correlation structures than the sliding window approach. In addition, the results does not seem to change significantly from the 500 variance TimeCorr implementation to the 1500 variance TimeCorr implementation, which might be due to the variance exceeding the dataset time length.
+
+\begin{figure}[ht]
+\caption{Testing on 100 time point ramping dataset}
+\includegraphics[width=1\textwidth]{../figures/SyntheticTesting/ramp100t4var.png}
+\label{fig:ramp100t4var}
+(a) In the first row, solid lines show the correlation between block correlations and TimeCorr solutions; dotted, sliding window solutions; dot-dashed, ground truth. (b) In the second row, solid lines show mean squared error(MSE) between block correlations and TimeCorr solutions; dotted, sliding window solutions; dot-dashed, ground truth. (c) In the third row, the solid line shows correlation between temporal ground truth and TimeCorr solutions; dotted, sliding window solutions; gray, random guess. (d) In the fourth row, the solid line shows MSE between temporal ground truth and TimeCorr solutions; dotted line, sliding window solutions; gray, random guess. (e) The columns represent TimeCorr implementations with a different Gaussian density variances. (f) In the first two rows, the blue lines represent the relationship between recovered solution and the left terminal correlation; red line, right terminal correlation.
+\end{figure}
+
+To further verify the advantages of TimeCorr in recovering highly dynamic correlation structures and the limitations of changing TimeCorr Gaussian variance in datasets with short time lengths, we conducted analysis on 100 ramping datasets of only 100 time points, where the linear transitions between the two distinct terminal correlation structures are further accelerated from the 500 time point datasets. The results are shown in Figure \ref{fig:ramp100t4var} and confirm our observations from the previous tests: the TimeCorr approach consistently out-performs the sliding window approach in every setup and TimeCorr's performance stagnates/worsens as its Gaussian variance increases beyond the total time length of the dataset. These results further consolidates TimeCorr's superiority over the sliding window method in recovering highly dynamic correlation structures. In addition, we gained very useful insight on how to select Gaussian variance for TimeCorr to produce the best recovery results.
+
+\begin{figure}[ht]
+\caption{Testing on 100 time point ramping dataset}
+\includegraphics[width=1\textwidth]{../figures/SyntheticTesting/ramp1000t4slide.png}
+\label{fig:ramp1000t4slide}
+(a) In the first row, solid lines show the correlation between block correlations and TimeCorr solutions; dotted, sliding window solutions; dot-dashed, ground truth. (b) In the second row, solid lines show mean squared error(MSE) between block correlations and TimeCorr solutions; dotted, sliding window solutions; dot-dashed, ground truth. (c) In the third row, the solid line shows correlation between temporal ground truth and TimeCorr solutions; dotted, sliding window solutions; gray, random guess. (d) In the fourth row, the solid line shows MSE between temporal ground truth and TimeCorr solutions; dotted line, sliding window solutions; gray, random guess. (e) The columns represent different sliding window implementations with varying window lengths. (f) In the first two rows, the blue lines represent the relationship between recovered solution and the left terminal correlation; red line, right terminal correlation.
+\end{figure}
+
+Lastly, to demonstrate TimeCorr's advantage over the sliding window approach generalizes to all setups, we conducted an analysis on 100 ramping datasets, each containing 1000 time points, to compare TimeCorr with sliding window implementations of varying window length. The results are shown in Figure \ref{fig:ramp1000t4slide}. The TimeCorr setup used for comparison has a Gaussian variance of 1000, a standard setup with average performance among all TimeCorr setups in the previous tests. From the graphs, we can see that the performance of sliding window generally increases as the window length increases, but the rate of improvement decreases dramatically past a window length of 51 time points (marginal improvement when an additional 50 time points is added to the window length). In addition, the performance of the sliding window approach at a window length of 11 time points is underwhelming in comparison with the TimeCorr approach. As the window length increases to 101 time points, the correlation and MSE between the sliding window solution and temporal ground truths gradually nears the performance of the standard TimeCorr implementation. However, a window length of 101 time points is equivalent to around 10% of the time length of most fMRI datasets. Losing 10% of the information for calculation of functional connectivity at each level is impractical for explorations of high level brain dynamics. For the above reasons, we chose TimeCorr as the more preferable method of functional connectivity calculation for our High-Order Brain Dynamics Model.
+
+
+\section{Testing Inter-Subject Functional Connectivity using TimeCorr}
+Confident with the TimeCorr approach's ability to recover the dynamic correlation structures of single subject datasets, we proceeded to test TimeCorr's performance in recovering inter-subject functional connectivity in multi-subject synthetic datasets. In practical scenarios, fMRI datasets always contain a significant amount of noise from the environment, human error, random neural activity, etc in addition to stimulus-driven brain activities. Therefore, to simulate realistic human brain activities, we added different levels of random noise to the synthetic datasets to gauge the robustness of TimeCorr ISFC in recovering stimulus-related functional connectivity. The noise levels we experimented with were on the order of magnitudes of 10% (0.1), 100%(1), 1000%(10) and 10000%(100) of the average activation magnitude. Running TimeCorr with Gaussian variance of 1000 time points and a sliding window setup with a window length of 25 time point on 100 ramping datasets, each containing 300 time points, we obtained the results displayed in Figure \ref{fig:t300slide25var1000}.
+
+\begin{figure}[ht]
+\caption{Testing on 100 time point ramping dataset}
+\includegraphics[width=1\textwidth]{../figures/ISFC/t300slide25var1000.png}
+\label{fig:t300slide25var1000}
+(a) In the first row, solid lines show the correlation between block correlations and TimeCorr solutions; dotted, sliding window solutions; dot-dashed, ground truth. (b) In the second row, solid lines show mean squared error(MSE) between block correlations and TimeCorr solutions; dotted, sliding window solutions; dot-dashed, ground truth. (c) In the third row, the solid line shows correlation between temporal ground truth and TimeCorr solutions; dotted, sliding window solutions; gray, random guess. (d) In the fourth row, the solid line shows MSE between temporal ground truth and TimeCorr solutions; dotted line, sliding window solutions; gray, random guess. (e) The columns represent recovery results from datasets with varying noise levels. (f) In the first two rows, the blue lines represent the relationship between recovered solution and the left terminal correlation; red line, right terminal correlation.
+\end{figure}
+
+The results show that TimeCorr is able to retrieve the stimulus-driven dynamic correlation structure with relatively high accuracy at low(0.1) to medium(1) noise levels, but fails to recover any meaningful information when the noise level is too high(10 and 100). These results highlight the difficulty of recovering stimulus-driven correlation structures when the subjects display weak cognitive response to the stimulus. However, when the stimuli is able to evoke reasonably strong cognitive response from the subject, TimeCorr can effectively recover the stimuli-driven dynamic correlation structures with relatively high accuracy.
+
+In addition, due to the limited number of total time points in the dataset, we chose to use a sliding window setup with a window length of 25 time points. When comparing the correlation and MSE between their solutions and the temporal ground truths, the TimeCorr approach distinctly outperforms the sliding window method in every situation. Furthermore, as the amount of noise increases, the performance of the sliding window approach deteriorates more noticeably than that of the TimeCorr approach. These contrasts further consolidates TimeCorr as the superior choice for functional connectivity calculations.
+
+
+\section{Decoding Analysis using TimeCorr ISFC}
+Next, we evaluated how brain dynamics is represented by each level of high-order functional connectivity.
+
+Elaborate on strictness of decoding analysis, which adds to the the credibility of its results.
+
+Elaborate on steps used for this test.
+
+Eleborate on how changing Gaussian variance resulted in a different distribution of decoding accuracy. Attribute difference to temporal resolution->different focus reveals different informaiton about the dynamics.
+
+Compare with previous research results, Jeremy. Confirms timecorr is superior. Also PCA is more effective in preserving dynamic structure than HTFA, which in turn justifies it's usage in level up.
+
+Elaborate on the temporal resolution potentially influencing the results, therefore conducted experiments with multiple setups. Some setups resulted in first level ISFC having higher decoding accuracy, which is very different from previous results.
+
+Lower decoding accuracy, although the high order brain functional connectivity still contain information about the story times, there seems to have been a small amount of information loss in the transformation from voxel activations to node activations, leading to slightly lower classification accuracy.
+
+\section{Multi-Level Mixture Analysis}
+Although high-order functional connectivity returned low decoding accuracy, we were still curious whether the information would be useful. We hypothesize that the functional connectivity at each level represent non-overlapping sources of cognitively relevant information. Therefore a mixture model incorporating information from multiple levels could potentially result in higher decoding accuracy than any individual level.
+
+Given a fMRI dataset for $S$ subjects, each possessing $T$ time points and $V$ voxels, to conduct Decoding Analysis:
 \begin{enumerate}
-\subsection{TimeCorr testing on Synthetic Data}
-Given the synthetic datasets generated with the Cholesky decomposition approach mentioned in the previous section, we conduct a side-by-side comparison of the correlation recovery performance between the TimeCorr method and the sliding window method.
+\item Choose the desired number of levels of functional connectivities $L$ and the appropriate Gaussian variance for TimeCorr.
+\item Use the TimeCorr Level Up method to obtain all level functional connectivites for each subject.
+\item Randomly divide the subjects in to four equal groups $A_1$, $A_2$, $B_1$ and $B_2$.
+\item For each group, use the Multi-Subject TimeCorr ISFC method to compute the inter-subject functional connectivity for each level
+\item Compute correlation matrices for each level for A and B (i.e. for group A, correlate A1's features at each time point with A2's features at each time point; similarly for group B). This yields one correlation matrix for group A and another for group B, for each level (including level 0). So if we go up to level 10, this would be 11 correlation matrices for A and another 11 for B.
+\item Fisher Z-transform all of the correlation matrices should be z-transformed (r2z). Let's call them $z_A0, z_A1, z_ A2, ..., z_B0, z_B1, z_B2, ..., z_B10$.
+\item Use constrained optimization by linear approximation (COBYLA) on the group A correlation matrices to compute the weighting matrix w to be used for decoding-- i.e. $decoding_matrix_A = z2r(w[0]*z_A0 + w[1]*z_A1 + w[2]*z_A2 + ... + w[10]*z_A10)$. In other words, find the w that maximizes the decoding accuracy using $decoding_matrix_A$.
+\item Now use the same z2r(<weighted z-transformed sum>) formula to compute decoding accuracy for group B
+Save out w and the group B decoding accuracy
+Collect the w and group B decoding accuracies across the 100 runs and summarize them in a figure
+\end{enumerate}
+
+Elaborate on training using half the dataset and testing on half the dataset, which caused the decoding accuracy to be a lot lower than when using the entire dataset.
+
+Elaborate on weight distribution. Most information contained within first level ISFC. Consistent with high resolution result in single level decoding analysis, where first level functional connectivity achieved the highest decoding accuracy.
+
+Elaborate on the temporal resolution potentially influencing the results, therefore conducted experiments with multiple setups. However, weight distribution remained the same with highest weight on first level functional connectivity. Which means that although sometime raw activations may result in higher decoding accuracy, most of the information on brain dynamics is actually contained in first level ISFC. This result was not available in previous researches because of the lack of freedom in choosing temporal resolution.
+
+In addition, incorporating information from multiple levels resulted in significantly higher decoding accuracy than that of any individual level. This confirms our hypothesis that different levels contain non-overlapping information about brain dynamics and, although individual levels did not produce high classification accuracy, when used in unison can greatly enrich data complexity and increase decoding accuracy.
 
 \begin{enumerate}
-\item Testing single-subject TimeCorr on block correlation dataset and comparison with sliding window results
-\item Testing single-subject TimeCorr on ramp correlation dataset and comparison with sliding window results
+\item haha
+\begin{enumerate}
 \item Testing ISFC on block correlation dataset and comparison with sliding window results
 \item Testing ISFC on ramp correlation dataset and comparison with sliding window results
 \item Testing level up on multisubject ramping correlation dataset and comparison with sliding window results
@@ -267,10 +361,15 @@ Given the synthetic datasets generated with the Cholesky decomposition approach 
 \item Optimization and Benchmark results
 
 \end{enumerate}
-\subsection{Conclusion}
+
+
+\section{Conclusion}
 \begin{enumerate}
 \item application in medicine for classification data enrichment
 \end{enumerate}
+
+
+
 \begin{enumerate}
 \item \cite{jeremy2017} decoding analysis, ISFC
 \item \cite{hasson2016} First time Inter-subject functional connectivity is introduced. opens new avenues for linking brain network dynamics to stimulus features and behavior.
