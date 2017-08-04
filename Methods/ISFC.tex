@@ -7,6 +7,17 @@
 \usepackage[noend]{algpseudocode}
 \usetikzlibrary{bayesnet}
 \usepackage[nottoc,numbib]{tocbibind}
+\usepackage{enumitem,kantlipsum}
+\usepackage{float}
+\usepackage{titlesec}
+
+\setcounter{secnumdepth}{4}
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
 \setlength{\parskip}{1em}
 \geometry{letterpaper,left=1.5in,right=1in,top=1in,bottom=1in}
 \setlength\parindent{0pt}
@@ -48,6 +59,7 @@ We believe that different orders of functional connectivity represents informati
 
 To carry out an in-depth evaluation of the effectiveness of the HOBD model, we also conducted the Multi-Level Mixture Analysis. This study aims to understand how the dynamic information of different levels of interactions between brain regions can be used to improve brain pattern decoding capabilities. In the Multi-Level Mixture Analysis section of our results, we provide a side by side comparison that highlights the improvements achieved by a mixture model that incorporates multiple levels of functional connectivity. In the process of finding the mixture model that maximizes decoding accuracy, we also explored the utility of each level of brain dynamics through analysis of the distribution of optimal level weights. The methods and findings will be discussed extensively in the results section.
 
+\newpage
 \section{Model Description}
 The High-Order Brain Dynamics model seeks a new perspective to understanding the dynamics behind stimulus-driven brain activities. Utilizing the capabilities and advantages of TimeCorr and "Level Up", the HOBD model attempts to incorporate information on high-order brain dynamics into its analysis of the brain.
 
@@ -170,6 +182,7 @@ The Multi-Subject Decoding Analysis is a method designed to find stimulus-depend
 \begin{enumerate}
 \item Similarity between subject responses throughout the fMRI simulation
 \item The average proportion of subject activities within the dataset that are stimulus dependent
+\item The potency of subjects' brain response to the stimuli
 \item The average proportion of subject activities that shows significant distinction from the rest of the time sequence
 \item The potency of stimuli in generating salient cognitive response across all subjects
 \end{enumerate}
@@ -193,13 +206,14 @@ Given a multi-subject dataset containing $S$ subjects, each possessing $T$ time 
 \item Sum the total number of time points correctly decoded for $I_1$ and $I_2$ across all repetitions, and find the average through dividing by the product between the repetition count and two times the time point count (to account for both $I_1$ and $I_2$). The result is the decoding accuracy output of the multi-subject dataset.
 \end{enumerate}
 
+\newpage
 \section{Results}
 \subsection{Testing Single Subject TimeCorr on Synthetic Datasets}
 To conduct a side-by-side comparison of the correlation recovery functionalities between the TimeCorr method and the traditional sliding window method, we constructed synthetic datasets with pre-defined correlation patterns using Cholesky decomposition. This approach takes an original X variable (or matrix) and uses the Cholesky transformation to create a new, correlated, Y variable. Using this approach, we are able generate a time sequence of synthetic brain activations that exactly follows a pre-designated a dynamically correlation structure.
 
-Two kinds of synthetic datasets were generated to test different features of TimeCorr:
-\begin{enumerate}
-\item Single Subject Synthetic Dataset with block correlations
+Two kinds of synthetic datasets were generated to test different features of TimeCorr: datasets with multiple time blocks of different correlations and datasets with ramping correlation structures.
+
+\subsubsection{Single Subject Synthetic Dataset with block correlations}
 
 In this dataset, we divide time sequence into $N$ blocks of equal time lengths. Each block possesses a different correlation that's consistent throughout the length of the block. This dataset will be used to test TimeCorr's ability to distinguish different correlations within a dataset. To generate the dataset:
 \begin{enumerate}
@@ -213,7 +227,7 @@ Where $Cholesky(R_n)$ represents the Cholesky decomposition of the correlation m
 \item Piecing all of the blocks together to form the new synthetic dataset W that possesses the designated dynamic correlation structure.
 \end{enumerate}
 
-\begin{figure}[ht]
+\begin{figure}[!htb]
 \caption{Testing on 10 blocks of different correlations}
 \includegraphics[width=1\textwidth]{../figures/SyntheticTesting/10block100tCopy.png}
 \label{fig:10block100t}
@@ -226,7 +240,7 @@ These results are confirmed by the results shown in the second row, which shows 
 
 The graphs in the third and fourth row show the correlation and MSE between the temporal ground truth (true correlation at each time point) and the TimeCorr and the sliding window solutions, represented by solid and dotted lines respectively. As the Gaussian variance of TimeCorr increases, the correlation between its solution and the ground truth at transitions improves drastically, and the mean squared error experiences significant improvements across the board. When comparing the TimeCorr results with the sliding window results in these two rows, we can see that TimeCorr performs significantly better in both correlation and MSE when the TimeCorr variance is high.
 
-\begin{figure}[ht]
+\begin{figure}[!htb]
 \caption{Testing on 2 blocks of different correlations}
 \includegraphics[width=1\textwidth]{../figures/SyntheticTesting/2block250t.png}
 \label{fig:2block250t}
@@ -235,22 +249,26 @@ The graphs in the third and fourth row show the correlation and MSE between the 
 
 To further confirm our results, we rerun the test on 100 dataset containing 2 blocks of different correlations, each containing 250 time points. The average results are shown in Figure \ref{fig:2block250t}, with ground truth and random guess displayed for comparison. From these graphs, we can can confirm TimeCorr boasts significantly better performances than the sliding window approach in both correlation and MSE when the ground truth correlation is stable. Furthermore, TimeCorr is able to more effectively recover correlations structures at abrupt transitions using a high resolution setup (low Gaussian variance).
 
-\item Single Subject Synthetic Dataset with ramping correlations
+\subsubsection{Single Subject Synthetic Dataset with ramping correlations}
 
 In this dataset, we adopt a correlation structure that linearly changes from one correlation $C_1$ to another correlation $C_2$. This dataset will be used to test TimeCorr's ability to accurately recover correlation structures that are dynamically changing over time.
 
 \begin{enumerate}
 \item Using random normal distribution, generate a dataset X of dimensions $T$ by $V$, where $T$ and $V$ represents the desired time length and voxel (brain region) count, respectively.
-\item Generate two correlation matrices $C_1$ and $C_2$, then generate temporal correlation structures $C_t = z2r(\frac{(T-t) \cdot r2z(C_1)}{T} + \frac{t\cdot r2z(C_2)}{T})$, where T is the total time length of the dataset and r2z and z2r is Fisher Z-transformation and inverse Fisher Z-transformation, respectively, to ensure stable combination of correlation structures.
+\item Generate two correlation matrices $C_1$ and $C_2$, then generate temporal correlation structures using the function
+\begin{align*}
+C_t = z2r(\frac{(T-t) \cdot r2z(C_1)}{T} + \frac{t\cdot r2z(C_2)}{T})
+\end{align*}
+where T is the total time length of the datase. $r2z$ and $z2r$ represent Fisher Z-transformation and inverse Fisher Z-transformation, respectively. These transformations were applied to ensure stable combination of correlation structures.
 \item For activations $X_t$ at each time point in X, transform the data into correlated structure through the process:
 \begin{align*}
 W_t = Cholesky(C_t) \cdot X_t
 \end{align*}
 \item Piecing all of the blocks together to form the new synthetic dataset W that possesses the designated dynamic correlation structure.
 \end{enumerate}
-\end{enumerate}
 
-\begin{figure}[ht]
+
+\begin{figure}[!htb]
 \caption{Testing on 1000 time point ramping dataset}
 \includegraphics[width=1\textwidth]{../figures/SyntheticTesting/ramp1000t4var.png}
 \label{fig:ramp1000t4var}
@@ -259,7 +277,7 @@ W_t = Cholesky(C_t) \cdot X_t
 
 First, 100 ramping datasets with 1000 time points were generated to produce a gradual linear transition between two distinct correlation structures. The average results are displayed in Figure \ref{fig:ramp1000t4var}. At Gaussian variance equal to 100, TimeCorr shows very similar performance with the sliding window method with a window length of 51, albeit TimeCorr results do not come at the expense of extensive data-loss. When the Gaussian variance of TimeCorr is increased to above 100, the TimeCorr solutions' advantages over the sliding window solution immediately becomes obvious in both MSE and their correlation with the temporal ground truths. This phenomenon is most evident in the third and fourth row, where the TimeCorr solutions consistently shows higher correlation and lower MSE with the ground truth at almost every time point.
 
-\begin{figure}[ht]
+\begin{figure}[!htb]
 \caption{Testing on 500 time point ramping dataset}
 \includegraphics[width=1\textwidth]{../figures/SyntheticTesting/ramp500t4var.png}
 \label{fig:ramp500t4var}
@@ -268,29 +286,29 @@ First, 100 ramping datasets with 1000 time points were generated to produce a gr
 
 TimeCorr's performance advantage is further verified by the testing results from 100 ramping datasets of 500 time points, where the linear transitions between the two distinct terminal correlation structures are accelerated from the 1000 time point datasets. The average results are shown in Figure \ref{fig:ramp500t4var}. In contrast to the results from the 1000 time point datasets, the performance difference is more evident in the results from the 500 time point datasets. As the temporal ground truth correlation linearly transitions from the left terminal correlation structure to the right terminal correlation structure within 500 time points, the rate of change at each time point is much greater than that of the 1000 time point dataset. Under these conditions, the TimeCorr results consistently shows significantly higher correlation and lower MSE with the temporal ground truths than the sliding window results. This result indicates that the TimeCorr approach is better at recovering rapidly changing dynamic correlation structures than the sliding window approach. In addition, the results does not seem to change significantly from the 500 variance TimeCorr implementation to the 1500 variance TimeCorr implementation, which might be due to the variance exceeding the dataset time length.
 
-\begin{figure}[ht]
+\begin{figure}[!htb]
 \caption{Testing on 100 time point ramping dataset}
 \includegraphics[width=1\textwidth]{../figures/SyntheticTesting/ramp100t4var.png}
 \label{fig:ramp100t4var}
 (a) In the first row, solid lines show the correlation between block correlations and TimeCorr solutions; dotted, sliding window solutions; dot-dashed, ground truth. (b) In the second row, solid lines show mean squared error(MSE) between block correlations and TimeCorr solutions; dotted, sliding window solutions; dot-dashed, ground truth. (c) In the third row, the solid line shows correlation between temporal ground truth and TimeCorr solutions; dotted, sliding window solutions; gray, random guess. (d) In the fourth row, the solid line shows MSE between temporal ground truth and TimeCorr solutions; dotted line, sliding window solutions; gray, random guess. (e) The columns represent TimeCorr implementations with a different Gaussian density variances. (f) In the first two rows, the blue lines represent the relationship between recovered solution and the left terminal correlation; red line, right terminal correlation.
 \end{figure}
 
-To further verify the advantages of TimeCorr in recovering highly dynamic correlation structures and the limitations of changing TimeCorr Gaussian variance in datasets with short time lengths, we conducted analysis on 100 ramping datasets of only 100 time points, where the linear transitions between the two distinct terminal correlation structures are further accelerated from the 500 time point datasets. The results are shown in Figure \ref{fig:ramp100t4var} and confirm our observations from the previous tests: the TimeCorr approach consistently out-performs the sliding window approach in every setup and TimeCorr's performance stagnates/worsens as its Gaussian variance increases beyond the total time length of the dataset. These results further consolidates TimeCorr's superiority over the sliding window method in recovering highly dynamic correlation structures. In addition, we gained very useful insight on how to select Gaussian variance for TimeCorr to produce the best recovery results.
+To further verify the advantages of TimeCorr in recovering highly dynamic correlation structures and the limitations of changing TimeCorr Gaussian variance in datasets with short time lengths, we conducted analysis on 100 ramping datasets of only 100 time points, where the linear transitions between the two distinct terminal correlation structures are further accelerated from the 500 time point datasets. The results are shown in Figure \ref{fig:ramp100t4var} and confirm our observations from the previous tests: the TimeCorr approach consistently out-performs the sliding window approach in every setup and TimeCorr's performance stagnates/worsens as its Gaussian variance increases beyond the total time length of the dataset. These results further consolidates TimeCorr's superiority over the sliding window method in recovering highly dynamic correlation structures. In addition, we gained very useful insight on how to select Gaussian variance for TimeCorr to produce the best recovery results: the most stable results seem to come from a Gaussian variance equal to the lesser between the total time length and 1000 time points.
 
-\begin{figure}[ht]
+\begin{figure}[!htb]
 \caption{Testing on 100 time point ramping dataset}
 \includegraphics[width=1\textwidth]{../figures/SyntheticTesting/ramp1000t4slide.png}
 \label{fig:ramp1000t4slide}
 (a) In the first row, solid lines show the correlation between block correlations and TimeCorr solutions; dotted, sliding window solutions; dot-dashed, ground truth. (b) In the second row, solid lines show mean squared error(MSE) between block correlations and TimeCorr solutions; dotted, sliding window solutions; dot-dashed, ground truth. (c) In the third row, the solid line shows correlation between temporal ground truth and TimeCorr solutions; dotted, sliding window solutions; gray, random guess. (d) In the fourth row, the solid line shows MSE between temporal ground truth and TimeCorr solutions; dotted line, sliding window solutions; gray, random guess. (e) The columns represent different sliding window implementations with varying window lengths. (f) In the first two rows, the blue lines represent the relationship between recovered solution and the left terminal correlation; red line, right terminal correlation.
 \end{figure}
 
-Lastly, to demonstrate TimeCorr's advantage over the sliding window approach generalizes to all setups, we conducted an analysis on 100 ramping datasets, each containing 1000 time points, to compare TimeCorr with sliding window implementations of varying window length. The results are shown in Figure \ref{fig:ramp1000t4slide}. The TimeCorr setup used for comparison has a Gaussian variance of 1000, a standard setup with average performance among all TimeCorr setups in the previous tests. From the graphs, we can see that the performance of sliding window generally increases as the window length increases, but the rate of improvement decreases dramatically past a window length of 51 time points (marginal improvement when an additional 50 time points is added to the window length). In addition, the performance of the sliding window approach at a window length of 11 time points is underwhelming in comparison with the TimeCorr approach. As the window length increases to 101 time points, the correlation and MSE between the sliding window solution and temporal ground truths gradually nears the performance of the standard TimeCorr implementation. However, a window length of 101 time points is equivalent to around 10% of the time length of most fMRI datasets. Losing 10% of the information for calculation of functional connectivity at each level is impractical for explorations of high level brain dynamics. For the above reasons, we chose TimeCorr as the more preferable method of functional connectivity calculation for our High-Order Brain Dynamics Model.
+Lastly, to demonstrate TimeCorr's advantage over the sliding window approach generalizes to all setups, we conducted an analysis on 100 ramping datasets, each containing 1000 time points, to compare TimeCorr with sliding window implementations of varying window length. The results are shown in Figure \ref{fig:ramp1000t4slide}. The TimeCorr setup used for comparison has a Gaussian variance of 1000, a standard setup with average performance among all TimeCorr setups in the previous tests. From the graphs, we can see that the performance of sliding window generally increases as the window length increases, but the rate of improvement decreases dramatically past a window length of 51 time points (marginal improvement when an additional 50 time points is added to the window length). In addition, the performance of the sliding window approach at a window length of 11 time points is underwhelming in comparison with the TimeCorr approach. As the window length increases to 101 time points, the correlation and MSE between the sliding window solution and temporal ground truths gradually nears the performance of the standard TimeCorr implementation. However, a window length of 101 time points is equivalent to around $10\%$ of the time length of most fMRI datasets. Losing $10\%$ of the information for calculation of functional connectivity at each level is impractical for explorations of high level brain dynamics. For the above reasons, we chose TimeCorr as the more preferable method of functional connectivity calculation for our High-Order Brain Dynamics Model.
 
 
-\section{Testing Inter-Subject Functional Connectivity using TimeCorr}
-Confident with the TimeCorr approach's ability to recover the dynamic correlation structures of single subject datasets, we proceeded to test TimeCorr's performance in recovering inter-subject functional connectivity in multi-subject synthetic datasets. In practical scenarios, fMRI datasets always contain a significant amount of noise from the environment, human error, random neural activity, etc in addition to stimulus-driven brain activities. Therefore, to simulate realistic human brain activities, we added different levels of random noise to the synthetic datasets to gauge the robustness of TimeCorr ISFC in recovering stimulus-related functional connectivity. The noise levels we experimented with were on the order of magnitudes of 10% (0.1), 100%(1), 1000%(10) and 10000%(100) of the average activation magnitude. Running TimeCorr with Gaussian variance of 1000 time points and a sliding window setup with a window length of 25 time point on 100 ramping datasets, each containing 300 time points, we obtained the results displayed in Figure \ref{fig:t300slide25var1000}.
+\subsection{Testing Inter-Subject Functional Connectivity using TimeCorr}
+Confident with the TimeCorr approach's ability to recover the dynamic correlation structures of single subject datasets, we proceeded to test TimeCorr's performance in recovering inter-subject functional connectivity in multi-subject synthetic datasets. In practical scenarios, fMRI datasets always contain a significant amount of noise from the environment, human error, random neural activity, etc in addition to stimulus-driven brain activities. Therefore, to simulate realistic human brain activities, we added different levels of random noise to the synthetic datasets to gauge the robustness of TimeCorr ISFC in recovering stimulus-related functional connectivity. The noise levels we experimented with were on the order of magnitudes of $10\%$ (0.1), $100\%$(1), $1000\%$(10) and $10000\%$(100) of the average activation magnitude. Running TimeCorr with Gaussian variance of 1000 time points and a sliding window setup with a window length of 25 time point on 100 ramping datasets, each containing 300 time points, we obtained the results displayed in Figure \ref{fig:t300slide25var1000}.
 
-\begin{figure}[ht]
+\begin{figure}[!htb]
 \caption{Testing on 100 time point ramping dataset}
 \includegraphics[width=1\textwidth]{../figures/ISFC/t300slide25var1000.png}
 \label{fig:t300slide25var1000}
@@ -302,93 +320,207 @@ The results show that TimeCorr is able to retrieve the stimulus-driven dynamic c
 In addition, due to the limited number of total time points in the dataset, we chose to use a sliding window setup with a window length of 25 time points. When comparing the correlation and MSE between their solutions and the temporal ground truths, the TimeCorr approach distinctly outperforms the sliding window method in every situation. Furthermore, as the amount of noise increases, the performance of the sliding window approach deteriorates more noticeably than that of the TimeCorr approach. These contrasts further consolidates TimeCorr as the superior choice for functional connectivity calculations.
 
 
-\section{Decoding Analysis using TimeCorr ISFC}
-Next, we evaluated how brain dynamics is represented by each level of high-order functional connectivity.
+\subsection{Decoding Analysis using TimeCorr ISFC}
+Next, we evaluated how brain dynamics is represented by each level of high-order functional connectivity. On top of the PCA reduced activations from fMRI datasets, we used the TimeCorr Level Up function to generate 10 levels of high-order functional connectivity, each containing an equal number of voxels. Next, we conducted decoding analysis using a TimeCorr setup of on each level of information, from PCA reduced fMRI activations (level 0) to the 10th order functional connectivity (level 11). Three TimeCorr setups were implemented---each with Gaussian variances of 1000 time points, 10 time points, or 1 time point---to comprehensively understand the decoding capability of each level under varying resolutions.
 
-Elaborate on strictness of decoding analysis, which adds to the the credibility of its results.
+Three different datasets were used for this analysis: Sherlock, Pieman, and Forrest. Detailed descriptions for each dataset are included in each subsection. For each TimeCorr setup for each dataset, we conducted 100 repetitions of decoding analysis with different random group divisions. All of the following results are the average of 100 repetitions.
 
-Elaborate on steps used for this test.
+\subsubsection{Description for the Pieman Dataset}
 
-Eleborate on how changing Gaussian variance resulted in a different distribution of decoding accuracy. Attribute difference to temporal resolution->different focus reveals different informaiton about the dynamics.
+The stimuli for this experiment were derived from a 7 minute recording of the "Pie Man" story by Jim O'Grady. The experiment was conducted on native English speakers with normal hearing, and was divided into four testing conditions: 36 subjects listened to the story from beginning to end, and were labelled as the "intact" group; 18 subjects listened to a version of the story where the paragraphs were scrambled randomly, and were labelled as the "paragraph" group; 36 subjects listened to a version of the story where the words were scrambled randomly, and were labelled as the "word" group; lastly, 36 subjects did not listen to anything and stayed in resting state throughout the experiment, and were labelled as the "resting" group. 12 seconds of neutral music and 3 seconds of silence preceded and 15 seconds of silence followed each playback in all conditions. The data from music and silence periods were discarded from all analyses.\cite{hasson2016}
 
-Compare with previous research results, Jeremy. Confirms timecorr is superior. Also PCA is more effective in preserving dynamic structure than HTFA, which in turn justifies it's usage in level up.
+\subsubsection{Description for the Forrest Dataset}
+The stimuli for this experiment is a two-hour presentation of an audio-only version of the Hollywood feature film "Forrest Gump" made specifically for a visually impaired audience. The movie was divided into eight 15-minute sessions with breaks in-between, and presented to 20 subjects with normal hearing. During each session, brain activities centered on the auditory cortices in both brain hemisphere and the frontal and posterior portions of the brain were recorded into high resolution 7-Tesla fMRI datasets.\cite{Hanke2014}
 
-Elaborate on the temporal resolution potentially influencing the results, therefore conducted experiments with multiple setups. Some setups resulted in first level ISFC having higher decoding accuracy, which is very different from previous results.
+\subsubsection{Description for the Sherlock Dataset}
+Sixteen participants (17 were described in the original paper, but 1 was removed for this dataset due to a small amount of missing data at the end of the movie scan.) were presented with a 50-minute segment of the audio-visual movie Sherlock (BBC) while undergoing fMRI scan. Before each viewing, the subjects were informed that they would later need to describe the contents of movie. Following the viewing, participants were asked to describe aloud what they recalled of the movie in as much detail as they could while undergoing brain imaging, with no visual input or experimenter guidance. Participants were allowed to speak on any aspect of the movie for as long as they wished, while their speech was recorded with an fMRI-compatible microphone. \cite{Chen2017}
 
-Lower decoding accuracy, although the high order brain functional connectivity still contain information about the story times, there seems to have been a small amount of information loss in the transformation from voxel activations to node activations, leading to slightly lower classification accuracy.
+\subsubsection{Results}
+\begin{enumerate}
+\item The average results for each TimeCorr setup implemented on the Pieman dataset are displayed in Figure \ref{fig:piemanDC1000}, \ref{fig:piemanDC10}, and \ref{fig:piemanDC1}.
+\item The average results for each TimeCorr setup implemented on the Forrest dataset are displayed in Figure \ref{fig:forrestDC1000}, Figure \ref{fig:forrestDC10} and Figure \ref{fig:forrestDC1}.
+\item The average results for each TimeCorr setup implemented on the Sherlock dataset are displayed in Figure \ref{fig:forrestMM1000}, Figure \ref{fig:forrestMM10} and Figure \ref{fig:sherlockDC1}.
+\end{enumerate}
 
-\section{Multi-Level Mixture Analysis}
-Although high-order functional connectivity returned low decoding accuracy, we were still curious whether the information would be useful. We hypothesize that the functional connectivity at each level represent non-overlapping sources of cognitively relevant information. Therefore a mixture model incorporating information from multiple levels could potentially result in higher decoding accuracy than any individual level.
+\begin{figure}[!htb]
+\caption{Decoding Analysis using TimeCorr with variance of 1000 time points}
+\centering
+\includegraphics[width=0.6\textwidth]{../figures/Intra-Level-Decoding-Analysis/1000V/pieman.png}
+\label{fig:piemanDC1000}
+\end{figure}
 
-Given a fMRI dataset for $S$ subjects, each possessing $T$ time points and $V$ voxels, to conduct Decoding Analysis:
+\begin{figure}[!htb]
+\caption{Decoding Analysis using TimeCorr with variance of 10 time points}
+\centering
+\includegraphics[width=0.6\textwidth]{../figures/Intra-Level-Decoding-Analysis/10V/pieman.png}
+\label{fig:piemanDC10}
+\end{figure}
+
+\begin{figure}[!htb]
+\caption{Decoding Analysis using TimeCorr with variance of 1 time point}
+\centering
+\includegraphics[width=0.6\textwidth]{../figures/Intra-Level-Decoding-Analysis/1V/pieman.png}
+\label{fig:piemanDC1}
+\end{figure}
+
+\begin{figure}[!htb]
+\caption{Decoding Analysis using TimeCorr with variance of 1000 time points}
+\centering
+\includegraphics[width=0.6\textwidth]{../figures/Intra-Level-Decoding-Analysis/1000V/forrest.png}
+\label{fig:forrestDC1000}
+\end{figure}
+
+\begin{figure}[!htb]
+\caption{Decoding Analysis using TimeCorr with variance of 10 time points}
+\centering
+\includegraphics[width=0.6\textwidth]{../figures/Intra-Level-Decoding-Analysis/10V/forrest.png}
+\label{fig:forrestDC10}
+\end{figure}
+
+\begin{figure}[!htb]
+\caption{Decoding Analysis using TimeCorr with variance of 1 time point}
+\centering
+\includegraphics[width=0.6\textwidth]{../figures/Intra-Level-Decoding-Analysis/1V/forrest.png}
+\label{fig:forrestDC1}
+\end{figure}
+
+\begin{figure}[!htb]
+\caption{Decoding Analysis using TimeCorr with variance of 1 time point}
+\centering
+\includegraphics[width=0.6\textwidth]{../figures/Intra-Level-Decoding-Analysis/1V/sherlock.png}
+\label{fig:sherlockDC1}
+\end{figure}
+
+When comparing our results with previous efforts, we can see that the decoding accuracy we achieved on the first order ISFC for the Pieman dataset using TimeCorr-based methods is significantly higher across all TimeCorr setups \cite{jeremy2017}. As higher decoding accuracy is a strong indication of the richness of stimulus-driven activities within a dataset, our improved results further confirm that TimeCorr-based methods are superior in the recovery of stimulus-driven correlation structure in fMRI datasets. Furthermore, the decoding accuracy we achieved on PCA reduced fMRI data is significantly higher than the decoding accuracy obtained from HTFA reduced datasets, indicating that PCA is more effective in preserving dynamic structure than HTFA and justifying it's usage in our level up method.
+
+Another important observation that is consistent across results from all three datasets is that the higher order functional connectivities actually produced lower decoding accuracy. This result was unexpected as brain dynamics across subjects should intuitively become more similar at higher orders. One possible explanation for this is, although the high order functional connectivity still contain information about stimulus-driven brain activities, there seems to have been a small amount of information loss in each level up process, leading to slightly lower classification accuracy. However, although higher order functional connectivities display weaker decoding capabilities than lower level functional connectivities, our hypothesis is that each order of functional connectivity contains distinct information about brain dynamics. If this is the case, then a mixture of all orders of functional connectivity will potentially have stronger decoding performance than that of functional connectivity at any single level.
+
+We also suspected that TimeCorr temporal resolution had some influence on the results, which is why our analysis of each dataset consisted of a variety of different TimeCorr setups. Our hypothesis is that there is a loss in information in each level up process, therefore the loss would intuitively grow exponentially as we reach higher orders of functional connectivity. Therefore, TimeCorr with Gaussian variances of 1000 time points, 10 time points and 1 time point were chosen to explore if variation in TimeCorr temporal resolution would affect the distribution of decoding accuracy across different levels.
+
+The results from the Pieman dataset showed that the decoding accuracy of lower orders of functional connectivity increasing drastically when the TimeCorr temporal resolution increased from a Gaussian variance of 1000 time points to a Gaussian variance of 10 time points, but undergoing a decrease as the temporal resolution was increased further to a Gaussian variance of 1 time point. The results from Sherlock and Forrest datasets also show similar patterns. Additionally, we observe that as the TimeCorr temporal resolution increases from Gaussian variance of 1000 time points to Gaussian variance of 1 time point, the decoding accuracy of higher order functional connectivities of the Pieman dataset seem to show a marginal increase, a pattern not replicated by the results from the Forrest dataset.
+
+We reason that the variation in decoding capabilities across different TimeCorr temporal resolutions may be attributed to different levels of focus revealing different information about the dynamics. As revealed in single subject TimeCorr testing, when the resolution is high (low Gaussian variance), the recovered correlation structures tend to have higher temporal accuracy, whereas low resolution TimeCorr (high Gaussian variance) can recover correlation changing dynamics with more stability. Therefore, when high resolution TimeCorr is used to decode the datasets, the ISFC-based brain information (high order brain connectivities) will contain more accurate information on the temporal correlation structure, thereby increasing time-point-to-time-point decoding accuracy. However, when the temporal resolution of TimeCorr is too high (Gaussian variance of 1 time point), TimeCorr will tunnel-vision on a very narrow neighborhood of time points for its functional connectivity calculations, and thus fail to incorporate enough information to recover any meaningful dynamic correlation patterns.
+
+Lastly, when comparing between results under different stimulus conditions (intact, paragraph, word, resting) within the Pieman dataset, we can see that as the complexity and integrity of the stimulus decreases, the decoding accuracy decreases for all orders of functional connectivity. This makes sense as the human brain should intuitively produce more potent cognitive response to more coherent and meaningful stimuli (intact), weaker response to scrambled and irrational stimuli (paragraph, word), and little to no response to no stimuli (resting). One anomaly exists in the results from the TimeCorr implementation with a Gaussian variance of 1 time point, where the decoding accuracy of the first order functional connectivity in the paragraph condition exceeded that of the intact condition. However, this behavior becomes understandable after taking into consideration the results from the TimeCorr implementation with a Gaussian variance of 10 time points: while the decoding accuracy for the first order functional connectivity of the paragraph condition only showed marginal decrease, the decoding accuracy of the first order functional connectivity of the intact condition decreased drastically when the TimeCorr Gaussian variance changed from 10 time points to 1 time point. As discussed previously, when the TimeCorr's temporal resolution is too high, it may fail to include enough global information to recovery meaningful dynmaic correlation structures. As the functional connectivity under the intact condition possesses more structure and coherency, it may be suffer greater deterioration than the functional connectivity from the paragraph condition when subjected to over-high temporal resolution, thus explaining the anomaly.
+
+
+\subsection{Multi-Level Mixture Analysis}
+To verify our hypothesis that the functional connectivity at each level represent non-overlapping sources of cognitively relevant information that could potentially complement each other, we designed the Multi-Level Mixture Analysis. This analysis constructs a mixture model incorporating information from multiple orders of functional connectivity, and contrasts its decoding capabilities with decoding accuracy of functional connectivities at each individual level.
+
+Given a fMRI dataset for $S$ subjects, each possessing $T$ time points and $V$ voxels, to construct the Multi-Level Mixture Model:
 \begin{enumerate}
 \item Choose the desired number of levels of functional connectivities $L$ and the appropriate Gaussian variance for TimeCorr.
 \item Use the TimeCorr Level Up method to obtain all level functional connectivites for each subject.
 \item Randomly divide the subjects in to four equal groups $A_1$, $A_2$, $B_1$ and $B_2$.
 \item For each group, use the Multi-Subject TimeCorr ISFC method to compute the inter-subject functional connectivity for each level
-\item Compute correlation matrices for each level for A and B (i.e. for group A, correlate A1's features at each time point with A2's features at each time point; similarly for group B). This yields one correlation matrix for group A and another for group B, for each level (including level 0). So if we go up to level 10, this would be 11 correlation matrices for A and another 11 for B.
-\item Fisher Z-transform all of the correlation matrices should be z-transformed (r2z). Let's call them $z_A0, z_A1, z_ A2, ..., z_B0, z_B1, z_B2, ..., z_B10$.
-\item Use constrained optimization by linear approximation (COBYLA) on the group A correlation matrices to compute the weighting matrix w to be used for decoding-- i.e. $decoding_matrix_A = z2r(w[0]*z_A0 + w[1]*z_A1 + w[2]*z_A2 + ... + w[10]*z_A10)$. In other words, find the w that maximizes the decoding accuracy using $decoding_matrix_A$.
-\item Now use the same z2r(<weighted z-transformed sum>) formula to compute decoding accuracy for group B
-Save out w and the group B decoding accuracy
-Collect the w and group B decoding accuracies across the 100 runs and summarize them in a figure
+\item Compute correlation matrices for each level for A and B (i.e. for group A, correlate A1's features at each time point with A2's features at each time point; similarly for group B). This yields one correlation matrix for group A and another for group B, for each level (including level 0). So if $L=10$, this process would yield 11 correlation matrices for A and another 11 for B.
+\item Apply Fisher Z-transform (r2z) on all of the correlation matrices. The transformed correlation matrices are labelled $z_{A0}, z_{A1}, z_{A2}, ..., z_{B0}, z_{B1}, z_{B2}, ..., z_{B10}$, where $z_{A0}$ represent the Fisher Z-transformed correlation matrix for level 0 of group A.
+\item Use constrained optimization by linear approximation (COBYLA) on the group A correlation matrices to compute the optimal weight matrix w to be used for decoding, where $w$ will be applied to the Fisher Z-transformed matrices in the manner of the following equation:
+\begin{align*}
+decoding\_matrix\_A = z2r(w[0]*z_A0 + w[1]*z_A1 + w[2]*z_A2 + ... + w[10]*z_A10)
+\end{align*}
+where $z2r$ is the Inverse Fisher Z-transformation to convert the weighted sum into the its proper correlation form. Intuitively, this step seeks to find the w that maximizes the decoding accuracy using $decoding\_matrix\_A$.
+\item Use the same z2r(weighted z-transformed sum) formula and the optimal weights from the previous step to compute decoding accuracy for group B
+\item Output w and the group B's decoding accuracy
 \end{enumerate}
 
-Elaborate on training using half the dataset and testing on half the dataset, which caused the decoding accuracy to be a lot lower than when using the entire dataset.
+Three TimeCorr setups were implemented---each with Gaussian variances of 1000 time points, 10 time points, or 1 time point---to comprehensively understand the decoding capability of the mixture model and each individual level under varying resolutions. In addition, similar to the single level decoding analysis conducted previously, three different datasets were used for this analysis: Sherlock, Pieman, and Forrest. For each TimeCorr setup for each dataset, we conducted 100 repetitions of decoding analysis with different random group divisions. All of the following results are the average of 100 repetitions.
 
-Elaborate on weight distribution. Most information contained within first level ISFC. Consistent with high resolution result in single level decoding analysis, where first level functional connectivity achieved the highest decoding accuracy.
-
-Elaborate on the temporal resolution potentially influencing the results, therefore conducted experiments with multiple setups. However, weight distribution remained the same with highest weight on first level functional connectivity. Which means that although sometime raw activations may result in higher decoding accuracy, most of the information on brain dynamics is actually contained in first level ISFC. This result was not available in previous researches because of the lack of freedom in choosing temporal resolution.
-
-In addition, incorporating information from multiple levels resulted in significantly higher decoding accuracy than that of any individual level. This confirms our hypothesis that different levels contain non-overlapping information about brain dynamics and, although individual levels did not produce high classification accuracy, when used in unison can greatly enrich data complexity and increase decoding accuracy.
-
+Results:
 \begin{enumerate}
-\item haha
-\begin{enumerate}
-\item Testing ISFC on block correlation dataset and comparison with sliding window results
-\item Testing ISFC on ramp correlation dataset and comparison with sliding window results
-\item Testing level up on multisubject ramping correlation dataset and comparison with sliding window results
-\end{enumerate}
-\item Results on the Pieman dataset
-\begin{enumerate}
-\item See Jeremy's paper for reference on order and structure of this section
-
-\item Pieman Intact
-\end{enumerate}
-\item Results on Sherlock dataset
-\item Results on Forrest dataset
-\item Level-mixture analysis
-\item Optimization and Benchmark results
-
+\item The average results for each TimeCorr setup implemented on the Pieman dataset are displayed in Figure \ref{fig:piemanMM1000}, \ref{fig:piemanMM10}, and \ref{fig:piemanMM1}.
+\item The average results for each TimeCorr setup implemented on the Forrest dataset are displayed in Figure \ref{fig:forrestMM1000}, Figure \ref{fig:forrestMM10} and Figure \ref{fig:forrestMM1}.
+\item The average results for each TimeCorr setup implemented on the Sherlock dataset are displayed in Figure \ref{fig:forrestMM1000}, Figure \ref{fig:forrestMM10} and Figure \ref{fig:sherlockMM1}.
 \end{enumerate}
 
+\begin{figure}[!htb]
+\caption{Multi-Level Mixture Analysis using TimeCorr with variance of 1000 time points}
+\centering
+\includegraphics[width=1\textwidth]{../figures/Multi-Level-Mixture-Analysis/1000V/pieman-weights.png}
+\includegraphics[width=1\textwidth]{../figures/Multi-Level-Mixture-Analysis/1000V/pieman-accuracy.png}
+\label{fig:piemanMM1000}
+\end{figure}
+
+\begin{figure}[!htb]
+\caption{Multi-Level Mixture Analysis using TimeCorr with variance of 10 time points}
+\centering
+\includegraphics[width=1\textwidth]{../figures/Multi-Level-Mixture-Analysis/10V/pieman-weights.png}
+\includegraphics[width=1\textwidth]{../figures/Multi-Level-Mixture-Analysis/10V/pieman-accuracy.png}
+\label{fig:piemanMM10}
+\end{figure}
+
+\begin{figure}[!htb]
+\caption{Multi-Level Mixture Analysis using TimeCorr with variance of 1 time point}
+\centering
+\includegraphics[width=1\textwidth]{../figures/Multi-Level-Mixture-Analysis/1V/pieman-weights.png}
+\includegraphics[width=1\textwidth]{../figures/Multi-Level-Mixture-Analysis/1V/pieman-accuracy.png}
+\label{fig:piemanMM1}
+\end{figure}
+
+\begin{figure}[!htb]
+\caption{Multi-Level Mixture Analysis using TimeCorr with variance of 1000 time points}
+\centering
+\includegraphics[width=1\textwidth]{../figures/Multi-Level-Mixture-Analysis/1000V/forrest.png}
+\label{fig:forrestMM1000}
+\end{figure}
+
+\begin{figure}[!htb]
+\caption{Multi-Level Mixture Analysis using TimeCorr with variance of 10 time points}
+\centering
+\includegraphics[width=1\textwidth]{../figures/Multi-Level-Mixture-Analysis/10V/forrest.png}
+\label{fig:forrestMM10}
+\end{figure}
+
+\begin{figure}[!htb]
+\caption{Multi-Level Mixture Analysis using TimeCorr with variance of 1 time point}
+\centering
+\includegraphics[width=1\textwidth]{../figures/Multi-Level-Mixture-Analysis/1V/forrest.png}
+\label{fig:forrestMM1}
+\end{figure}
+
+\begin{figure}[!htb]
+\caption{Multi-Level Mixture Analysis using TimeCorr with variance of 1 time point}
+\centering
+\includegraphics[width=1\textwidth]{../figures/Multi-Level-Mixture-Analysis/1V/sherlock.png}
+\label{fig:sherlockMM1}
+\end{figure}
+
+With each implementation of the Multi-Level Mixture Model, the subjects are divided into two equal groups, one for training and one for testing. As a result, we observe that training and testing using only half of the subjects caused the decoding accuracy to be a lot lower than when using the entire dataset. From a mathematical perspective, averaging over more subjects brings more stability to the dataset by smoothing out random noises in the dataset and adding emphasis to activities common to all subjects, which are typically stimulus-driven. Therefore, when less subjects are used in the calculation of inter-subject functional connectivity, the de-noising effect of averaging is weakened and less emphasis is put on activities that are stimulus-driven, thus causing lower decoding accuracy.
+
+One of the most important observations from the results of Multi-Level Mixture Analysis across all three datasets is that the Mixture Model produces significantly higher decoding accuracy than any single level of functional connectivity. When taking into consideration our hypothesis from the decoding analysis in the previous section, this is a very direct and compelling proof that different orders of functional connectivity contain non-overlapping information about brain dynamics and, although individual levels did not produce high classification accuracy, when used in unison can greatly enrich data complexity and increase decoding capabilities.
+
+The importance of each level is further confirmed by optimal weight distribution across all three datasets. While the first order functional connectivity always has the highest weight, the weight distribution between PCA reduced fMRI activation and higher order connectivities is almost uniform, indicating equal contribution to enrichment of stimulus-related information and improvement in decoding capability of the dataset. Additionally, we noticed that the optimal weight of the first order functional connectivity was significantly higher than the rest of the levels, suggesting that a greater amount of stimulus-driven brain dynamics information is contained in this level. The significance of the first order functional connectivity in the mixture model is also consistent with high resolution results in single level decoding analysis, where first level functional connectivity achieved the highest decoding accuracy among all levels.
+
+Like in the decoding analysis, we were curious if varying Gaussian variance (changing temporal resolution loss across levels) would influencing the results, therefore we repeated the Multi-Level Mixture Analysis on each dataset with multiple TimeCorr setups. However, the optimal weight distribution qualitatively remained the same in every implementation: the first level functional connectivity always possessed the highest weight. This further confirms that, although PCA reduced fMRI activations may sometimes produce higher decoding accuracy at low resolutions, first order functional connectivity actually contains the most information on brain dynamics that are stimulus-related.
+
+\subsection{High-Order Brain Dynamics Toolbox Benchmark Results}
+We wanted to make TimeCorr available to the public as a more effective alternative to the sliding window approach for functional connectivity related research, so we developed a Python toolbox that is available for public download through pip. Detailed documentation on how to use to toolbox is available online at (insert web address after completing documentation).
+
+To make the TimeCorr-derived methods into a practical toolbox that can be widely used by not only specialize laboratories but also the general public, we explored with different optimization and scaling methods to make it less resource intensive. At first, we explored with Cython, a optimizing static compiler that converts Python programs into C for faster implementation. However, we later discovered that multiprocessing has exponentially faster runtimes and scales well with large datasets. We also experimented with a combination of using Cython for preprocessing and multiprocessing for large scale calculation. However, on top of the low runtime achieved using multiprocessing, the time loss from C-Python transitions overshadowed the minimal speed gain from Cython. In the end, we decided to abandon Cython, and rely on multiprocessing as our main means of optimization.
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=1\textwidth]{../figures/Benchmark/500timepoints.png}
+Tests were performed on 2.6 GHz Intel Core i5 processor with 8GB 1600 MHz DDR3 Memory
+\label{fig:benchmark}
+\end{figure}
+
+The benchmark results of using TimeCorr to calculate inter-subject functional connectivity are shown in Figure \ref{fig:benchmark}. As we implemented multiprocessing as subject-wise parallel computing, we can see from the graph that runtime grows exponentially with the number of voxels, but linearly with the number of subjects. As starting every new process introduces time-loss, we decided that creating a process for each subject instead of for each voxel or time point would result in faster runtime.
 
 \section{Conclusion}
+We proposed the High-Order Brain Dynamics Model, a new perspective to understand brain dynamics by incorporating high order inter-subject functional connectivity. In the process, we proposed the TimeCorr method, a lossless alternative to the widely popular sliding window approach for functional connectivity calculation, and the Level Up method, a new means of calculating high order functional connectivity. 
 \begin{enumerate}
 \item application in medicine for classification data enrichment
+\item Develop a lossless method to more accurately extract dynamic correlations from noisy data, breakthrough from the traditional sliding window approach
+\item Due to the lossless nature of the method, we are able to calculate dynamic information at higher level
+\item With richer information about the system, we are able to achieve higher decoding accuracy
+\item Information from higher level helps with decoding, which can be applied in Criminal Investigation, etc....
 \end{enumerate}
 
+Future work. PCA induced information loss. Explore Machine Learning alternatives to reducing data dimension. Autoencoder using Neural Network.
 
 
-\begin{enumerate}
-\item \cite{jeremy2017} decoding analysis, ISFC
-\item \cite{hasson2016} First time Inter-subject functional connectivity is introduced. opens new avenues for linking brain network dynamics to stimulus features and behavior.
-\item \cite{khambhati2017} We describe recent efforts to model dynamic patterns of connectivity, dynamic patterns of activity, and patterns of activity atop connectivity. In the context of these models, we review important considerations in statistical testing, including parametric and non-parametric approaches. Finally, we offer thoughts on careful and accurate interpretation of dynamic graph architecture, and outline important future directions for method development.
-\item \cite{davidson2016} we present a method to quantify individual differences in brain functional dynamics by applying hypergraph analysis, a method from dynamic network theory. age-related changes in brain function can be better understood by taking an integrative approach that incorporates information about the dynamics of functional interactions
-\item \cite{peterson11} However, we find that observations of “dynamic” BOLD correlations during the resting state are largely explained by sampling variability. Beyond sampling variability, the largest part of observed “dynamics” during rest is attributable to head motion. An additional component of dynamic variability during rest is attributable to fluctuating sleep state. Thus, aside from the preceding explanatory factors, a single correlation structure—as opposed to a sequence of distinct correlation structures—may adequately describe the resting state as measured by BOLD fMRI. These results suggest that resting-state BOLD correlations do not primarily reflect moment-to-moment changes in cognitive content. Rather, resting-state BOLD correlations may predominantly reflect processes concerned with the maintenance of the long-term stability of the brain’s functional organization
-\item \cite{peterson12} Machine Learning for classification. We also report a novel adaptation of SVM binary classification that, in addition to an overall accuracy rate for the SVM, provides a confidence measure for the accurate classification of each individual. Our results support the contention that multivariate methods can better capture the complexity of some brain disorders, and hold promise for predicting prognosis and treatment outcome for individuals with TS.
-\item \cite{peterson17} Support vector regression enabled quantitative estimation of birth gestational age in single subjects using only term equivalent resting state-functional MRI data, indicating that the present approach is sensitive to the degree of disruption of brain development associatedwith pretermbirth (using gestational age as a surrogate for the extent of disruption). This suggests that support vector regression may provide a means for predicting neurodevelopmental outcome in individual infants.
-\item \cite{olaf2005} First time research is conducted in brain functional connectivity, it's significance is revealed.
-\item \cite{hasson2012} Here we show that temporal patterns of neural activity contain information that can discriminate different stimuli, even within brain regions that show no net activation to that stimulus class. Furthermore, we find that in many brain regions, responses to natural stimuli are highly context dependent. In such cases, prototypical event-related responses do not even exist for individual stimuli, so that averaging responses to the same stimulus within different contexts may worsen the effective signal-to-noise. As a result, analysis of the temporal structures of single events can re
-\item \cite{enrico2011} Sliding window, instantaneous phase synchronization to increase temporal resolution, Dynamic Functional Connectivity
-\item \cite{Greene01} The long-standing rationalist tradition in moral psychology emphasizes the role of reason in moral judgment. A more recent trend places increased emphasis on emotion. Although both reason and emotion are likely to play important roles in moral judgment, relatively little is known about their neural correlates, the nature of their interaction, and the factors that modulate their respective behavioral influences in the context of moral judgment. In two functional magnetic resonance imaging (fMRI) studies using moral dilemmas as probes, we apply the methods of cognitive neuroscience to the study of moral judgment. We argue that moral dilemmas vary systematically in the extent to which they engage emotional processing and that these variations in emotional engagement influence moral judgment.
-\item \cite{Logothetis01} Functional magnetic resonance imaging (fMRI) is widely used to study the operational organization of the human brain, but the exact relationship between the measured fMRI signal and the underlying neural activity is unclear. These findings suggest that the BOLD contrast mechanism reflects the input and intracortical processing of a given area rather than its spiking output.
-\item \cite{hasson2005} AUDIO The predicted fMRI signals derived from single units and the measured fMRI signals from auditory cortex showed a highly significant correlation (r 0 0.75, P G 10j47). Thus, fMRI signals can provide a reliable measure of the firing rate of human cortical neurons.
-\item \cite{hasson2004} VIDEO The results reveal a surprising tendency of individual brains to “tick collectively” during natural vision. The intersubject synchronization consisted of a widespread cortical activation pattern correlated with emotionally arousing scenes and regionally selective components. The characteristics of these activations were revealed with the use of an open-ended “reverse-correlation” approach, which inverts the conventional analysis by letting the brain signals themselves “pick up” the optimal stimuli for each specialized cortical area.
-\item \cite{peterson9} various denoising methods
-\item \cite{peterson19} We suggest that, in the place of a single localized error mechanism, these findings point to a large-scale set of error-related regions across multiple systems that likely subserve different functions.
-\item \cite{peterson20} In 2011, three groups reported that small headmovements produced spurious but structured noise in brain scans, causing distance-dependent changes in signal correlations. This finding has prompted both methods development and the re-examination of prior findings with more stringentmotion correction
-\end{enumerate}
+\newpage
 \begin{thebibliography}{1}
 \bibitem{jeremy2017} Jeremy Manning, Xia Zhu, Theodore Willke, Rajesh Ranganath, Kimberly Stachenfeld, Uri Hasson, David M Blei, Kenneth A Norman. A probabilistic approach to discovering dynamic full-brain functional connectivity patterns. \textit{bioRxiv} 106690, 2017
 \bibitem{elena2012} Elena A. Allen, Eswar Damaraju, Sergey M. Plis, Erik B. Erhardt, Tom Eichele and Vince D. Calhoun. Tracking Whole-Brain Connectivity Dynamics in the Resting State. \textit{Cerebral Cortex} March 2014;24:663–676
@@ -421,5 +553,7 @@ In addition, incorporating information from multiple levels resulted in signific
 \bibitem{Betzel2017} R. E. Betzel, J. D. Medaglia, L. Papadopoulos, G. Baum, R. Gur, R. Gur, D. Roalf, T. D. Satterthwaite, and D. S. Bassett. The modular organization of human anatomical brain networks: accounting for the cost of wiring. \textit{Network Neuroscience}, page Advance online publication. doi:10.1162/netn.a.00002., 2017.
 \bibitem{Craddock2012} R. C. Craddock, G. A. James, I. P E Holtzheimer, X. P. Hu, and H. S. Mayberg. A while brain fmri atlas generated via spatially constrained spectral clustering. \textit{Human Brain Mapping}, 33(8):1914-1928, 2012.
 \bibitem{Yeo2011} B. T. T. Yeo, F. M. Krienen, J. Sepulcre, M. R. Sabuncu, D. Lashkari, M. Hollinshead, J. L. Roffman, J. W. Smoller, L. Zollei, J. R. Polimieni, B. Fischl, H. Liu, and R. L. Buckner. The organization of the human cerebral cortex estimated by intrinsic functional connectivity. \textit{Journal of Neurophsiology}, 106(3):1125-1165, 2011.
+\bibitem{Chen2017} Janice Chen,	Yuan Chang Leong,	Christopher J Honey, Chung H Yong,	Kenneth A Norman, and Uri Hasson. Shared memories reveal shared structure in neural activity across individuals. \textit{Nature Neuroscience} 20, 115–125, 2017
+\bibitem{Hanke2014} Michael Hanke, Florian J. Baumgartner, Pierre Ibe, Falko R. Kaule, Stefan Pollmann, Oliver Speck, Wolf Zinke, and Jörg Stadler. A high-resolution 7-Tesla fMRI dataset from complex natural stimulation with an audio movie. \textit{Scientific Data} Article number: 140003, 2014
 \end{thebibliography}
 \end{document}
