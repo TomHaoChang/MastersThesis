@@ -339,7 +339,7 @@ Sixteen participants (17 were described in the original paper, but 1 was removed
 \begin{enumerate}
 \item The average results for each TimeCorr setup implemented on the Pieman dataset are displayed in Figure \ref{fig:piemanDC1000}, \ref{fig:piemanDC10}, and \ref{fig:piemanDC1}.
 \item The average results for each TimeCorr setup implemented on the Forrest dataset are displayed in Figure \ref{fig:forrestDC1000}, Figure \ref{fig:forrestDC10} and Figure \ref{fig:forrestDC1}.
-\item The average results for each TimeCorr setup implemented on the Sherlock dataset are displayed in Figure \ref{fig:forrestMM1000}, Figure \ref{fig:forrestMM10} and Figure \ref{fig:sherlockDC1}.
+\item The average results for each TimeCorr setup implemented on the Sherlock dataset are displayed in Figure \ref{fig:forrestMM1000}, Figure \ref{fig:sherlockDC10} and Figure \ref{fig:sherlockDC1}.
 \end{enumerate}
 
 \begin{figure}[!htb]
@@ -382,6 +382,13 @@ Sixteen participants (17 were described in the original paper, but 1 was removed
 \centering
 \includegraphics[width=0.6\textwidth]{../figures/Intra-Level-Decoding-Analysis/1V/forrest.png}
 \label{fig:forrestDC1}
+\end{figure}
+
+\begin{figure}[!htb]
+\caption{Decoding Analysis using TimeCorr with variance of 10 time points}
+\centering
+\includegraphics[width=0.6\textwidth]{../figures/Intra-Level-Decoding-Analysis/10V/sherlock.png}
+\label{fig:sherlockDC10}
 \end{figure}
 
 \begin{figure}[!htb]
@@ -430,7 +437,7 @@ Results:
 \begin{enumerate}
 \item The average results for each TimeCorr setup implemented on the Pieman dataset are displayed in Figure \ref{fig:piemanMM1000}, \ref{fig:piemanMM10}, and \ref{fig:piemanMM1}.
 \item The average results for each TimeCorr setup implemented on the Forrest dataset are displayed in Figure \ref{fig:forrestMM1000}, Figure \ref{fig:forrestMM10} and Figure \ref{fig:forrestMM1}.
-\item The average results for each TimeCorr setup implemented on the Sherlock dataset are displayed in Figure \ref{fig:forrestMM1000}, Figure \ref{fig:forrestMM10} and Figure \ref{fig:sherlockMM1}.
+\item The average results for each TimeCorr setup implemented on the Sherlock dataset are displayed in Figure \ref{fig:forrestMM1000}, Figure \ref{fig:sherlockMM10} and Figure \ref{fig:sherlockMM1}.
 \end{enumerate}
 
 \begin{figure}[!htb]
@@ -479,6 +486,13 @@ Results:
 \end{figure}
 
 \begin{figure}[!htb]
+\caption{Multi-Level Mixture Analysis using TimeCorr with variance of 10 time points}
+\centering
+\includegraphics[width=1\textwidth]{../figures/Multi-Level-Mixture-Analysis/10V/sherlock.png}
+\label{fig:sherlockMM10}
+\end{figure}
+
+\begin{figure}[!htb]
 \caption{Multi-Level Mixture Analysis using TimeCorr with variance of 1 time point}
 \centering
 \includegraphics[width=1\textwidth]{../figures/Multi-Level-Mixture-Analysis/1V/sherlock.png}
@@ -508,7 +522,9 @@ Tests were performed on 2.6 GHz Intel Core i5 processor with 8GB 1600 MHz DDR3 M
 The benchmark results of using TimeCorr to calculate inter-subject functional connectivity are shown in Figure \ref{fig:benchmark}. As we implemented multiprocessing as subject-wise parallel computing, we can see from the graph that runtime grows exponentially with the number of voxels, but linearly with the number of subjects. As starting every new process introduces time-loss, we decided that creating a process for each subject instead of for each voxel or time point would result in faster runtime.
 
 \section{Conclusion}
-We proposed the High-Order Brain Dynamics Model, a new perspective to understand brain dynamics by incorporating high order inter-subject functional connectivity. In the process, we proposed the TimeCorr method, a lossless alternative to the widely popular sliding window approach for functional connectivity calculation, and the Level Up method, a new means of calculating high order functional connectivity. 
+We proposed the High-Order Brain Dynamics Model, a new perspective to understand brain dynamics by incorporating high order inter-subject functional connectivity. In the process, we proposed the TimeCorr method, a lossless alternative to the widely popular sliding window approach for functional connectivity calculation, and the Level Up method, a new means of calculating high order functional connectivity. Through testing on synthetic data, we demonstrated the superiority of the TimeCorr approach over the sliding window approach in recovering temporal functional connectivity. With TimeCorr and Level Up, we had the means to peer into the secrets of the brain through the lens of the High-Order Brain Dynamics Model. First, we calculated 10 orders of functional connectivity from the fMRI data of 3 past studies (Pieman, Forrest and Sherlock). Then, we carried out decoding analysis individually for each order of functional connectivity to understand how well stimulus-driven brain dynamics information is represented at each level. Afterwards, we conducted the Multi-Level Mixture Analysis to understand how information at each order of functional connectivity complement each other. Lastly, we presented all TimeCorr-derived methods as a public toolbox, and demonstrated it's benchmark performance.
+
+Through the lens of the High-Order Brain Dynamics Model, we were able incorporate information from high order functional connectivity and achieve a better understanding of stimulus-driven brain dynamics. In addition, through the construction of the Multi-Level Mixture Model, we were able to find effective ways to optimally combine stimulus-relevant information from multiple orders of functional connectivity into one functional connectivity matrix. This process greatly enriches the complexity of the dataset, and has practical applications in many areas:
 \begin{enumerate}
 \item application in medicine for classification data enrichment
 \item Develop a lossless method to more accurately extract dynamic correlations from noisy data, breakthrough from the traditional sliding window approach
@@ -517,7 +533,7 @@ We proposed the High-Order Brain Dynamics Model, a new perspective to understand
 \item Information from higher level helps with decoding, which can be applied in Criminal Investigation, etc....
 \end{enumerate}
 
-Future work. PCA induced information loss. Explore Machine Learning alternatives to reducing data dimension. Autoencoder using Neural Network.
+Future work. PCA induced information loss. Explore Machine Learning alternatives to reducing data dimension. Autoencoder using Neural Network. we need a good method to evaluate how well PCA is preserving correlation information at each level up. Even though there's a possibility that the first order functional connectivity may possess the greatest decoding capabilities, I am not sure the decoding accuracies of later levels are accurately describing the amount information contained in them. And I definitely think information loss from PCA is the main culprit. However, without PCA, scaling would be a huge issue due to the size of the datasets we are trying to analyse. Maybe this would be a good place to explore Machine Learning alternatives? A discussion with Professor Liu about this would probably be super helpful.
 
 
 \newpage
