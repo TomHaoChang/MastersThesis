@@ -521,20 +521,30 @@ Tests were performed on 2.6 GHz Intel Core i5 processor with 8GB 1600 MHz DDR3 M
 
 The benchmark results of using TimeCorr to calculate inter-subject functional connectivity are shown in Figure \ref{fig:benchmark}. As we implemented multiprocessing as subject-wise parallel computing, we can see from the graph that runtime grows exponentially with the number of voxels, but linearly with the number of subjects. As starting every new process introduces time-loss, we decided that creating a process for each subject instead of for each voxel or time point would result in faster runtime.
 
+\newpage
 \section{Conclusion}
 We proposed the High-Order Brain Dynamics Model, a new perspective to understand brain dynamics by incorporating high order inter-subject functional connectivity. In the process, we proposed the TimeCorr method, a lossless alternative to the widely popular sliding window approach for functional connectivity calculation, and the Level Up method, a new means of calculating high order functional connectivity. Through testing on synthetic data, we demonstrated the superiority of the TimeCorr approach over the sliding window approach in recovering temporal functional connectivity. With TimeCorr and Level Up, we had the means to peer into the secrets of the brain through the lens of the High-Order Brain Dynamics Model. First, we calculated 10 orders of functional connectivity from the fMRI data of 3 past studies (Pieman, Forrest and Sherlock). Then, we carried out decoding analysis individually for each order of functional connectivity to understand how well stimulus-driven brain dynamics information is represented at each level. Afterwards, we conducted the Multi-Level Mixture Analysis to understand how information at each order of functional connectivity complement each other. Lastly, we presented all TimeCorr-derived methods as a public toolbox, and demonstrated it's benchmark performance.
 
-Through the lens of the High-Order Brain Dynamics Model, we were able incorporate information from high order functional connectivity and achieve a better understanding of stimulus-driven brain dynamics. In addition, through the construction of the Multi-Level Mixture Model, we were able to find effective ways to optimally combine stimulus-relevant information from multiple orders of functional connectivity into one functional connectivity matrix. This process greatly enriches the complexity of the dataset, and has practical applications in many areas:
+Through the lens of the High-Order Brain Dynamics Model, we were able analyze the patterns in higher orders of functional connectivity and achieve a better understanding of stimulus-driven brain dynamics. In addition, through the construction of the Multi-Level Mixture Model, we were able to find effective ways to optimally combine stimulus-relevant information from multiple orders of functional connectivity into one functional connectivity matrix. This process greatly enriches the amount of stimulus-relevant information in the dataset without creating redundancies, which greatly increase the decoding capabilities of the dataset and has practical applications in many areas:
+
 \begin{enumerate}
-\item application in medicine for classification data enrichment
-\item Develop a lossless method to more accurately extract dynamic correlations from noisy data, breakthrough from the traditional sliding window approach
-\item Due to the lossless nature of the method, we are able to calculate dynamic information at higher level
-\item With richer information about the system, we are able to achieve higher decoding accuracy
-\item Information from higher level helps with decoding, which can be applied in Criminal Investigation, etc....
+\item With more information on how the general population reacts to certain stimuli, we can use the HOBD model to detect cognitive anomalies in patients and potentially detect psychological or mental disorders with more accuracy
+\item With more in-depth understanding of how normal people react in certain situations, we can potentially identify criminals through their cognitive response to crime scene reenactments
+\item With more stimulus-relevant information from higher order brain dynamics, we increase the ability of  Machine Learning methods to recreate the stimulus (visual, audio, etc), which could potentially give us more knowledge on human perception
 \end{enumerate}
 
-Future work. PCA induced information loss. Explore Machine Learning alternatives to reducing data dimension. Autoencoder using Neural Network. we need a good method to evaluate how well PCA is preserving correlation information at each level up. Even though there's a possibility that the first order functional connectivity may possess the greatest decoding capabilities, I am not sure the decoding accuracies of later levels are accurately describing the amount information contained in them. And I definitely think information loss from PCA is the main culprit. However, without PCA, scaling would be a huge issue due to the size of the datasets we are trying to analyse. Maybe this would be a good place to explore Machine Learning alternatives? A discussion with Professor Liu about this would probably be super helpful.
+Although we were able to increase the amount of stimulus-driven brain dynamics information retrievable from fMRI datasets through the use of the TimeCorr and the Level Up methods, we believe the abrupt decrease in decoding accuracy after the first order ISFC does accurately represent the amount of information contained in these levels and is indicative of information loss. As our tests proved that TimeCorr is not the cause for the decrease in decoding accuracy, we hypothesize that the information loss may have partially been caused by PCA dimensionality reduction in the Level Up processes or the smoothing effect of Guassian averaging in TimeCorr.
 
+To address this issue and to further improve the High-Order Brain Dynamics Model in the future, we intend to experiment with the following options:
+
+\begin{enumerate}
+\item Explore other dimensionality reduction algorithm like ICA, t-SNE, MDS, Autoencoders with neural network, etc
+\item Decrease the variance parameter of TimeCorr with each subsequent level, so that the smoothing effect of TimeCorr decreases as the level increases
+\item De-convolve the activations at each level (from the Gaussian kernel) prior to "leveling up."
+\item Have the number of voxels after each level up increase with each level, but at a practical rate so that the approach is still scalable to many levels. For example, the number of factors could grow linearly with respect to the level, rather than exponentially (as would happen if we didn't use any dimensionality reduction) or having the number of factors remain constant (as in our current approach).
+\end{enumerate}
+
+In conclusion, the HOBD model has provided an accurate and efficient means of examining stimulus-driven brain dynamics at high orders of functional connectivity. We believe benefits of understanding high order brain connectivity is endless, and we are excited to explore new approaches to further improve the HOBD model to further expand the horizon of human brain decoding.
 
 \newpage
 \begin{thebibliography}{1}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  4 AUG 2017 02:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  4 AUG 2017 20:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1217,7 +1217,7 @@ File: ../figures/Benchmark/500timepoints.png Graphic file (type png)
  <use ../figures/Benchmark/500timepoints.png>
 Package pdftex.def Info: ../figures/Benchmark/500timepoints.png used on input line 517.
 (pdftex.def)             Requested size: 433.62001pt x 255.94913pt.
- [41] [42 <../figures/Benchmark/500timepoints.png>] [43] [44] [45] [46] [47] [48] (./ISFC.aux) )
+ [41] [42 <../figures/Benchmark/500timepoints.png>] [43] [44] [45] [46] [47] [48] [49] (./ISFC.aux) )
 (\end occurred inside a group at level 1)
 
 ### simple group (level 1) entered at line 1061 ({)
@@ -1225,16 +1225,16 @@ Package pdftex.def Info: ../figures/Benchmark/500timepoints.png used on input li
 Here is how much of TeX's memory you used:
  24999 strings out of 492995
  514459 string characters out of 6132704
- 898300 words of memory out of 5000000
+ 898301 words of memory out of 5000000
  28153 multiletter control sequences out of 15000+600000
  10152 words of font info for 38 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,11n,78p,10402b,7252s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on ISFC.pdf (48 pages, 3746629 bytes).
+Output written on ISFC.pdf (49 pages, 3747967 bytes).
 PDF statistics:
- 262 PDF objects out of 1000 (max. 8388607)
- 145 compressed objects within 2 object streams
+ 266 PDF objects out of 1000 (max. 8388607)
+ 148 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  148 words of extra memory for PDF output out of 10000 (max. 10000000)
 
