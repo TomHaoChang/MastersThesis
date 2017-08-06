@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1501891359 "ISFC.tex" "ISFC.pdf" "ISFC" 1501891366
+["pdflatex"] 1501992262 "ISFC.tex" "ISFC.pdf" "ISFC" 1501992269
   "../figures/Benchmark/500timepoints.png" 1497763306 24004 67fa1ebe59336a4396fdb2224604e99d ""
   "../figures/ISFC/t300slide25var1000.png" 1501450483 439441 72069f38222c77561c26b307421dff0f ""
   "../figures/Intra-Level-Decoding-Analysis/1000V/forrest.png" 1501257516 15355 f461d934857c3902c4e2eece570170a0 ""
@@ -201,9 +201,9 @@
   "/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1495593472 2350277 a699055bee05bf8a40b0504752487295 ""
   "/usr/local/texlive/2017/texmf-var/web2c/pdftex/pdflatex.fmt" 1495593487 4129592 0e6cfee100d68e6d96b92c0258f2ff73 ""
   "/usr/local/texlive/2017/texmf.cnf" 1495593465 577 2b71d4d888f9e5560b2e99985915a9fa ""
-  "ISFC.aux" 1501891365 7661 3bda7802809f165707231a668e0c7ffb ""
-  "ISFC.tex" 1501891351 85791 bd9cc2efcb7bf7b0a7f73c908b34eaed ""
+  "ISFC.aux" 1501992269 7677 45787484010c8dff981c05c95395b93c ""
+  "ISFC.tex" 1501992262 87611 5970329323578afd5a17f82fe18add85 ""
   (generated)
-  "ISFC.log"
   "ISFC.aux"
+  "ISFC.log"
   "ISFC.pdf"
