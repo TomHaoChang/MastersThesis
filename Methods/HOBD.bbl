@@ -1,0 +1,220 @@
+\begin{thebibliography}{}
+
+\bibitem[Allen et~al., 2014]{elena2012}
+Allen, E.~A., Damaraju, E., Plis, S.~M., Erhardt, E.~B., Eichele, T., and
+  Calhoun, V.~D. (2014).
+\newblock {{T}racking whole-brain connectivity dynamics in the resting state}.
+\newblock {\em Cereb. Cortex}, 24(3):663--676.
+
+\bibitem[Bassett and Sporns, 2017]{Bassett2017}
+Bassett, D.~S. and Sporns, O. (2017).
+\newblock {{N}etwork neuroscience}.
+\newblock {\em Nat. Neurosci.}, 20(3):353--364.
+
+\bibitem[Ben-Yakov et~al., 2012]{hasson2012}
+Ben-Yakov, A., Honey, C.~J., Lerner, Y., and Hasson, U. (2012).
+\newblock {{L}oss of reliable temporal structure in event-related averaging of
+  naturalistic stimuli}.
+\newblock {\em Neuroimage}, 63(1):501--506.
+
+\bibitem[{Betzel} et~al., 2016]{Betzel2017}
+{Betzel}, R.~F., {Medaglia}, J.~D., {Papadopoulos}, L., {Baum}, G., {Gur}, R.,
+  {Gur}, R., {Roalf}, D., {Satterthwaite}, T.~D., and {Bassett}, D.~S. (2016).
+\newblock {The modular organization of human anatomical brain networks:
+  Accounting for the cost of wiring}.
+\newblock {\em ArXiv e-prints}.
+
+\bibitem[Burgess et~al., 2016]{peterson9}
+Burgess, G.~C., Kandala, S., Nolan, D., Laumann, T.~O., Power, J.~D., Adeyemo,
+  B., Harms, M.~P., Petersen, S.~E., and Barch, D.~M. (2016).
+\newblock {{E}valuation of {D}enoising {S}trategies to {A}ddress
+  {M}otion-{C}orrelated {A}rtifacts in {R}esting-{S}tate {F}unctional
+  {M}agnetic {R}esonance {I}maging {D}ata from the {H}uman {C}onnectome
+  {P}roject}.
+\newblock {\em Brain Connect}, 6(9):669--680.
+
+\bibitem[Chen et~al., 2017]{Chen2017}
+Chen, J., Leong, Y.~C., Honey, C.~J., Yong, C.~H., Norman, K.~A., and Hasson,
+  U. (2017).
+\newblock {{S}hared memories reveal shared structure in neural activity across
+  individuals}.
+\newblock {\em Nat. Neurosci.}, 20(1):115--125.
+
+\bibitem[Craddock et~al., 2012]{Craddock2012}
+Craddock, R.~C., James, G.~A., Holtzheimer, P.~E., Hu, X.~P., and Mayberg,
+  H.~S. (2012).
+\newblock {{A} whole brain f{M}{R}{I} atlas generated via spatially constrained
+  spectral clustering}.
+\newblock {\em Hum Brain Mapp}, 33(8):1914--1928.
+
+\bibitem[Davison et~al., 2016]{davidson2016}
+Davison, E.~N., Turner, B.~O., Schlesinger, K.~J., Miller, M.~B., Grafton,
+  S.~T., Bassett, D.~S., and Carlson, J.~M. (2016).
+\newblock {{I}ndividual {D}ifferences in {D}ynamic {F}unctional {B}rain
+  {C}onnectivity across the {H}uman {L}ifespan}.
+\newblock {\em PLoS Comput. Biol.}, 12(11):e1005178.
+
+\bibitem[Glerean et~al., 2012]{enrico2011}
+Glerean, E., Salmi, J., Lahnakoski, J.~M., Jaaskelainen, I.~P., and Sams, M.
+  (2012).
+\newblock {{F}unctional magnetic resonance imaging phase synchronization as a
+  measure of dynamic functional connectivity}.
+\newblock {\em Brain Connect}, 2(2):91--101.
+
+\bibitem[Gordon et~al., 2017]{peterson10}
+Gordon, E.~M., Laumann, T.~O., Adeyemo, B., Gilmore, A.~W., Nelson, S.~M.,
+  Dosenbach, N.~U., and Petersen, S.~E. (2017).
+\newblock {{I}ndividual-specific features of brain systems identified with
+  resting state functional correlations}.
+\newblock {\em Neuroimage}, 146:918--939.
+
+\bibitem[Greene et~al., 2016]{peterson12}
+Greene, D.~J., Church, J.~A., Dosenbach, N.~U., Nielsen, A.~N., Adeyemo, B.,
+  Nardos, B., Petersen, S.~E., Black, K.~J., and Schlaggar, B.~L. (2016).
+\newblock {{M}ultivariate pattern classification of pediatric {T}ourette
+  syndrome using functional connectivity {M}{R}{I}}.
+\newblock {\em Dev Sci}, 19(4):581--598.
+
+\bibitem[Greene et~al., 2001]{Greene01}
+Greene, J.~D., Sommerville, R.~B., Nystrom, L.~E., Darley, J.~M., and Cohen,
+  J.~D. (2001).
+\newblock {{A}n f{M}{R}{I} investigation of emotional engagement in moral
+  judgment}.
+\newblock {\em Science}, 293(5537):2105--2108.
+
+\bibitem[Hanke et~al., 2014]{Hanke2014}
+Hanke, M., Baumgartner, F.~J., Ibe, P., Kaule, F.~R., Pollmann, S., Speck, O.,
+  Zinke, W., and Stadler, J. (2014).
+\newblock {{A} high-resolution 7-{T}esla f{M}{R}{I} dataset from complex
+  natural stimulation with an audio movie}.
+\newblock {\em Sci Data}, 1:140003.
+
+\bibitem[Hasson et~al., 2004]{hasson2004}
+Hasson, U., Nir, Y., Levy, I., Fuhrmann, G., and Malach, R. (2004).
+\newblock {{I}ntersubject synchronization of cortical activity during natural
+  vision}.
+\newblock {\em Science}, 303(5664):1634--1640.
+
+\bibitem[Hutchison et~al., 2013]{Hutchinson2013}
+Hutchison, R.~M., Womelsdorf, T., Allen, E.~A., Bandettini, P.~A., Calhoun,
+  V.~D., Corbetta, M., Della~Penna, S., Duyn, J.~H., Glover, G.~H.,
+  Gonzalez-Castillo, J., Handwerker, D.~A., Keilholz, S., Kiviniemi, V.,
+  Leopold, D.~A., de~Pasquale, F., Sporns, O., Walter, M., and Chang, C.
+  (2013).
+\newblock {{D}ynamic functional connectivity: promise, issues, and
+  interpretations}.
+\newblock {\em Neuroimage}, 80:360--378.
+
+\bibitem[Khambhati et~al., 2017]{khambhati2017}
+Khambhati, A.~N., Sizemore, A.~E., Betzel, R.~F., and Bassett, D.~S. (2017).
+\newblock Modelling and interpreting network dynamics.
+\newblock {\em bioRxiv}.
+
+\bibitem[Laumann et~al., 2016]{peterson11}
+Laumann, T.~O., Snyder, A.~Z., Mitra, A., Gordon, E.~M., Gratton, C., Adeyemo,
+  B., Gilmore, A.~W., Nelson, S.~M., Berg, J.~J., Greene, D.~J., McCarthy,
+  J.~E., Tagliazucchi, E., Laufs, H., Schlaggar, B.~L., Dosenbach, N.~U., and
+  Petersen, S.~E. (2016).
+\newblock {{O}n the {S}tability of {B}{O}{L}{D} f{M}{R}{I} {C}orrelations}.
+\newblock {\em Cereb. Cortex}.
+
+\bibitem[Logothetis et~al., 2001]{Logothetis01}
+Logothetis, N.~K., Pauls, J., Augath, M., Trinath, T., and Oeltermann, A.
+  (2001).
+\newblock {{N}europhysiological investigation of the basis of the f{M}{R}{I}
+  signal}.
+\newblock {\em Nature}, 412(6843):150--157.
+
+\bibitem[Manning et~al., 2017]{jeremy2017}
+Manning, J., Zhu, X., Willke, T., Ranganath, R., Stachenfeld, K., Hasson, U.,
+  Blei, D.~M., and Norman, K.~A. (2017).
+\newblock A probabilistic approach to discovering dynamic full-brain functional
+  connectivity patterns.
+\newblock {\em bioRxiv}.
+
+\bibitem[Mukamel et~al., 2005]{hasson2005}
+Mukamel, R., Gelbard, H., Arieli, A., Hasson, U., Fried, I., and Malach, R.
+  (2005).
+\newblock {{C}oupling between neuronal firing, field potentials, and
+  {F}{M}{R}{I} in human auditory cortex}.
+\newblock {\em Science}, 309(5736):951--954.
+
+\bibitem[Neta et~al., 2015]{peterson19}
+Neta, M., Miezin, F.~M., Nelson, S.~M., Dubis, J.~W., Dosenbach, N.~U.,
+  Schlaggar, B.~L., and Petersen, S.~E. (2015).
+\newblock {{S}patial and temporal characteristics of error-related activity in
+  the human brain}.
+\newblock {\em J. Neurosci.}, 35(1):253--266.
+
+\bibitem[Nigam et~al., 2016]{Nigam2016}
+Nigam, S., Shimono, M., Ito, S., Yeh, F.~C., Timme, N., Myroshnychenko, M.,
+  Lapish, C.~C., Tosi, Z., Hottowy, P., Smith, W.~C., Masmanidis, S.~C., Litke,
+  A.~M., Sporns, O., and Beggs, J.~M. (2016).
+\newblock {{R}ich-{C}lub {O}rganization in {E}ffective {C}onnectivity among
+  {C}ortical {N}eurons}.
+\newblock {\em J. Neurosci.}, 36(3):670--684.
+
+\bibitem[Norman et~al., 2006]{Norman06}
+Norman, K.~A., Polyn, S.~M., Detre, G.~J., and Haxby, J.~V. (2006).
+\newblock {{B}eyond mind-reading: multi-voxel pattern analysis of f{M}{R}{I}
+  data}.
+\newblock {\em Trends Cogn. Sci. (Regul. Ed.)}, 10(9):424--430.
+
+\bibitem[Ogawa et~al., 1990]{Ogawa90}
+Ogawa, S., Lee, T.~M., Kay, A.~R., and Tank, D.~W. (1990).
+\newblock {{B}rain magnetic resonance imaging with contrast dependent on blood
+  oxygenation}.
+\newblock {\em Proc. Natl. Acad. Sci. U.S.A.}, 87(24):9868--9872.
+
+\bibitem[O’Donnell and Falk, 2015]{Matthew2015}
+O’Donnell, M.~B. and Falk, E.~B. (2015).
+\newblock Big data under the microscope and brains in social context.
+\newblock {\em The ANNALS of the American Academy of Political and Social
+  Science}, 659(1):274--289.
+
+\bibitem[Power et~al., 2015]{peterson20}
+Power, J.~D., Schlaggar, B.~L., and Petersen, S.~E. (2015).
+\newblock {{R}ecent progress and outstanding issues in motion correction in
+  resting state f{M}{R}{I}}.
+\newblock {\em Neuroimage}, 105:536--551.
+
+\bibitem[Rubinov and Sporns, 2010]{Rubinov2010}
+Rubinov, M. and Sporns, O. (2010).
+\newblock {{C}omplex network measures of brain connectivity: uses and
+  interpretations}.
+\newblock {\em Neuroimage}, 52(3):1059--1069.
+
+\bibitem[Simony et~al., 2016]{hasson2016}
+Simony, E., Honey, C.~J., Chen, J., Lositsky, O., Yeshurun, Y., Wiesel, A., and
+  Hasson, U. (2016).
+\newblock {{D}ynamic reconfiguration of the default mode network during
+  narrative comprehension}.
+\newblock {\em Nat Commun}, 7:12141.
+
+\bibitem[Smyser et~al., 2016]{peterson17}
+Smyser, C.~D., Dosenbach, N.~U., Smyser, T.~A., Snyder, A.~Z., Rogers, C.~E.,
+  Inder, T.~E., Schlaggar, B.~L., and Neil, J.~J. (2016).
+\newblock {{P}rediction of brain maturity in infants using machine-learning
+  algorithms}.
+\newblock {\em Neuroimage}, 136:1--9.
+
+\bibitem[Sporns et~al., 2005]{olaf2005}
+Sporns, O., Tononi, G., and Kotter, R. (2005).
+\newblock {{T}he human connectome: {A} structural description of the human
+  brain}.
+\newblock {\em PLoS Comput. Biol.}, 1(4):e42.
+
+\bibitem[Turk-Browne, 2013]{Turke13}
+Turk-Browne, N.~B. (2013).
+\newblock {{F}unctional interactions as big data in the human brain}.
+\newblock {\em Science}, 342(6158):580--584.
+
+\bibitem[Yeo et~al., 2011]{Yeo2011}
+Yeo, B.~T., Krienen, F.~M., Sepulcre, J., Sabuncu, M.~R., Lashkari, D.,
+  Hollinshead, M., Roffman, J.~L., Smoller, J.~W., Zollei, L., Polimeni, J.~R.,
+  Fischl, B., Liu, H., and Buckner, R.~L. (2011).
+\newblock {{T}he organization of the human cerebral cortex estimated by
+  intrinsic functional connectivity}.
+\newblock {\em J. Neurophysiol.}, 106(3):1125--1165.
+
+\end{thebibliography}

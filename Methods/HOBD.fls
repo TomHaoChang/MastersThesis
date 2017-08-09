@@ -220,6 +220,10 @@ INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/float/float.sty
 INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/float/float.sty
 INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/titlesec/titlesec.sty
 INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/titlesec/titlesec.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/natbib/natbib.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/natbib/natbib.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/bibtex/apalike.sty
+INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/bibtex/apalike.sty
 INPUT HOBD.aux
 INPUT HOBD.aux
 OUTPUT HOBD.aux
@@ -361,6 +365,8 @@ INPUT ../figures/Multi-Level-Mixture-Analysis/1V/sherlock.png
 INPUT ../figures/Benchmark/500timepoints.png
 INPUT ../figures/Benchmark/500timepoints.png
 INPUT ../figures/Benchmark/500timepoints.png
+INPUT HOBD.bbl
+INPUT HOBD.bbl
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
 INPUT HOBD.aux
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
