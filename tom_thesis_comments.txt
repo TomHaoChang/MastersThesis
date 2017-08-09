@@ -1,0 +1,109 @@
+GENERAL
+
++ Overall I like a lot of this!  There are a lot of good things in here.
+
++ In general, the text could use substantial cleaning up.  I think a lot of the content is good, but there are a lot of awkward phrasings and wordings throughout.  I would recommend going through the document very carefully to clean up all grammar and descriptions.
+
++ A lot of the “logic” is unclear, throughout the document.  This will make it difficult for someone unfamiliar with our work to know why (and what) you did.  I’ve tried to note suggestions in my comments on each section.
+
++ Throughout the document, you’ve set up a lot of the justification for TimeCorr as an “alternative to sliding windows.”  But I don’t think this is the most effective motivation.  The most effective motivator I can think of is: if we believe that the cognitive representations we care about are reflected in dynamic correlation patterns, we need a technique that will allow us to recover dynamic correlation patterns.  One is TimeCorr (a new, untested approach).  Another is sliding windows (a new-ish, but tested, approach).  The point that I think is most useful to make with the sliding window analyses vs. the timecorr analyses is that they both give similar-ish results, with TimeCorr typically out-performing the sliding window method on synthetic data.  But I think you over-emphasize that TimeCorr “beats” the sliding window approach.
+
++ I’ve tried to limit my comments to those that can be addressed with writing alone (without new analyses).  The one potential exception is the PCA information loss comment (Conclusion section).  I think it’s possible to address that concern with only writing, but it could also be addressed with a new analysis.
+
++ You now have a good “backup” for your thesis document.  I would go through each point below and do your best to address them, one at a time (backing up your work each time so that you can always have something to hand in).  Then, for as much time as you have left, keep repeating the following:
+  - Read through the entire thesis, marking down where something is unclear or could use improvements.  But don’t actually make the changes.
+  - Then go through the document, sentence by sentence.  Re-word anything that is not worded in the clearest, best, most perfect way that you can word that sentence.  Focus on the parts that you marked in the previous read-through.
+  - A few rounds of this should substantially improve the document.
+
+
+INTRODUCTION
+
++ I didn't check through your formulas closely...I assume you have verified that there are no typos in the equations?
+
++ Historical note (requires some changes to a bunch of the background, mostly in the form of minor tweaking and how you refer to what's been done before): functional connectivity is not traditionally considered to be a dynamic property of brains.  Most studies of functional connectivity have used resting state data (images taken as participants rest in the scanner with their eyes open) to estimate a single correlation matrix for each person.  (Then those studies try to relate the similarities and differences between people's correlation matrices to other similarities and differences between those people, e.g. in their behaviors on various tasks.)
+
+Recently, Uri Hasson's group (paper: Simony et al. 2017, Nature Communications) extended the idea of functional connectivity in two ways.  First, that paper casts functional connectivity as a dynamic process that changes from moment to moment depending on the specific experiences of that moment.  (They used sliding windows, but it's not accurate to say that sliding windows are the "gold standard" given that the idea of dynamic connectivity is still new and not universally accepted.)  Another potential sliding window connectivity paper is the Manning et al. (2017) bioRxiv preprint.  Second, that (Simony) paper provides a clever method (ISFC) for homing in specifically on the stimulus-driving correlations (as opposed to a combination of stimulus-driven and internally drive correlations).  Both of these advances represent the current "cutting edge" of functional connectivity research in neuroscience-- so your description of those ideas as having been established in the literature is not accurate.
+	- To clarify about sliding windows being old vs. new, a bunch of prior studies have looked at analyses using sliding windows.  What I’m saying is a relatively recent development is to specifically look at brain correlations using sliding windows.
+
+Dani Basset and Olaf Sporns recently published a review paper on network dynamics (link: https://www.ncbi.nlm.nih.gov/pubmed/28230844) that wouuld be worth reading to get a better sense of where your work fits with the literature.
+
++ Re: the sliding window method, you could use some justification from *other* literature (you may have to do some digging to see where that approach was developed).  Essentially, the justification for the sliding window approach is that it uses the same correlation formula— just on different data for each sliding window.  So it has to be “correct” in some sense; it’s just a matter of balancing temporal resolution (maximized via shorter sliding windows) vs. stability (maximized via longer sliding windows).
+
++ You need some further explanations for "level up" -- I don't think you've provided enough of an intuition for the reader to fully understand what that function does or why it might be important.
+
++ You should also say something about the cost of applying PCA to the squareform matrices.  Specifically, the benefit (which you mentioned) is that the connectivity matrices have the same dimensionality as the original data.  The cost (which you didn't mention when describing levelup) is that the connectivity matrices are not represented with perfect fidelity, so there will necessarily be information loss each time you level up.
+
++ "human error" is not a source of noise (p. 13).  Instead of calling it "white noise," I would instead call it "non stimulus-driven neural activity.”
+
++ Unpack why the decoding analysis is used as a key evaluation method.  For example, there's no "ground truth" in real data, so we can only know that we're extracting brain patterns that are related to the representations we care about if we can decode using those patterns.
+
+
+RESULTS
+
++ Page 15— include formula for generating a correlated time series from a random matrix, given a desired correlation matrix (i.e. write out the words in the first paragraph of 5.1 as an equation, in addition to the text)
+
++ Provide some intuitions about why you generated those two types of synthetic datasets (blocked vs. ramping)
+
++ Page 16: What do you mean by “average resuls of running TimeCorr and the sliding window method” ?  What you actually mean, I think, is that you’re asking about how well the two methods recover the ground truth.  And you’re measuring the quality of the recovery using two metrics— correlation and MSE (which you need to unpack to describe exactly how you computed those measures).  You also need to unpack the format of those figures a bit more (e.g. when you’re describing what the colors mean).
+
++ Your description on page 16 about the performance of TimeCorr vs. sliding window needs cleaning up and clarification.  For example, “the results slowly gains smoother transition in-between correlation blocks…” doesn’t make sense.
+
++ Figures 1 and 2: your figures need to have letters if you want to refer to the letters in the captions. Also, the text is way too small.  (You can edit the figures with Inkscape or Illustrator)
+
++ When you say TimeCorr boasts significantly better performance, you should back that up with some sort of statistical test
+
++ There are really two “block correlations” datasets, not one (it’s “datasets,” not “dataset”)
+
++ In 5.1.2 you say the ramping dataset will test TimeCorr’s ability to recover dynamic correlations…but the block datasets are also changing over time.  You need a better framing of this distinction, e.g. gradual vs. abrupt transitions.
+
++ Need to define r2z and z2r with equations (should do this early on; earlier in the text you write out the formulae without calling them r2z and z2r)
+
++ Figure 3 (same comment as for figures 1/2— need letters, text too small)
+
++ It looks like the sliding window approach has lower correlation and higher MSE than the sliding window approach in the first two rows of Fig. 3.  However, it’s a bit misleading because what you’re showing in those figures is the match with terminal correlation matrices, not the actual correlation matrices at those timepoints.  When you do the timepoint-by-timepoint version (bottom two rows) the TimeCorr approach wins.  This should be unpacked in the text.
+
++ (the previous two comments also apply to the Fig. 4 results and the Fig. 5 results)
+
++ The justification for choosing a variance of “1000 or the number of timepoints” needs to be unpacked further
+
++ Page 24— you’re talking again about sources of noise in fMRI data (start of section 5.2); really you mean “non stimulus-driven activity.”
+
++ Page 26: need a bit more of an introduction into section 5.3, and the first paragraph needs cleaning up.  For example, the previous analyses used synthetic data where the ground truth was known, and assessed whether TimeCorr could recover the ground truth dynamic correlations.  In real data, there’s no known “ground truth,” and so we’re using decoding accuracy as a (noisy, imperfect) proxy for how well we recovered the ground truth.
+
++ Page 28 (5.3.1) — mention early on in the description that the dataset was collected by Uri Hasson’s lab, with a citation (Simony et al. 2017)
+
++ (Same for forrest dataset— Michael Hanke and colleagues; and also for Sherlock— Uri Hasson’s lab)
+
++ Wording of dataset descriptions could all use cleaning up
+
++ Section 5.3.4: you need to unpack those results in the numbered list a lot more.  For example, start with an introduction to that section.  Then describe the analyses and results for each dataset, referencing the figures.  You need at least one paragraph per figure, per dataset.
+
++ The logic and flow of section 5.3.4 needs a lot of work. You should explain *why* you did each analysis, using previous analyses (or citations) to justify why what you did makes sense.  For example, something like: “The analyses on synthetic data showed ___.  However, they left open the question of ___.  Therefore we ___.  We found ___.  This indicates that ___.”  Then for the next analysis: “Whereas the previous analysis showed ___, it left open the question of ___.  Therefore we ___.  We found ___.  This indicates that ___.”  In other words, each sentence should follow logically from the previous sentence, and each analysis should follow logically from the previous analysis.
+
++ Last paragraph on p. 34 (continuing onto p. 35): the Simony et al. (2017) paper has a good explanation of what should happen from intact —> paragraph —> word —> rest.  You should read that paper and then re-word that paragraph.
+
++ Figures 17, 18, and 19: text is too small, need captions.  Also, you need to explain what the difference is between the bottom panels of those figures and the other “decoding accuracy by level” figures (9 — 16).  (Same with Figures 20 and 21, except that the text size is good in those figures.)
+
++ Page 42 (Section 5.5): I don’t think we should release the toolbox publicly until we have a nice pre-print.  It can be based on your thesis document, but your thesis in its current form is not ready to post on bioRxiv or similar.  So I’d remove the parts about releasing it publicly and being available on pip.
+
++ The Cython and C-Python paragraph (second paragraph of 5.5) is not necessary
+
++ I would change Section 5.5 to focus specifically on the benchmarking tests you ran (Fig. “5.5” — which needs a number consistent with the other figure numbers, btw…I think Fig. 26?).  E.g. say something about how the algorithm needs to scale to large datasets, and you tested how well the current implementation scales with the number of voxels and the number of subjects.  That section needs to be fleshed out quite a bit.
+
+
+CONCLUSION
+
++ Page 44: TimeCorr is not lossless in the sense that some information is blurred out when we use the Gaussian weights (smoothing).  Also, sliding windows are not “widely popular.”
+
++ Each of the numbered “areas” could be its own sub-section and expanded out into several paragraphs, with citations.
+
++ Your point about information loss due to PCA is not backed up or justified with any analysis.  I think it’s worth making the point you’re trying to make (higher levels may not be accurately captured, so their decoding accuracies are biased towards 0 in our analyses).  But to specifically say it’s due to PCA requires an analysis to back that point up.
+
++ Your numbered points of future directions (p. 45) could each be their own subsections or paragraphs, with citations.  In other words, you need to explain why each of those future directions might be worthwhile (i.e. where did you come up with those ideas and why do you think they might be worth pursuing in future work?).
+
++ Your conclusion paragraph needs polish.  I’d also carve off that last paragraph into it’s own “Concluding remarks” subsection.
+
+
+REFERENCES
+
++ You should use APA formatted references…did you manage your references with BibTeX?  If so, you can convert to APA format using these instructions: https://tex.stackexchange.com/questions/155361/apalike-bibliographystyle

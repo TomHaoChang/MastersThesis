@@ -2,8 +2,8 @@ PWD /Users/ThousandSunny/Documents/Research/MastersThesis/Methods
 INPUT /usr/local/texlive/2017/texmf.cnf
 INPUT /usr/local/texlive/2017/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2017/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT ISFC.tex
-OUTPUT ISFC.log
+INPUT HOBD.tex
+OUTPUT HOBD.log
 INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/base/article.cls
 INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/base/article.cls
 INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/base/size11.clo
@@ -220,9 +220,9 @@ INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/float/float.sty
 INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/float/float.sty
 INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/titlesec/titlesec.sty
 INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/titlesec/titlesec.sty
-INPUT ISFC.aux
-INPUT ISFC.aux
-OUTPUT ISFC.aux
+INPUT HOBD.aux
+INPUT HOBD.aux
+OUTPUT HOBD.aux
 INPUT /usr/local/texlive/2017/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT /usr/local/texlive/2017/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
@@ -243,10 +243,6 @@ INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/etexcmds.sty
 INPUT /usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/etexcmds.sty
 INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
-INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
-INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
-OUTPUT ISFC.pdf
-INPUT /usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmr8.tfm
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmr6.tfm
@@ -269,6 +265,13 @@ INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsb.fd
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
+OUTPUT HOBD.pdf
+INPUT /usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
+INPUT HOBD.toc
+INPUT HOBD.toc
+OUTPUT HOBD.toc
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT ../figures/SyntheticTesting/10block100tCopy.png
@@ -310,6 +313,9 @@ INPUT ../figures/Intra-Level-Decoding-Analysis/10V/forrest.png
 INPUT ../figures/Intra-Level-Decoding-Analysis/1V/forrest.png
 INPUT ../figures/Intra-Level-Decoding-Analysis/1V/forrest.png
 INPUT ../figures/Intra-Level-Decoding-Analysis/1V/forrest.png
+INPUT ../figures/Intra-Level-Decoding-Analysis/1000V/sherlock.png
+INPUT ../figures/Intra-Level-Decoding-Analysis/1000V/sherlock.png
+INPUT ../figures/Intra-Level-Decoding-Analysis/1000V/sherlock.png
 INPUT ../figures/Intra-Level-Decoding-Analysis/10V/sherlock.png
 INPUT ../figures/Intra-Level-Decoding-Analysis/10V/sherlock.png
 INPUT ../figures/Intra-Level-Decoding-Analysis/10V/sherlock.png
@@ -343,6 +349,9 @@ INPUT ../figures/Multi-Level-Mixture-Analysis/10V/forrest.png
 INPUT ../figures/Multi-Level-Mixture-Analysis/1V/forrest.png
 INPUT ../figures/Multi-Level-Mixture-Analysis/1V/forrest.png
 INPUT ../figures/Multi-Level-Mixture-Analysis/1V/forrest.png
+INPUT ../figures/Multi-Level-Mixture-Analysis/1000V/sherlock.png
+INPUT ../figures/Multi-Level-Mixture-Analysis/1000V/sherlock.png
+INPUT ../figures/Multi-Level-Mixture-Analysis/1000V/sherlock.png
 INPUT ../figures/Multi-Level-Mixture-Analysis/10V/sherlock.png
 INPUT ../figures/Multi-Level-Mixture-Analysis/10V/sherlock.png
 INPUT ../figures/Multi-Level-Mixture-Analysis/10V/sherlock.png
@@ -353,7 +362,7 @@ INPUT ../figures/Benchmark/500timepoints.png
 INPUT ../figures/Benchmark/500timepoints.png
 INPUT ../figures/Benchmark/500timepoints.png
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
-INPUT ISFC.aux
+INPUT HOBD.aux
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
