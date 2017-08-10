@@ -11,6 +11,11 @@ Bassett, D.~S. and Sporns, O. (2017).
 \newblock {{N}etwork neuroscience}.
 \newblock {\em Nat. Neurosci.}, 20(3):353--364.
 
+\bibitem[Battiston et~al., 2017]{Battiston2017}
+Battiston, F., Nicosia, V., Chavez, M., and Latora, V. (2017).
+\newblock {{M}ultilayer motif analysis of brain networks}.
+\newblock {\em Chaos}, 27(4):047404.
+
 \bibitem[Ben-Yakov et~al., 2012]{hasson2012}
 Ben-Yakov, A., Honey, C.~J., Lerner, Y., and Hasson, U. (2012).
 \newblock {{L}oss of reliable temporal structure in event-related averaging of
@@ -54,6 +59,18 @@ Davison, E.~N., Turner, B.~O., Schlesinger, K.~J., Miller, M.~B., Grafton,
   {C}onnectivity across the {H}uman {L}ifespan}.
 \newblock {\em PLoS Comput. Biol.}, 12(11):e1005178.
 
+\bibitem[Friston et~al., 1998]{Friston98}
+Friston, K.~J., Fletcher, P., Josephs, O., Holmes, A., Rugg, M.~D., and Turner,
+  R. (1998).
+\newblock {{E}vent-related f{M}{R}{I}: characterizing differential responses}.
+\newblock {\em Neuroimage}, 7(1):30--40.
+
+\bibitem[Friston et~al., 1999]{Friston99}
+Friston, K.~J., Holmes, A.~P., Price, C.~J., Buchel, C., and Worsley, K.~J.
+  (1999).
+\newblock {{M}ultisubject f{M}{R}{I} studies and conjunction analyses}.
+\newblock {\em Neuroimage}, 10(4):385--396.
+
 \bibitem[Glerean et~al., 2012]{enrico2011}
 Glerean, E., Salmi, J., Lahnakoski, J.~M., Jaaskelainen, I.~P., and Sams, M.
   (2012).
@@ -88,6 +105,11 @@ Hanke, M., Baumgartner, F.~J., Ibe, P., Kaule, F.~R., Pollmann, S., Speck, O.,
 \newblock {{A} high-resolution 7-{T}esla f{M}{R}{I} dataset from complex
   natural stimulation with an audio movie}.
 \newblock {\em Sci Data}, 1:140003.
+
+\bibitem[Hasson et~al., 2010]{hasson2009}
+Hasson, U., Malach, R., and Heeger, D.~J. (2010).
+\newblock {{R}eliability of cortical activity during natural stimulation}.
+\newblock {\em Trends Cogn. Sci. (Regul. Ed.)}, 14(1):40--48.
 
 \bibitem[Hasson et~al., 2004]{hasson2004}
 Hasson, U., Nir, Y., Levy, I., Fuhrmann, G., and Malach, R. (2004).
@@ -203,6 +225,11 @@ Sporns, O., Tononi, G., and Kotter, R. (2005).
 \newblock {{T}he human connectome: {A} structural description of the human
   brain}.
 \newblock {\em PLoS Comput. Biol.}, 1(4):e42.
+
+\bibitem[{Tang} and {Bassett}, 2017]{tang2017}
+{Tang}, E. and {Bassett}, D.~S. (2017).
+\newblock {Control of Dynamics in Brain Networks}.
+\newblock {\em ArXiv e-prints}.
 
 \bibitem[Turk-Browne, 2013]{Turke13}
 Turk-Browne, N.~B. (2013).

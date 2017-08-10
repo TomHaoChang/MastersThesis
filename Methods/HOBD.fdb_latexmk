@@ -1,13 +1,14 @@
 # Fdb version 3
-["bibtex HOBD"] 1502313467 "HOBD.aux" "HOBD.bbl" "HOBD" 1502316479
+["bibtex HOBD"] 1502337029 "HOBD.aux" "HOBD.bbl" "HOBD" 1502382248
   "/usr/local/texlive/2017/texmf-dist/bibtex/bst/base/apalike.bst" 1480098433 24635 604dafcc79f521a11ea73e506e1fbd98 ""
-  "HOBD.aux" 1502316479 9309 610fb0b240c748d8f36a16248d486cb6 ""
-  "HOBD.bib" 1502312163 18984 e40825dacd3e558b5f586ed131b4f84e ""
+  "HOBD.aux" 1502381141 9854 4ac451effc626363ee53c53f545abee6 ""
+  "HOBD.bib" 1502327201 18822 79c5d61375c29ad297758b5dd82e8abf ""
   (generated)
-  "HOBD.blg"
   "HOBD.bbl"
-["pdflatex"] 1502316472 "HOBD.tex" "HOBD.pdf" "HOBD" 1502316479
+  "HOBD.blg"
+["pdflatex"] 1502381133 "HOBD.tex" "HOBD.pdf" "HOBD" 1502382248
   "../figures/Benchmark/500timepoints.png" 1497763306 24004 67fa1ebe59336a4396fdb2224604e99d ""
+  "../figures/High-Order.png" 1502333662 45578 5e23d92a7ccb9f1c279663cfc19c0471 ""
   "../figures/ISFC/t300slide25var1000.png" 1501450483 439441 72069f38222c77561c26b307421dff0f ""
   "../figures/Intra-Level-Decoding-Analysis/1000V/forrest.png" 1501257516 15355 f461d934857c3902c4e2eece570170a0 ""
   "../figures/Intra-Level-Decoding-Analysis/1000V/pieman.png" 1501257475 23280 00b162815bf05929d37319a103bcbeb6 ""
@@ -212,12 +213,12 @@
   "/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1495593472 2350277 a699055bee05bf8a40b0504752487295 ""
   "/usr/local/texlive/2017/texmf-var/web2c/pdftex/pdflatex.fmt" 1495593487 4129592 0e6cfee100d68e6d96b92c0258f2ff73 ""
   "/usr/local/texlive/2017/texmf.cnf" 1495593465 577 2b71d4d888f9e5560b2e99985915a9fa ""
-  "HOBD.aux" 1502316479 9309 610fb0b240c748d8f36a16248d486cb6 ""
-  "HOBD.bbl" 1502313467 9541 b25fbdd8fbef3e844ff2760526a8e104 "bibtex HOBD"
-  "HOBD.tex" 1502316453 86300 9357166231840e12ae6087282f1268ca ""
-  "HOBD.toc" 1502316479 1720 fec254282f210ddcc1f20ab768cff3ca ""
+  "HOBD.aux" 1502381141 9854 4ac451effc626363ee53c53f545abee6 ""
+  "HOBD.bbl" 1502337029 10651 4b124d7fdb3ceb86f862458c512cf906 "bibtex HOBD"
+  "HOBD.tex" 1502382234 88827 e3085e5a9cd1211f24bfd467035aa44a ""
+  "HOBD.toc" 1502381141 1721 5a746be0cb0c388cf6d09a77c984e372 ""
   (generated)
-  "HOBD.aux"
-  "HOBD.log"
   "HOBD.pdf"
+  "HOBD.log"
+  "HOBD.aux"
   "HOBD.toc"
