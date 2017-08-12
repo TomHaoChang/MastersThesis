@@ -1,1 +1,27 @@
 3. Future improvements: Functional brain modules reconfigure at multiple scales across the human lifespan \citep{Betzel2015}
+
+4. PCA ignores the spatial properties of each region. Therefore, although we are acquiring the same size correlation matrices, we may be potentially losing information. Correlation of spatially separate regions that show similar activities may be useful for decoding, but are omitted by PCA.
+
+5. TimeCorr adapt to different situations by changing Gaussian variance and lossless nature makes it superior than the sliding window approach.
+Questions:
+1. TimeCorr vs Sliding Window Perspective. And characteristics of TimeCorr implementations with different variance. How to define high resolution vs low resolution
+
+2. How to analyze PCA. How to quantify information loss
+
+3. Improvements: dimensional reduction by brain region. HTFA
+
+4. What I should include in Introduction vs in Model Description
+
+5. How to elaborate on benchmark.
+
+6. Four conditions, ISFC increase with coherence of the stimulus. Hasson
+
+7. How much to elaborate on applicable areas.
+
+Hidden Markov model for TimeCorr improvement. \citep{Baldassano2016}
+
+Spacial ICA for dimensionality reduction:
+http://journal.frontiersin.org/article/10.3389/fnins.2013.00154/full
+http://jnm.snmjournals.org/content/early/2017/03/08/jnumed.116.184309.abstract
+http://www.sciencedirect.com/science/article/pii/S1053811916300398
+https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4315015/

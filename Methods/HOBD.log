@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  10 AUG 2017 18:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  12 AUG 2017 01:37
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1077,40 +1077,28 @@ Package pdftex.def Info: ../figures/SyntheticTesting/2block250t.png used on inpu
 
 LaTeX Warning: Text page 21 contains only floats.
 
-[21 <../figures/SyntheticTesting/2block250t.png>] <../figures/SyntheticTesting/ramp1000t4var.png, id=108, 1464.47125pt x 1280.785pt>
+[21 <../figures/SyntheticTesting/2block250t.png>] [22] <../figures/SyntheticTesting/ramp1000t4var.png, id=111, 1464.47125pt x 1280.785pt>
 File: ../figures/SyntheticTesting/ramp1000t4var.png Graphic file (type png)
  <use ../figures/SyntheticTesting/ramp1000t4var.png>
-Package pdftex.def Info: ../figures/SyntheticTesting/ramp1000t4var.png used on input line 353.
+Package pdftex.def Info: ../figures/SyntheticTesting/ramp1000t4var.png used on input line 354.
 (pdftex.def)             Requested size: 433.62001pt x 379.23541pt.
- <../figures/SyntheticTesting/ramp500t4var.png, id=109, 1463.4675pt x 1280.785pt>
-File: ../figures/SyntheticTesting/ramp500t4var.png Graphic file (type png)
- <use ../figures/SyntheticTesting/ramp500t4var.png>
-Package pdftex.def Info: ../figures/SyntheticTesting/ramp500t4var.png used on input line 362.
-(pdftex.def)             Requested size: 433.62001pt x 379.48947pt.
- [22]
-
-LaTeX Warning: Text page 23 contains only floats.
-
-
-Overfull \vbox (0.93883pt too high) has occurred while \output is active []
-
- [23 <../figures/SyntheticTesting/ramp1000t4var.png>]
+ [23]
 
 LaTeX Warning: Text page 24 contains only floats.
 
 
-Overfull \vbox (1.19289pt too high) has occurred while \output is active []
+Overfull \vbox (0.93883pt too high) has occurred while \output is active []
 
- [24 <../figures/SyntheticTesting/ramp500t4var.png>] <../figures/SyntheticTesting/ramp100t4var.png, id=121, 1463.4675pt x 1280.785pt>
+ [24 <../figures/SyntheticTesting/ramp1000t4var.png>] <../figures/SyntheticTesting/ramp500t4var.png, id=119, 1463.4675pt x 1280.785pt>
+File: ../figures/SyntheticTesting/ramp500t4var.png Graphic file (type png)
+ <use ../figures/SyntheticTesting/ramp500t4var.png>
+Package pdftex.def Info: ../figures/SyntheticTesting/ramp500t4var.png used on input line 363.
+(pdftex.def)             Requested size: 433.62001pt x 379.48947pt.
+ <../figures/SyntheticTesting/ramp100t4var.png, id=120, 1463.4675pt x 1280.785pt>
 File: ../figures/SyntheticTesting/ramp100t4var.png Graphic file (type png)
  <use ../figures/SyntheticTesting/ramp100t4var.png>
-Package pdftex.def Info: ../figures/SyntheticTesting/ramp100t4var.png used on input line 371.
+Package pdftex.def Info: ../figures/SyntheticTesting/ramp100t4var.png used on input line 372.
 (pdftex.def)             Requested size: 433.62001pt x 379.48947pt.
- <../figures/SyntheticTesting/ramp1000t4slide.png, id=122, 1461.46pt x 1280.785pt>
-File: ../figures/SyntheticTesting/ramp1000t4slide.png Graphic file (type png)
- <use ../figures/SyntheticTesting/ramp1000t4slide.png>
-Package pdftex.def Info: ../figures/SyntheticTesting/ramp1000t4slide.png used on input line 380.
-(pdftex.def)             Requested size: 433.62001pt x 380.01714pt.
  [25]
 
 LaTeX Warning: Text page 26 contains only floats.
@@ -1118,146 +1106,153 @@ LaTeX Warning: Text page 26 contains only floats.
 
 Overfull \vbox (1.19289pt too high) has occurred while \output is active []
 
- [26 <../figures/SyntheticTesting/ramp100t4var.png>]
+ [26 <../figures/SyntheticTesting/ramp500t4var.png>]
 
 LaTeX Warning: Text page 27 contains only floats.
 
 
-Overfull \vbox (3.84972pt too high) has occurred while \output is active []
+Overfull \vbox (1.19289pt too high) has occurred while \output is active []
 
- [27 <../figures/SyntheticTesting/ramp1000t4slide.png>] <../figures/ISFC/t300slide25var1000.png, id=135, 1465.475pt x 1280.785pt>
-File: ../figures/ISFC/t300slide25var1000.png Graphic file (type png)
- <use ../figures/ISFC/t300slide25var1000.png>
-Package pdftex.def Info: ../figures/ISFC/t300slide25var1000.png used on input line 393.
-(pdftex.def)             Requested size: 433.62001pt x 378.9618pt.
+ [27 <../figures/SyntheticTesting/ramp100t4var.png>] <../figures/SyntheticTesting/ramp1000t4slide.png, id=133, 1461.46pt x 1280.785pt>
+File: ../figures/SyntheticTesting/ramp1000t4slide.png Graphic file (type png)
+ <use ../figures/SyntheticTesting/ramp1000t4slide.png>
+Package pdftex.def Info: ../figures/SyntheticTesting/ramp1000t4slide.png used on input line 381.
+(pdftex.def)             Requested size: 433.62001pt x 380.01714pt.
  [28]
 
 LaTeX Warning: Text page 29 contains only floats.
 
 
+Overfull \vbox (3.84972pt too high) has occurred while \output is active []
+
+ [29 <../figures/SyntheticTesting/ramp1000t4slide.png>] <../figures/ISFC/t300slide25var1000.png, id=141, 1465.475pt x 1280.785pt>
+File: ../figures/ISFC/t300slide25var1000.png Graphic file (type png)
+ <use ../figures/ISFC/t300slide25var1000.png>
+Package pdftex.def Info: ../figures/ISFC/t300slide25var1000.png used on input line 394.
+(pdftex.def)             Requested size: 433.62001pt x 378.9618pt.
+ [30]
+
+LaTeX Warning: Text page 31 contains only floats.
+
+
 Overfull \vbox (0.66522pt too high) has occurred while \output is active []
 
- [29 <../figures/ISFC/t300slide25var1000.png>] [30] [31] <../figures/Intra-Level-Decoding-Analysis/1000V/pieman.png, id=150, 396.48125pt x 292.09125pt>
+ [31 <../figures/ISFC/t300slide25var1000.png>] [32] <../figures/Intra-Level-Decoding-Analysis/1000V/pieman.png, id=153, 396.48125pt x 292.09125pt>
 File: ../figures/Intra-Level-Decoding-Analysis/1000V/pieman.png Graphic file (type png)
  <use ../figures/Intra-Level-Decoding-Analysis/1000V/pieman.png>
-Package pdftex.def Info: ../figures/Intra-Level-Decoding-Analysis/1000V/pieman.png used on input line 427.
+Package pdftex.def Info: ../figures/Intra-Level-Decoding-Analysis/1000V/pieman.png used on input line 428.
 (pdftex.def)             Requested size: 260.17465pt x 191.67548pt.
- <../figures/Intra-Level-Decoding-Analysis/10V/pieman.png, id=151, 396.48125pt x 292.09125pt>
+ <../figures/Intra-Level-Decoding-Analysis/10V/pieman.png, id=154, 396.48125pt x 292.09125pt>
 File: ../figures/Intra-Level-Decoding-Analysis/10V/pieman.png Graphic file (type png)
  <use ../figures/Intra-Level-Decoding-Analysis/10V/pieman.png>
-Package pdftex.def Info: ../figures/Intra-Level-Decoding-Analysis/10V/pieman.png used on input line 434.
+Package pdftex.def Info: ../figures/Intra-Level-Decoding-Analysis/10V/pieman.png used on input line 435.
 (pdftex.def)             Requested size: 260.17465pt x 191.67548pt.
- <../figures/Intra-Level-Decoding-Analysis/1V/pieman.png, id=152, 396.48125pt x 292.09125pt>
+ <../figures/Intra-Level-Decoding-Analysis/1V/pieman.png, id=155, 396.48125pt x 292.09125pt>
 File: ../figures/Intra-Level-Decoding-Analysis/1V/pieman.png Graphic file (type png)
  <use ../figures/Intra-Level-Decoding-Analysis/1V/pieman.png>
-Package pdftex.def Info: ../figures/Intra-Level-Decoding-Analysis/1V/pieman.png used on input line 441.
+Package pdftex.def Info: ../figures/Intra-Level-Decoding-Analysis/1V/pieman.png used on input line 442.
 (pdftex.def)             Requested size: 260.17465pt x 191.67548pt.
- <../figures/Intra-Level-Decoding-Analysis/1000V/forrest.png, id=153, 396.48125pt x 292.09125pt>
+ <../figures/Intra-Level-Decoding-Analysis/1000V/forrest.png, id=156, 396.48125pt x 292.09125pt>
 File: ../figures/Intra-Level-Decoding-Analysis/1000V/forrest.png Graphic file (type png)
  <use ../figures/Intra-Level-Decoding-Analysis/1000V/forrest.png>
-Package pdftex.def Info: ../figures/Intra-Level-Decoding-Analysis/1000V/forrest.png used on input line 448.
+Package pdftex.def Info: ../figures/Intra-Level-Decoding-Analysis/1000V/forrest.png used on input line 449.
 (pdftex.def)             Requested size: 260.17465pt x 191.67548pt.
- <../figures/Intra-Level-Decoding-Analysis/10V/forrest.png, id=154, 396.48125pt x 292.09125pt>
+ <../figures/Intra-Level-Decoding-Analysis/10V/forrest.png, id=157, 396.48125pt x 292.09125pt>
 File: ../figures/Intra-Level-Decoding-Analysis/10V/forrest.png Graphic file (type png)
  <use ../figures/Intra-Level-Decoding-Analysis/10V/forrest.png>
-Package pdftex.def Info: ../figures/Intra-Level-Decoding-Analysis/10V/forrest.png used on input line 455.
+Package pdftex.def Info: ../figures/Intra-Level-Decoding-Analysis/10V/forrest.png used on input line 456.
 (pdftex.def)             Requested size: 260.17465pt x 191.67548pt.
 
-<../figures/Intra-Level-Decoding-Analysis/1V/forrest.png, id=155, 396.48125pt x 292.09125pt>
+<../figures/Intra-Level-Decoding-Analysis/1V/forrest.png, id=158, 396.48125pt x 292.09125pt>
 File: ../figures/Intra-Level-Decoding-Analysis/1V/forrest.png Graphic file (type png)
  <use ../figures/Intra-Level-Decoding-Analysis/1V/forrest.png>
-Package pdftex.def Info: ../figures/Intra-Level-Decoding-Analysis/1V/forrest.png used on input line 462.
+Package pdftex.def Info: ../figures/Intra-Level-Decoding-Analysis/1V/forrest.png used on input line 463.
 (pdftex.def)             Requested size: 260.17465pt x 191.67548pt.
- <../figures/Intra-Level-Decoding-Analysis/1000V/sherlock.png, id=156, 396.48125pt x 292.09125pt>
+ <../figures/Intra-Level-Decoding-Analysis/1000V/sherlock.png, id=159, 396.48125pt x 292.09125pt>
 File: ../figures/Intra-Level-Decoding-Analysis/1000V/sherlock.png Graphic file (type png)
  <use ../figures/Intra-Level-Decoding-Analysis/1000V/sherlock.png>
-Package pdftex.def Info: ../figures/Intra-Level-Decoding-Analysis/1000V/sherlock.png used on input line 469.
+Package pdftex.def Info: ../figures/Intra-Level-Decoding-Analysis/1000V/sherlock.png used on input line 470.
 (pdftex.def)             Requested size: 260.17465pt x 191.67548pt.
- <../figures/Intra-Level-Decoding-Analysis/10V/sherlock.png, id=157, 396.48125pt x 292.09125pt>
+ <../figures/Intra-Level-Decoding-Analysis/10V/sherlock.png, id=160, 396.48125pt x 292.09125pt>
 File: ../figures/Intra-Level-Decoding-Analysis/10V/sherlock.png Graphic file (type png)
  <use ../figures/Intra-Level-Decoding-Analysis/10V/sherlock.png>
-Package pdftex.def Info: ../figures/Intra-Level-Decoding-Analysis/10V/sherlock.png used on input line 476.
+Package pdftex.def Info: ../figures/Intra-Level-Decoding-Analysis/10V/sherlock.png used on input line 477.
 (pdftex.def)             Requested size: 260.17465pt x 191.67548pt.
- <../figures/Intra-Level-Decoding-Analysis/1V/sherlock.png, id=158, 396.48125pt x 292.09125pt>
+ <../figures/Intra-Level-Decoding-Analysis/1V/sherlock.png, id=161, 396.48125pt x 292.09125pt>
 File: ../figures/Intra-Level-Decoding-Analysis/1V/sherlock.png Graphic file (type png)
  <use ../figures/Intra-Level-Decoding-Analysis/1V/sherlock.png>
-Package pdftex.def Info: ../figures/Intra-Level-Decoding-Analysis/1V/sherlock.png used on input line 483.
+Package pdftex.def Info: ../figures/Intra-Level-Decoding-Analysis/1V/sherlock.png used on input line 484.
 (pdftex.def)             Requested size: 260.17465pt x 191.67548pt.
- [32 <../figures/Intra-Level-Decoding-Analysis/1000V/pieman.png>] [33 <../figures/Intra-Level-Decoding-Analysis/10V/pieman.png> <../figures/Intra-Level-Decoding-Analysis/1V/pieman.png>] [34 <../figures/Intra-Level-Decoding-Analysis/1000V/forrest.png> <../figures/Intra-Level-Decoding-Analysis/10V/forrest.png>] [35 <../figures/Intra-Level-Decoding-Analysis/1V/forrest.png> <../figures/Intra-Level-Decoding-Analysis/1000V/sherlock.png>] [36 <../figures/Intra-Level-Decoding-Analysis/10V/sherlock.png> <../figures/Intra-Level-Decoding-Analysis/1V/sherlock.png>] [37] [38] <../figures/Multi-Level-Mixture-Analysis/1000V/pieman-weights.png, id=190, 1175.39125pt x 353.32pt>
+ [33] [34 <../figures/Intra-Level-Decoding-Analysis/1000V/pieman.png> <../figures/Intra-Level-Decoding-Analysis/10V/pieman.png>] [35 <../figures/Intra-Level-Decoding-Analysis/1V/pieman.png> <../figures/Intra-Level-Decoding-Analysis/1000V/forrest.png>] [36 <../figures/Intra-Level-Decoding-Analysis/10V/forrest.png> <../figures/Intra-Level-Decoding-Analysis/1V/forrest.png>] [37 <../figures/Intra-Level-Decoding-Analysis/1000V/sherlock.png> <../figures/Intra-Level-Decoding-Analysis/10V/sherlock.png>] [38 <../figures/Intra-Level-Decoding-Analysis/1V/sherlock.png>] [39] [40] <../figures/Multi-Level-Mixture-Analysis/1000V/pieman-weights.png, id=196, 1184.425pt x 376.40625pt>
 File: ../figures/Multi-Level-Mixture-Analysis/1000V/pieman-weights.png Graphic file (type png)
  <use ../figures/Multi-Level-Mixture-Analysis/1000V/pieman-weights.png>
-Package pdftex.def Info: ../figures/Multi-Level-Mixture-Analysis/1000V/pieman-weights.png used on input line 532.
-(pdftex.def)             Requested size: 433.62001pt x 130.34357pt.
- <../figures/Multi-Level-Mixture-Analysis/1000V/pieman-accuracy.png, id=191, 1169.36874pt x 353.32pt>
+Package pdftex.def Info: ../figures/Multi-Level-Mixture-Analysis/1000V/pieman-weights.png used on input line 533.
+(pdftex.def)             Requested size: 433.62001pt x 137.80353pt.
+ <../figures/Multi-Level-Mixture-Analysis/1000V/pieman-accuracy.png, id=197, 1178.4025pt x 376.40625pt>
 File: ../figures/Multi-Level-Mixture-Analysis/1000V/pieman-accuracy.png Graphic file (type png)
  <use ../figures/Multi-Level-Mixture-Analysis/1000V/pieman-accuracy.png>
-Package pdftex.def Info: ../figures/Multi-Level-Mixture-Analysis/1000V/pieman-accuracy.png used on input line 533.
-(pdftex.def)             Requested size: 433.62001pt x 131.01747pt.
- <../figures/Multi-Level-Mixture-Analysis/10V/pieman-weights.png, id=192, 1169.36874pt x 353.32pt>
+Package pdftex.def Info: ../figures/Multi-Level-Mixture-Analysis/1000V/pieman-accuracy.png used on input line 534.
+(pdftex.def)             Requested size: 433.62001pt x 138.50998pt.
+ <../figures/Multi-Level-Mixture-Analysis/10V/pieman-weights.png, id=198, 1178.4025pt x 376.40625pt>
 File: ../figures/Multi-Level-Mixture-Analysis/10V/pieman-weights.png Graphic file (type png)
  <use ../figures/Multi-Level-Mixture-Analysis/10V/pieman-weights.png>
-Package pdftex.def Info: ../figures/Multi-Level-Mixture-Analysis/10V/pieman-weights.png used on input line 540.
-(pdftex.def)             Requested size: 433.62001pt x 131.01747pt.
- <../figures/Multi-Level-Mixture-Analysis/10V/pieman-accuracy.png, id=193, 1169.36874pt x 353.32pt>
+Package pdftex.def Info: ../figures/Multi-Level-Mixture-Analysis/10V/pieman-weights.png used on input line 541.
+(pdftex.def)             Requested size: 433.62001pt x 138.50998pt.
+ <../figures/Multi-Level-Mixture-Analysis/10V/pieman-accuracy.png, id=199, 1178.4025pt x 376.40625pt>
 File: ../figures/Multi-Level-Mixture-Analysis/10V/pieman-accuracy.png Graphic file (type png)
  <use ../figures/Multi-Level-Mixture-Analysis/10V/pieman-accuracy.png>
-Package pdftex.def Info: ../figures/Multi-Level-Mixture-Analysis/10V/pieman-accuracy.png used on input line 541.
-(pdftex.def)             Requested size: 433.62001pt x 131.01747pt.
- <../figures/Multi-Level-Mixture-Analysis/1V/pieman-weights.png, id=194, 1169.36874pt x 353.32pt>
+Package pdftex.def Info: ../figures/Multi-Level-Mixture-Analysis/10V/pieman-accuracy.png used on input line 542.
+(pdftex.def)             Requested size: 433.62001pt x 138.50998pt.
+ <../figures/Multi-Level-Mixture-Analysis/1V/pieman-weights.png, id=200, 1178.4025pt x 376.40625pt>
 File: ../figures/Multi-Level-Mixture-Analysis/1V/pieman-weights.png Graphic file (type png)
 
 <use ../figures/Multi-Level-Mixture-Analysis/1V/pieman-weights.png>
-Package pdftex.def Info: ../figures/Multi-Level-Mixture-Analysis/1V/pieman-weights.png used on input line 548.
-(pdftex.def)             Requested size: 433.62001pt x 131.01747pt.
- <../figures/Multi-Level-Mixture-Analysis/1V/pieman-accuracy.png, id=195, 1169.36874pt x 353.32pt>
+Package pdftex.def Info: ../figures/Multi-Level-Mixture-Analysis/1V/pieman-weights.png used on input line 549.
+(pdftex.def)             Requested size: 433.62001pt x 138.50998pt.
+ <../figures/Multi-Level-Mixture-Analysis/1V/pieman-accuracy.png, id=201, 1178.4025pt x 376.40625pt>
 File: ../figures/Multi-Level-Mixture-Analysis/1V/pieman-accuracy.png Graphic file (type png)
  <use ../figures/Multi-Level-Mixture-Analysis/1V/pieman-accuracy.png>
-Package pdftex.def Info: ../figures/Multi-Level-Mixture-Analysis/1V/pieman-accuracy.png used on input line 549.
-(pdftex.def)             Requested size: 433.62001pt x 131.01747pt.
- <../figures/Multi-Level-Mixture-Analysis/1000V/forrest.png, id=196, 726.715pt x 353.32pt>
+Package pdftex.def Info: ../figures/Multi-Level-Mixture-Analysis/1V/pieman-accuracy.png used on input line 550.
+(pdftex.def)             Requested size: 433.62001pt x 138.50998pt.
+ <../figures/Multi-Level-Mixture-Analysis/1000V/forrest.png, id=202, 726.715pt x 353.32pt>
 File: ../figures/Multi-Level-Mixture-Analysis/1000V/forrest.png Graphic file (type png)
  <use ../figures/Multi-Level-Mixture-Analysis/1000V/forrest.png>
-Package pdftex.def Info: ../figures/Multi-Level-Mixture-Analysis/1000V/forrest.png used on input line 556.
+Package pdftex.def Info: ../figures/Multi-Level-Mixture-Analysis/1000V/forrest.png used on input line 557.
 (pdftex.def)             Requested size: 433.62001pt x 210.82373pt.
- <../figures/Multi-Level-Mixture-Analysis/10V/forrest.png, id=197, 726.715pt x 353.32pt>
+ <../figures/Multi-Level-Mixture-Analysis/10V/forrest.png, id=203, 726.715pt x 353.32pt>
 File: ../figures/Multi-Level-Mixture-Analysis/10V/forrest.png Graphic file (type png)
  <use ../figures/Multi-Level-Mixture-Analysis/10V/forrest.png>
-Package pdftex.def Info: ../figures/Multi-Level-Mixture-Analysis/10V/forrest.png used on input line 563.
+Package pdftex.def Info: ../figures/Multi-Level-Mixture-Analysis/10V/forrest.png used on input line 564.
 (pdftex.def)             Requested size: 433.62001pt x 210.82373pt.
- <../figures/Multi-Level-Mixture-Analysis/1V/forrest.png, id=198, 726.715pt x 353.32pt>
+ <../figures/Multi-Level-Mixture-Analysis/1V/forrest.png, id=204, 726.715pt x 353.32pt>
 File: ../figures/Multi-Level-Mixture-Analysis/1V/forrest.png Graphic file (type png)
  <use ../figures/Multi-Level-Mixture-Analysis/1V/forrest.png>
-Package pdftex.def Info: ../figures/Multi-Level-Mixture-Analysis/1V/forrest.png used on input line 570.
+Package pdftex.def Info: ../figures/Multi-Level-Mixture-Analysis/1V/forrest.png used on input line 571.
 (pdftex.def)             Requested size: 433.62001pt x 210.82373pt.
- <../figures/Multi-Level-Mixture-Analysis/1000V/sherlock.png, id=199, 726.715pt x 353.32pt>
+ <../figures/Multi-Level-Mixture-Analysis/1000V/sherlock.png, id=205, 726.715pt x 353.32pt>
 File: ../figures/Multi-Level-Mixture-Analysis/1000V/sherlock.png Graphic file (type png)
  <use ../figures/Multi-Level-Mixture-Analysis/1000V/sherlock.png>
-Package pdftex.def Info: ../figures/Multi-Level-Mixture-Analysis/1000V/sherlock.png used on input line 577.
+Package pdftex.def Info: ../figures/Multi-Level-Mixture-Analysis/1000V/sherlock.png used on input line 578.
 (pdftex.def)             Requested size: 433.62001pt x 210.82373pt.
- <../figures/Multi-Level-Mixture-Analysis/10V/sherlock.png, id=200, 720.6925pt x 353.32pt>
+ <../figures/Multi-Level-Mixture-Analysis/10V/sherlock.png, id=206, 720.6925pt x 353.32pt>
 File: ../figures/Multi-Level-Mixture-Analysis/10V/sherlock.png Graphic file (type png)
  <use ../figures/Multi-Level-Mixture-Analysis/10V/sherlock.png>
-Package pdftex.def Info: ../figures/Multi-Level-Mixture-Analysis/10V/sherlock.png used on input line 584.
+Package pdftex.def Info: ../figures/Multi-Level-Mixture-Analysis/10V/sherlock.png used on input line 585.
 (pdftex.def)             Requested size: 433.62001pt x 212.58127pt.
 
-<../figures/Multi-Level-Mixture-Analysis/1V/sherlock.png, id=201, 726.715pt x 353.32pt>
+<../figures/Multi-Level-Mixture-Analysis/1V/sherlock.png, id=207, 726.715pt x 353.32pt>
 File: ../figures/Multi-Level-Mixture-Analysis/1V/sherlock.png Graphic file (type png)
  <use ../figures/Multi-Level-Mixture-Analysis/1V/sherlock.png>
-Package pdftex.def Info: ../figures/Multi-Level-Mixture-Analysis/1V/sherlock.png used on input line 591.
+Package pdftex.def Info: ../figures/Multi-Level-Mixture-Analysis/1V/sherlock.png used on input line 592.
 (pdftex.def)             Requested size: 433.62001pt x 210.82373pt.
- [39]
-
-LaTeX Warning: Text page 40 contains only floats.
-
-[40 <../figures/Multi-Level-Mixture-Analysis/1000V/pieman-weights.png> <../figures/Multi-Level-Mixture-Analysis/1000V/pieman-accuracy.png> <../figures/Multi-Level-Mixture-Analysis/10V/pieman-weights.png> <../figures/Multi-Level-Mixture-Analysis/10V/pieman-accuracy.png>] [41 <../figures/Multi-Level-Mixture-Analysis/1V/pieman-weights.png> <../figures/Multi-Level-Mixture-Analysis/1V/pieman-accuracy.png> <../figures/Multi-Level-Mixture-Analysis/1000V/forrest.png>] [42 <../figures/Multi-Level-Mixture-Analysis/10V/forrest.png> <../figures/Multi-Level-Mixture-Analysis/1V/forrest.png>] [43 <../figures/Multi-Level-Mixture-Analysis/1000V/sherlock.png> <../figures/Multi-Level-Mixture-Analysis/10V/sherlock.png>] [44 <../figures/Multi-Level-Mixture-Analysis/1V/sherlock.png>] <../figures/Benchmark/500timepoints.png, id=234, 494.84875pt x 292.09125pt>
+ [41 <../figures/Multi-Level-Mixture-Analysis/1000V/pieman-weights.png> <../figures/Multi-Level-Mixture-Analysis/1000V/pieman-accuracy.png>] [42 <../figures/Multi-Level-Mixture-Analysis/10V/pieman-weights.png> <../figures/Multi-Level-Mixture-Analysis/10V/pieman-accuracy.png>] [43 <../figures/Multi-Level-Mixture-Analysis/1V/pieman-weights.png> <../figures/Multi-Level-Mixture-Analysis/1V/pieman-accuracy.png> <../figures/Multi-Level-Mixture-Analysis/1000V/forrest.png>] [44 <../figures/Multi-Level-Mixture-Analysis/10V/forrest.png> <../figures/Multi-Level-Mixture-Analysis/1V/forrest.png>] <../figures/Benchmark/500timepoints.png, id=231, 494.84875pt x 292.09125pt>
 File: ../figures/Benchmark/500timepoints.png Graphic file (type png)
  <use ../figures/Benchmark/500timepoints.png>
-Package pdftex.def Info: ../figures/Benchmark/500timepoints.png used on input line 610.
+Package pdftex.def Info: ../figures/Benchmark/500timepoints.png used on input line 608.
 (pdftex.def)             Requested size: 433.62001pt x 255.94913pt.
- [45] [46 <../figures/Benchmark/500timepoints.png>] [47
+ [45 <../figures/Multi-Level-Mixture-Analysis/1000V/sherlock.png> <../figures/Multi-Level-Mixture-Analysis/10V/sherlock.png>] [46 <../figures/Multi-Level-Mixture-Analysis/1V/sherlock.png> <../figures/Benchmark/500timepoints.png>] [47] [48
 
-] [48] [49] (./HOBD.bbl [50] [51] [52]) [53]
-(./HOBD.aux) )
+] [49] [50] (./HOBD.bbl [51] [52] [53]) [54] (./HOBD.aux) )
 (\end occurred inside a group at level 1)
 
 ### simple group (level 1) entered at line 1061 ({)
@@ -1265,16 +1260,16 @@ Package pdftex.def Info: ../figures/Benchmark/500timepoints.png used on input li
 Here is how much of TeX's memory you used:
  25435 strings out of 492995
  520954 string characters out of 6132704
- 899301 words of memory out of 5000000
+ 898300 words of memory out of 5000000
  28573 multiletter control sequences out of 15000+600000
  10152 words of font info for 38 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,11n,78p,10402b,7569s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on HOBD.pdf (59 pages, 3839102 bytes).
+Output written on HOBD.pdf (60 pages, 3890429 bytes).
 PDF statistics:
- 303 PDF objects out of 1000 (max. 8388607)
- 169 compressed objects within 2 object streams
+ 306 PDF objects out of 1000 (max. 8388607)
+ 171 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  163 words of extra memory for PDF output out of 10000 (max. 10000000)
 
