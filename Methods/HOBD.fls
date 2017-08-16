@@ -365,9 +365,6 @@ INPUT ../figures/Multi-Level-Mixture-Analysis/10V/sherlock.png
 INPUT ../figures/Multi-Level-Mixture-Analysis/1V/sherlock.png
 INPUT ../figures/Multi-Level-Mixture-Analysis/1V/sherlock.png
 INPUT ../figures/Multi-Level-Mixture-Analysis/1V/sherlock.png
-INPUT ../figures/Benchmark/500timepoints.png
-INPUT ../figures/Benchmark/500timepoints.png
-INPUT ../figures/Benchmark/500timepoints.png
 INPUT HOBD.bbl
 INPUT HOBD.bbl
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
@@ -379,7 +376,9 @@ INPUT /usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.p
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb

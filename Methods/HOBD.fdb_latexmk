@@ -1,13 +1,12 @@
 # Fdb version 3
-["bibtex HOBD"] 1502516263 "HOBD.aux" "HOBD.bbl" "HOBD" 1502516269
+["bibtex HOBD"] 1502780080 "HOBD.aux" "HOBD.bbl" "HOBD" 1502782202
   "/usr/local/texlive/2017/texmf-dist/bibtex/bst/base/apalike.bst" 1480098433 24635 604dafcc79f521a11ea73e506e1fbd98 ""
-  "HOBD.aux" 1502516269 9854 6feff71318298d56e71f71c32e6a4342 ""
-  "HOBD.bib" 1502485180 19181 abd4bd9a8446d9192c1a4273ede0001d ""
+  "HOBD.aux" 1502782202 10040 6201d23a8caaf5b5dcc4797a997c47ea ""
+  "HOBD.bib" 1502765519 20274 048a3619cc963f33ae9b4f5e0fb6e05a ""
   (generated)
   "HOBD.blg"
   "HOBD.bbl"
-["pdflatex"] 1502516263 "HOBD.tex" "HOBD.pdf" "HOBD" 1502516269
-  "../figures/Benchmark/500timepoints.png" 1497763306 24004 67fa1ebe59336a4396fdb2224604e99d ""
+["pdflatex"] 1502782196 "HOBD.tex" "HOBD.pdf" "HOBD" 1502782202
   "../figures/High-Order.png" 1502333662 45578 5e23d92a7ccb9f1c279663cfc19c0471 ""
   "../figures/ISFC/t300slide25var1000.png" 1501450483 439441 72069f38222c77561c26b307421dff0f ""
   "../figures/Intra-Level-Decoding-Analysis/1000V/forrest.png" 1501257516 15355 f461d934857c3902c4e2eece570170a0 ""
@@ -65,8 +64,10 @@
   "/usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb" 1480098733 37166 8ab3487cbe3ab49ebce74c29ea2418db ""
   "/usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb" 1480098733 35469 70d41d2b9ea31d5d813066df7c99281c ""
   "/usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1480098733 35752 024fb6c41858982481f6968b5fc26508 ""
+  "/usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb" 1480098733 32734 69e00a6b65cedb993666e42eedb3d48f ""
   "/usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1480098733 32726 0a1aea6fcd6468ee2cf64d891f5c43c8 ""
   "/usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1480098733 32569 5e5ddc8df908dea60932f3c484a54c0d ""
+  "/usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb" 1480098733 32587 1788b0c1c5b39540c96f5e42ccd6dae8 ""
   "/usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1480098733 32626 4f5c1b83753b1dd3a97d1b399a005b4b ""
   "/usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb" 1480098733 37944 359e864bd06cde3b1cf57bb20757fb06 ""
   "/usr/local/texlive/2017/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1480098806 71627 94eb9990bed73c364d7f53f960cc8c5b ""
@@ -213,12 +214,12 @@
   "/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1495593472 2350277 a699055bee05bf8a40b0504752487295 ""
   "/usr/local/texlive/2017/texmf-var/web2c/pdftex/pdflatex.fmt" 1495593487 4129592 0e6cfee100d68e6d96b92c0258f2ff73 ""
   "/usr/local/texlive/2017/texmf.cnf" 1495593465 577 2b71d4d888f9e5560b2e99985915a9fa ""
-  "HOBD.aux" 1502516269 9854 6feff71318298d56e71f71c32e6a4342 ""
-  "HOBD.bbl" 1502516263 10651 4b124d7fdb3ceb86f862458c512cf906 "bibtex HOBD"
-  "HOBD.tex" 1502516250 93565 8135b91605c7159aa79f6e40ef79049a ""
-  "HOBD.toc" 1502516269 1721 bc27554df207a1b3f39a789749d25ed8 ""
+  "HOBD.aux" 1502782202 10040 6201d23a8caaf5b5dcc4797a997c47ea ""
+  "HOBD.bbl" 1502780080 11915 109e487e6d3e13a2bbf5a4c6384822f7 "bibtex HOBD"
+  "HOBD.tex" 1502782190 102461 6a6492dd5967b42f5c922b39d10e8ad0 ""
+  "HOBD.toc" 1502782202 1622 ca13e07701a1a41f97316ee1b3332509 ""
   (generated)
   "HOBD.aux"
+  "HOBD.log"
   "HOBD.toc"
   "HOBD.pdf"
-  "HOBD.log"

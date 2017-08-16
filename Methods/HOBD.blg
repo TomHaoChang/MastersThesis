@@ -3,44 +3,44 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: HOBD.aux
 The style file: apalike.bst
 Database file #1: HOBD.bib
-You've used 37 entries,
+You've used 41 entries,
             1935 wiz_defined-function locations,
-            700 strings with 11814 characters,
-and the built_in function-call counts, 19059 in all, are:
-= -- 1749
-> -- 1270
+            725 strings with 12825 characters,
+and the built_in function-call counts, 20963 in all, are:
+= -- 1924
+> -- 1392
 < -- 5
-+ -- 466
-- -- 464
-* -- 1901
-:= -- 3411
-add.period$ -- 111
-call.type$ -- 37
-change.case$ -- 417
-chr.to.int$ -- 37
-cite$ -- 37
-duplicate$ -- 513
-empty$ -- 1051
-format.name$ -- 509
-if$ -- 3523
++ -- 510
+- -- 508
+* -- 2085
+:= -- 3756
+add.period$ -- 123
+call.type$ -- 41
+change.case$ -- 459
+chr.to.int$ -- 41
+cite$ -- 41
+duplicate$ -- 569
+empty$ -- 1159
+format.name$ -- 557
+if$ -- 3876
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 37
-newline$ -- 188
-num.names$ -- 111
-pop$ -- 348
+missing$ -- 41
+newline$ -- 208
+num.names$ -- 123
+pop$ -- 382
 preamble$ -- 1
-purify$ -- 417
+purify$ -- 459
 quote$ -- 0
-skip$ -- 376
+skip$ -- 416
 stack$ -- 0
-substring$ -- 1210
-swap$ -- 37
+substring$ -- 1323
+swap$ -- 41
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 222
+type$ -- 246
 warning$ -- 0
-while$ -- 132
+while$ -- 146
 width$ -- 0
-write$ -- 478
+write$ -- 530
