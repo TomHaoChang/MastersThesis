@@ -281,9 +281,9 @@ INPUT ../figures/High-Order.png
 INPUT ../figures/High-Order.png
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
-INPUT ../figures/SyntheticTesting/10block100tCopy.png
-INPUT ../figures/SyntheticTesting/10block100tCopy.png
-INPUT ../figures/SyntheticTesting/10block100tCopy.png
+INPUT ../figures/SyntheticTesting/10block100t.png
+INPUT ../figures/SyntheticTesting/10block100t.png
+INPUT ../figures/SyntheticTesting/10block100t.png
 INPUT ../figures/SyntheticTesting/2block250t.png
 INPUT ../figures/SyntheticTesting/2block250t.png
 INPUT ../figures/SyntheticTesting/2block250t.png

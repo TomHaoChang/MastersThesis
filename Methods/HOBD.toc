@@ -10,11 +10,11 @@
 \contentsline {subsection}{\numberline {5.1}Testing Single Subject TimeCorr on Synthetic Datasets}{18}
 \contentsline {subsubsection}{\numberline {5.1.1}Single Subject Synthetic Dataset with block correlations}{18}
 \contentsline {subsubsection}{\numberline {5.1.2}Single Subject Synthetic Dataset with ramping correlations}{23}
-\contentsline {subsection}{\numberline {5.2}Testing Inter-Subject Functional Connectivity using TimeCorr}{31}
-\contentsline {subsection}{\numberline {5.3}HOBD Intra-Level Decoding Analysis}{33}
-\contentsline {subsubsection}{\numberline {5.3.1}Description for the Pieman Dataset}{34}
-\contentsline {subsubsection}{\numberline {5.3.2}Description for the Forrest Dataset}{34}
-\contentsline {subsubsection}{\numberline {5.3.3}Description for the Sherlock Dataset}{34}
-\contentsline {subsubsection}{\numberline {5.3.4}Results}{35}
-\contentsline {subsection}{\numberline {5.4}HOBD Multi-Level Mixture Analysis}{42}
-\contentsline {section}{\numberline {6}Conclusion}{49}
+\contentsline {subsection}{\numberline {5.2}Testing Inter-Subject Functional Connectivity using TimeCorr}{28}
+\contentsline {subsection}{\numberline {5.3}HOBD Intra-Level Decoding Analysis}{29}
+\contentsline {subsubsection}{\numberline {5.3.1}Description for the Pieman Dataset}{30}
+\contentsline {subsubsection}{\numberline {5.3.2}Description for the Forrest Dataset}{30}
+\contentsline {subsubsection}{\numberline {5.3.3}Description for the Sherlock Dataset}{30}
+\contentsline {subsubsection}{\numberline {5.3.4}Results}{31}
+\contentsline {subsection}{\numberline {5.4}HOBD Multi-Level Mixture Analysis}{35}
+\contentsline {section}{\numberline {6}Conclusion}{50}
