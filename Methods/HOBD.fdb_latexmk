@@ -1,14 +1,14 @@
 # Fdb version 3
-["bibtex HOBD"] 1503201441 "HOBD.aux" "HOBD.bbl" "HOBD" 1503205389
+["bibtex HOBD"] 1503294967 "HOBD.aux" "HOBD.bbl" "HOBD" 1503298676
   "/usr/local/texlive/2017/texmf-dist/bibtex/bst/base/apalike.bst" 1480098433 24635 604dafcc79f521a11ea73e506e1fbd98 ""
-  "HOBD.aux" 1503205389 10064 b10b5c4ca062c7af5f62d0fedf606cbb ""
+  "HOBD.aux" 1503298676 9982 b1acb632929ad8ee12def353bc99d920 ""
   "HOBD.bib" 1502765519 20274 048a3619cc963f33ae9b4f5e0fb6e05a ""
   (generated)
   "HOBD.bbl"
   "HOBD.blg"
-["pdflatex"] 1503205378 "HOBD.tex" "HOBD.pdf" "HOBD" 1503205389
+["pdflatex"] 1503298668 "HOBD.tex" "HOBD.pdf" "HOBD" 1503298676
   "../figures/High-Order.png" 1503180983 46674 fce8faefbc7f9ef8a09d5c48f0f90422 ""
-  "../figures/ISFC/t300slide25var1000.png" 1501450483 439441 72069f38222c77561c26b307421dff0f ""
+  "../figures/ISFC/t300slide25var1000.png" 1503267398 475164 cf9feb956b3f673ea621d09a3b21594c ""
   "../figures/Intra-Level-Decoding-Analysis/1000V/forrest.png" 1501257516 15355 f461d934857c3902c4e2eece570170a0 ""
   "../figures/Intra-Level-Decoding-Analysis/1000V/pieman.png" 1501257475 23280 00b162815bf05929d37319a103bcbeb6 ""
   "../figures/Intra-Level-Decoding-Analysis/1000V/sherlock.png" 1502046255 14148 0a1d3a80e323687874aabeef56112735 ""
@@ -32,8 +32,8 @@
   "../figures/Multi-Level-Mixture-Analysis/1V/sherlock.png" 1501710066 37042 fe7f16fe570c9b98506415f27ac6bc3a ""
   "../figures/SyntheticTesting/10block100t.png" 1503184105 1077062 193fcb68c048a952bbb16ed6301627b9 ""
   "../figures/SyntheticTesting/2block250t.png" 1503185351 545462 320f20320db29085571a150999262dc9 ""
-  "../figures/SyntheticTesting/ramp1000t4slide.png" 1501383123 511047 77559b90e76e52271906d1578d73bbe8 ""
-  "../figures/SyntheticTesting/ramp1000t4var.png" 1501362037 493724 a8b76f714e85f14e3c4522926be6379e ""
+  "../figures/SyntheticTesting/ramp1000t4slide.png" 1503274457 693197 9767a503167460de1b63376c48f3e325 ""
+  "../figures/SyntheticTesting/ramp1000t4var.png" 1503206772 561465 0681503ea4aee525dfc96117f28fed48 ""
   "../figures/SyntheticTesting/ramp100t4var.png" 1503197571 408555 38efe2e02c7a4f47f3b11177c989947f ""
   "../figures/SyntheticTesting/ramp500t4var.png" 1503199975 550459 611d55fe0f9a03f821bdd8fb29961bcd ""
   "/usr/local/texlive/2017/texmf-dist/fonts/map/fontname/texfonts.map" 1480098670 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
@@ -214,12 +214,12 @@
   "/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1495593472 2350277 a699055bee05bf8a40b0504752487295 ""
   "/usr/local/texlive/2017/texmf-var/web2c/pdftex/pdflatex.fmt" 1495593487 4129592 0e6cfee100d68e6d96b92c0258f2ff73 ""
   "/usr/local/texlive/2017/texmf.cnf" 1495593465 577 2b71d4d888f9e5560b2e99985915a9fa ""
-  "HOBD.aux" 1503205389 10064 b10b5c4ca062c7af5f62d0fedf606cbb ""
-  "HOBD.bbl" 1503201441 11915 109e487e6d3e13a2bbf5a4c6384822f7 "bibtex HOBD"
-  "HOBD.tex" 1503205373 102542 3582e7841c373c331250a206b4e91fd8 ""
-  "HOBD.toc" 1503205389 1622 c41f9786ac2d65adc7197edff4086efe ""
+  "HOBD.aux" 1503298676 9982 b1acb632929ad8ee12def353bc99d920 ""
+  "HOBD.bbl" 1503294967 11915 109e487e6d3e13a2bbf5a4c6384822f7 "bibtex HOBD"
+  "HOBD.tex" 1503298656 102846 4fc4125bd112a1996022c482553ccda8 ""
+  "HOBD.toc" 1503298676 1622 c24442cb0dfa06982020ed169414ef2d ""
   (generated)
-  "HOBD.toc"
-  "HOBD.pdf"
-  "HOBD.log"
   "HOBD.aux"
+  "HOBD.log"
+  "HOBD.pdf"
+  "HOBD.toc"
