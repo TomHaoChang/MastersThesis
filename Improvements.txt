@@ -1,53 +1,22 @@
-3. Future improvements: Functional brain modules reconfigure at multiple scales across the human lifespan \citep{Betzel2015}
+Sliding window is an established method of correlation recovery method
 
-4. PCA ignores the spatial properties of each region. Therefore, although we are acquiring the same size correlation matrices, we may be potentially losing information. Correlation of spatially separate regions that show similar activities may be useful for decoding, but are omitted by PCA.
+Why is TimeCorr better than sliding window
+1. TimeCorr is better because no loss. Especially significant in the construction of Mixture Models. In addition, because some activities in the brain can be rapidly changing, information loss may result in loss of very important information. In addition, current fMRI technology may produce up to 50 brain images per second. 
 
-5. Better performance with low variance TimeCorr setups suggest that the datasets more closely resembles block states.
+2. In addition, TimeCorr is able to incorporate information from a wider range of time points for its calculations. Detect and recover changes with greater accuracy
 
-Mixture Model’s higher decoding analysis is initial proof that a lot of information is contained within the high order brain dynamics, to be retrieved with better methods
+3. Temporal resolution. Through the application of Gaussian Distribution, we gain more locations and temporal resolution.
 
-Pieman:
-Decoding accuracy of first order ISFC higher than that of raw activations, unprecedented.
+4. TimeCorr is able to recover a wider range of dynamic correlation structures.
 
-Decoding accuracy increasing as gaussian variance decreases from dataset time length to 10 time points, indicating that the datasets may possess block states. Increasing Gaussian variance further results in decrease in performance, indicating tunnel vision is bad.
+Because of the above advantages, TimeCorr is a better alternative to the sliding window method for recovery of dynamic functional connectivities.
 
-In the Forrest, dataset, we observe the same patterns as in the pieman dataset
+Future Directions:
+1. Hidden Markov Model for detection of Block Borders and then apply TimeCorr of varying variances to recovery dynamic correlation within each block
 
-Comparison between results from the four decoding conditions also show the difference in the proportion of stimulus-driven brain activity.
+2. High-Order Brain Dynamics
 
-After an initial positive jump in the decoding accuracy of first order ISFC, decoding accuracy of higher levels generally demonstrates a decreasing trend. This might be due to information loss from PCA and smoothing from TimeCorr Gaussian averaging. However, the effect of TimeCorr Gaussian averaging is not the main factor as although changing the Gaussian variance generated small changes in the Pieman dataset, this behavior is not replicated in Sherlock or Forrest. However, we know that there are information contained in higher orders, at least from the results of the Pieman dataset. Will explore further in our Mixture Analysis
+3. Use alternative distributions to generate coefficients for even better temporal resolution (e.g. Laplacian Distribution)
 
-Forrest:
+Block: equal to block length produces best decoding accuracy. Going over block length makes TimeCorr pick up changes too early. While low variance produce lower decoding accuracy.
 
-Same patterns as Pieman: decoding accuracy increases greatly when the Gaussian variance is decreased from 1000 to 10, but decreases when the Gaussian variance is decreased to 1. Also, very similar to pieman paragraph dataset, there seems to be less information at higher orders.
-
-Sherlock:
-
-Displays very similar pattern to forrest, where this is large amounts of information at low orders, but little to no information at high orders. One difference, is Decoding accuracy also increased when the Gaussian variance decreases from 10 to 1.
-
-Summary:
-
-No apparent relationship between the magnitude of TimeCorr Gaussian variance and decoding accuracy at higher levels. In the Pieman dataset, we see consistent increase in decoding accuracy when the Gaussian variance decreases. But in the Forrest dataset, we the decoding accuracy of 2nd order ISFC decrease to 0 when Gaussian variance is decreased. Whereas in the Sherlock dataset, we noticed a slight increase in the 2nd order ISFC decoding analysis when the Gaussian variance decreases from 1000 to 10, but then decrease to 0 when the Gaussian variance decreases further to 1. This indicates that, while TimeCorr has some influence on the information loss, it is not the main factor. We speculate that PCA may be the main factor as the decrease in decoding accuracy is exponential with each level.
-
-Questions:
-1. TimeCorr vs Sliding Window Perspective. And characteristics of TimeCorr implementations with different variance. How to define high resolution vs low resolution
-
-2. How to analyze PCA. How to quantify information loss
-
-3. Improvements: dimensional reduction by brain region. HTFA
-
-4. What I should include in Introduction vs in Model Description
-
-5. How to elaborate on benchmark.
-
-6. Four conditions, ISFC increase with coherence of the stimulus. Hasson
-
-7. How much to elaborate on applicable areas.
-
-Hidden Markov model for TimeCorr improvement. \citep{Baldassano2016}
-
-Spacial ICA for dimensionality reduction:
-http://journal.frontiersin.org/article/10.3389/fnins.2013.00154/full
-http://jnm.snmjournals.org/content/early/2017/03/08/jnumed.116.184309.abstract
-http://www.sciencedirect.com/science/article/pii/S1053811916300398
-https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4315015/
