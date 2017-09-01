@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  1 SEP 2017 04:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  1 SEP 2017 19:33
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**HOBD.tex
-(./HOBD.tex
+**ThesisTHC.tex
+(./ThesisTHC.tex
 LaTeX2e <2017-04-15>
 Babel <3.10> and hyphenation patterns for 84 language(s) loaded.
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/article.cls
@@ -940,21 +940,21 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibsep=\skip80
 LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count178
-) (/usr/local/texlive/2017/texmf-dist/tex/generic/bibtex/apalike.sty) (./HOBD.aux)
-\openout1 = `HOBD.aux'.
+) (/usr/local/texlive/2017/texmf-dist/tex/generic/bibtex/apalike.sty) (./ThesisTHC.aux)
+\openout1 = `ThesisTHC.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
  ABD: EveryShipout initializing macros (/usr/local/texlive/2017/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count179
@@ -1036,20 +1036,20 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 54.
+LaTeX Font Info:    Try loading font information for U+msa on input line 53.
 (/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 54.
+LaTeX Font Info:    Try loading font information for U+msb on input line 53.
  (/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-{/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [1] [2] (./HOBD.toc [3])
+{/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [1] [2] (./ThesisTHC.toc [3])
 \tf@toc=\write4
-\openout4 = `HOBD.toc'.
+\openout4 = `ThesisTHC.toc'.
 
- [4] (./HOBD.lof
+ [4] (./ThesisTHC.lof
 Overfull \hbox (20.46805pt too wide) in paragraph at lines 4--4
  [][] []\OT1/cmr/bx/n/10.95 Testing dif-fer-ent TimeCorr se-tups on 1000-timepoint ramp-ing datasets. 
  []
@@ -1066,114 +1066,106 @@ Overfull \hbox (18.36931pt too wide) in paragraph at lines 6--6
 
 [6] [7])
 \tf@lof=\write5
-\openout5 = `HOBD.lof'.
+\openout5 = `ThesisTHC.lof'.
 
  [8] [1] [2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12] [13] [14] [15] <../figures/SyntheticTesting/10block100t.png, id=97, 1450.41875pt x 767.86874pt>
 File: ../figures/SyntheticTesting/10block100t.png Graphic file (type png)
  <use ../figures/SyntheticTesting/10block100t.png>
-Package pdftex.def Info: ../figures/SyntheticTesting/10block100t.png used on input line 300.
+Package pdftex.def Info: ../figures/SyntheticTesting/10block100t.png used on input line 299.
 (pdftex.def)             Requested size: 433.62001pt x 229.55394pt.
  [16] [17 <../figures/SyntheticTesting/10block100t.png>] <../figures/SyntheticTesting/2block50t4var4slideEB.png, id=106, 979.66pt x 997.7275pt>
 File: ../figures/SyntheticTesting/2block50t4var4slideEB.png Graphic file (type png)
  <use ../figures/SyntheticTesting/2block50t4var4slideEB.png>
-Package pdftex.def Info: ../figures/SyntheticTesting/2block50t4var4slideEB.png used on input line 312.
+Package pdftex.def Info: ../figures/SyntheticTesting/2block50t4var4slideEB.png used on input line 311.
 (pdftex.def)             Requested size: 433.62001pt x 441.60477pt.
  [18] [19 <../figures/SyntheticTesting/2block50t4var4slideEB.png>] <../figures/SyntheticTesting/2block11t3var3slideEB.png, id=114, 979.66pt x 997.7275pt>
 File: ../figures/SyntheticTesting/2block11t3var3slideEB.png Graphic file (type png)
  <use ../figures/SyntheticTesting/2block11t3var3slideEB.png>
-Package pdftex.def Info: ../figures/SyntheticTesting/2block11t3var3slideEB.png used on input line 326.
+Package pdftex.def Info: ../figures/SyntheticTesting/2block11t3var3slideEB.png used on input line 325.
 (pdftex.def)             Requested size: 433.62001pt x 441.60477pt.
  [20] [21 <../figures/SyntheticTesting/2block11t3var3slideEB.png>] <../figures/SyntheticTesting/ramp1000t6var6slideEB.png, id=123, 979.66pt x 997.7275pt>
 File: ../figures/SyntheticTesting/ramp1000t6var6slideEB.png Graphic file (type png)
  <use ../figures/SyntheticTesting/ramp1000t6var6slideEB.png>
-Package pdftex.def Info: ../figures/SyntheticTesting/ramp1000t6var6slideEB.png used on input line 351.
+Package pdftex.def Info: ../figures/SyntheticTesting/ramp1000t6var6slideEB.png used on input line 350.
 (pdftex.def)             Requested size: 433.62001pt x 441.60477pt.
  [22] [23 <../figures/SyntheticTesting/ramp1000t6var6slideEB.png>] <../figures/SyntheticTesting/ramp500t5var5slideEB.png, id=131, 979.66pt x 997.7275pt>
 File: ../figures/SyntheticTesting/ramp500t5var5slideEB.png Graphic file (type png)
 
 <use ../figures/SyntheticTesting/ramp500t5var5slideEB.png>
-Package pdftex.def Info: ../figures/SyntheticTesting/ramp500t5var5slideEB.png used on input line 360.
+Package pdftex.def Info: ../figures/SyntheticTesting/ramp500t5var5slideEB.png used on input line 359.
 (pdftex.def)             Requested size: 433.62001pt x 441.60477pt.
  <../figures/SyntheticTesting/ramp100t4var4slideEB.png, id=132, 979.66pt x 997.7275pt>
 File: ../figures/SyntheticTesting/ramp100t4var4slideEB.png Graphic file (type png)
  <use ../figures/SyntheticTesting/ramp100t4var4slideEB.png>
-Package pdftex.def Info: ../figures/SyntheticTesting/ramp100t4var4slideEB.png used on input line 369.
+Package pdftex.def Info: ../figures/SyntheticTesting/ramp100t4var4slideEB.png used on input line 368.
 (pdftex.def)             Requested size: 433.62001pt x 441.60477pt.
  [24] [25 <../figures/SyntheticTesting/ramp500t5var5slideEB.png>] [26 <../figures/SyntheticTesting/ramp100t4var4slideEB.png>] [27] <../figures/ISFC/ramp300t300var101slideEB.png, id=148, 979.66pt x 997.7275pt>
 File: ../figures/ISFC/ramp300t300var101slideEB.png Graphic file (type png)
  <use ../figures/ISFC/ramp300t300var101slideEB.png>
-Package pdftex.def Info: ../figures/ISFC/ramp300t300var101slideEB.png used on input line 384.
+Package pdftex.def Info: ../figures/ISFC/ramp300t300var101slideEB.png used on input line 383.
 (pdftex.def)             Requested size: 433.62001pt x 441.60477pt.
  <../figures/ISFC/2block150tslide101var150EB.png, id=149, 979.66pt x 997.7275pt>
 File: ../figures/ISFC/2block150tslide101var150EB.png Graphic file (type png)
  <use ../figures/ISFC/2block150tslide101var150EB.png>
-Package pdftex.def Info: ../figures/ISFC/2block150tslide101var150EB.png used on input line 394.
+Package pdftex.def Info: ../figures/ISFC/2block150tslide101var150EB.png used on input line 393.
 (pdftex.def)             Requested size: 433.62001pt x 441.60477pt.
  [28] [29 <../figures/ISFC/ramp300t300var101slideEB.png>] [30 <../figures/ISFC/2block150tslide101var150EB.png>] [31] [32] <../figures/CircularAnalysis/intact.png, id=167, 972.63374pt x 506.89375pt>
 File: ../figures/CircularAnalysis/intact.png Graphic file (type png)
  <use ../figures/CircularAnalysis/intact.png>
-Package pdftex.def Info: ../figures/CircularAnalysis/intact.png used on input line 426.
+Package pdftex.def Info: ../figures/CircularAnalysis/intact.png used on input line 424.
 (pdftex.def)             Requested size: 433.62001pt x 225.9808pt.
  [33] [34 <../figures/CircularAnalysis/intact.png>] <../figures/CircularAnalysis/paragraph.png, id=176, 972.63374pt x 506.89375pt>
 File: ../figures/CircularAnalysis/paragraph.png Graphic file (type png)
 
 <use ../figures/CircularAnalysis/paragraph.png>
-Package pdftex.def Info: ../figures/CircularAnalysis/paragraph.png used on input line 440.
+Package pdftex.def Info: ../figures/CircularAnalysis/paragraph.png used on input line 438.
 (pdftex.def)             Requested size: 433.62001pt x 225.9808pt.
  [35 <../figures/CircularAnalysis/paragraph.png>] <../figures/CircularAnalysis/word.png, id=181, 972.63374pt x 506.89375pt>
 File: ../figures/CircularAnalysis/word.png Graphic file (type png)
  <use ../figures/CircularAnalysis/word.png>
-Package pdftex.def Info: ../figures/CircularAnalysis/word.png used on input line 449.
+Package pdftex.def Info: ../figures/CircularAnalysis/word.png used on input line 447.
 (pdftex.def)             Requested size: 433.62001pt x 225.9808pt.
- <../figures/CircularAnalysis/resting.png, id=182, 972.63374pt x 506.89375pt>
+ [36 <../figures/CircularAnalysis/word.png>] <../figures/CircularAnalysis/resting.png, id=186, 972.63374pt x 506.89375pt>
 File: ../figures/CircularAnalysis/resting.png Graphic file (type png)
  <use ../figures/CircularAnalysis/resting.png>
-Package pdftex.def Info: ../figures/CircularAnalysis/resting.png used on input line 457.
+Package pdftex.def Info: ../figures/CircularAnalysis/resting.png used on input line 455.
 (pdftex.def)             Requested size: 433.62001pt x 225.9808pt.
- [36 <../figures/CircularAnalysis/word.png>] [37 <../figures/CircularAnalysis/resting.png>] <../figures/CircularAnalysis/forrest.png, id=191, 972.63374pt x 506.89375pt>
+ [37 <../figures/CircularAnalysis/resting.png>] <../figures/CircularAnalysis/forrest.png, id=191, 972.63374pt x 506.89375pt>
 File: ../figures/CircularAnalysis/forrest.png Graphic file (type png)
  <use ../figures/CircularAnalysis/forrest.png>
-Package pdftex.def Info: ../figures/CircularAnalysis/forrest.png used on input line 467.
+Package pdftex.def Info: ../figures/CircularAnalysis/forrest.png used on input line 465.
 (pdftex.def)             Requested size: 433.62001pt x 225.9808pt.
  [38 <../figures/CircularAnalysis/forrest.png>] <../figures/CircularAnalysis/sherlock.png, id=196, 972.63374pt x 506.89375pt>
 File: ../figures/CircularAnalysis/sherlock.png Graphic file (type png)
  <use ../figures/CircularAnalysis/sherlock.png>
-Package pdftex.def Info: ../figures/CircularAnalysis/sherlock.png used on input line 476.
+Package pdftex.def Info: ../figures/CircularAnalysis/sherlock.png used on input line 474.
 (pdftex.def)             Requested size: 433.62001pt x 225.9808pt.
- [39 <../figures/CircularAnalysis/sherlock.png>] [40] [41]
-Overfull \hbox (4.80522pt too wide) in paragraph at lines 494--495
+ [39] [40 <../figures/CircularAnalysis/sherlock.png>] [41]
+Overfull \hbox (4.80522pt too wide) in paragraph at lines 492--493
 \OT1/cmr/m/n/10.95 means of eval-u-at-ing the qual-ity of func-tional con-nec-tiv-ity re-cov-ery from ac-tual fMRI datasets.
  []
 
 [42
 
-] [43] [44]
-
-LaTeX Warning: Reference `fig:HighOrder' on page 45 undefined on input line 518.
-
-[45] [46] (./HOBD.bbl [47] [48] [49]) [50] (./HOBD.aux)
-
-LaTeX Warning: There were undefined references.
-
- )
+] [43] [44] (./ThesisTHC.bbl [45] [46] [47]) [48] (./ThesisTHC.aux) )
 (\end occurred inside a group at level 1)
 
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 25358 strings out of 492995
- 516372 string characters out of 6132704
- 898300 words of memory out of 5000000
- 28501 multiletter control sequences out of 15000+600000
+ 25348 strings out of 492995
+ 516273 string characters out of 6132704
+ 898306 words of memory out of 5000000
+ 28491 multiletter control sequences out of 15000+600000
  10152 words of font info for 38 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,12n,78p,10402b,7578s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,12n,78p,10407b,7578s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/am
 sfonts/cm/cmti10.pfb>
-Output written on HOBD.pdf (60 pages, 2240703 bytes).
+Output written on ThesisTHC.pdf (58 pages, 2235432 bytes).
 PDF statistics:
- 282 PDF objects out of 1000 (max. 8388607)
- 177 compressed objects within 2 object streams
+ 276 PDF objects out of 1000 (max. 8388607)
+ 173 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  83 words of extra memory for PDF output out of 10000 (max. 10000000)
 

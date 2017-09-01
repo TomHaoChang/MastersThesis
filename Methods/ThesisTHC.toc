@@ -13,7 +13,7 @@
 \contentsline {subsection}{\numberline {5.2}Testing Inter-Subject Functional Connectivity using TimeCorr}{27}
 \contentsline {subsection}{\numberline {5.3}TimeCorr Decoding Analysis on Real Datasets}{31}
 \contentsline {subsubsection}{\numberline {5.3.1}Description for the Pieman Dataset}{32}
-\contentsline {subsubsection}{\numberline {5.3.2}Description for the Forrest Dataset}{32}
+\contentsline {subsubsection}{\numberline {5.3.2}Description for the Forrest Dataset}{33}
 \contentsline {subsubsection}{\numberline {5.3.3}Description for the Sherlock Dataset}{33}
 \contentsline {subsubsection}{\numberline {5.3.4}Results}{33}
 \contentsline {section}{\numberline {6}Conclusion}{42}

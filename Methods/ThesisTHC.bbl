@@ -52,14 +52,6 @@ Davison, E.~N., Turner, B.~O., Schlesinger, K.~J., Miller, M.~B., Grafton,
   {C}onnectivity across the {H}uman {L}ifespan}.
 \newblock {\em PLoS Comput. Biol.}, 12(11):e1005178.
 
-\bibitem[Dipasquale et~al., 2015]{Dipasquale2015}
-Dipasquale, O., Griffanti, L., Clerici, M., Nemni, R., Baselli, G., and Baglio,
-  F. (2015).
-\newblock {{H}igh-{D}imensional {I}{C}{A} {A}nalysis {D}etects
-  {W}ithin-{N}etwork {F}unctional {C}onnectivity {D}amage of {D}efault-{M}ode
-  and {S}ensory-{M}otor {N}etworks in {A}lzheimer's {D}isease}.
-\newblock {\em Front Hum Neurosci}, 9:43.
-
 \bibitem[Friston et~al., 1998]{Friston98}
 Friston, K.~J., Fletcher, P., Josephs, O., Holmes, A., Rugg, M.~D., and Turner,
   R. (1998).
@@ -127,13 +119,6 @@ Hutchison, R.~M., Womelsdorf, T., Allen, E.~A., Bandettini, P.~A., Calhoun,
 \newblock {{D}ynamic functional connectivity: promise, issues, and
   interpretations}.
 \newblock {\em Neuroimage}, 80:360--378.
-
-\bibitem[Iraji et~al., 2016]{Iraji2016}
-Iraji, A., Calhoun, V.~D., Wiseman, N.~M., Davoodi-Bojd, E., Avanaki, M.~R.,
-  Haacke, E.~M., and Kou, Z. (2016).
-\newblock {{T}he connectivity domain: {A}nalyzing resting state f{M}{R}{I} data
-  using feature-based data-driven and model-based methods}.
-\newblock {\em Neuroimage}, 134:494--507.
 
 \bibitem[Khambhati et~al., 2017]{khambhati2017}
 Khambhati, A.~N., Sizemore, A.~E., Betzel, R.~F., and Bassett, D.~S. (2017).
@@ -243,11 +228,5 @@ Sporns, O., Tononi, G., and Kotter, R. (2005).
 Turk-Browne, N.~B. (2013).
 \newblock {{F}unctional interactions as big data in the human brain}.
 \newblock {\em Science}, 342(6158):580--584.
-
-\bibitem[Xu et~al., 2013]{Xu2013}
-Xu, J., Potenza, M.~N., and Calhoun, V.~D. (2013).
-\newblock {{S}patial {I}{C}{A} reveals functional activity hidden from
-  traditional f{M}{R}{I} {G}{L}{M}-based analyses}.
-\newblock {\em Front Neurosci}, 7:154.
 
 \end{thebibliography}
