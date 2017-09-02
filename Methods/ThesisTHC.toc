@@ -3,17 +3,17 @@
 \contentsline {section}{List of Figures}{v}
 \contentsline {section}{\numberline {3}Introduction}{1}
 \contentsline {section}{\numberline {4}Model Description}{6}
-\contentsline {subsection}{\numberline {4.1}Single Subject TimeCorr}{6}
+\contentsline {subsection}{\numberline {4.1}Single-Subject TimeCorr}{6}
 \contentsline {subsection}{\numberline {4.2}TimeCorr Inter-Subject Functional Connectivity}{9}
 \contentsline {subsection}{\numberline {4.3}Multi-Subject TimeCorr Decoding Analysis}{11}
 \contentsline {section}{\numberline {5}Results}{15}
-\contentsline {subsection}{\numberline {5.1}Testing Single Subject TimeCorr on Synthetic Datasets}{15}
-\contentsline {subsubsection}{\numberline {5.1.1}Single Subject Synthetic Dataset with block correlations}{15}
-\contentsline {subsubsection}{\numberline {5.1.2}Single Subject Synthetic Dataset with ramping correlations}{22}
+\contentsline {subsection}{\numberline {5.1}Testing single-subject TimeCorr on Synthetic Datasets}{15}
+\contentsline {subsubsection}{\numberline {5.1.1}single-subject Synthetic Dataset with block correlations}{15}
+\contentsline {subsubsection}{\numberline {5.1.2}Single-Subject Synthetic Dataset with ramping correlations}{22}
 \contentsline {subsection}{\numberline {5.2}Testing Inter-Subject Functional Connectivity using TimeCorr}{27}
 \contentsline {subsection}{\numberline {5.3}TimeCorr Decoding Analysis on Real Datasets}{31}
-\contentsline {subsubsection}{\numberline {5.3.1}Description for the Pieman Dataset}{32}
-\contentsline {subsubsection}{\numberline {5.3.2}Description for the Forrest Dataset}{33}
-\contentsline {subsubsection}{\numberline {5.3.3}Description for the Sherlock Dataset}{33}
+\contentsline {subsubsection}{\numberline {5.3.1}Description of the Pieman Dataset}{32}
+\contentsline {subsubsection}{\numberline {5.3.2}Description of the Forrest Dataset}{33}
+\contentsline {subsubsection}{\numberline {5.3.3}Description of the Sherlock Dataset}{33}
 \contentsline {subsubsection}{\numberline {5.3.4}Results}{33}
 \contentsline {section}{\numberline {6}Conclusion}{42}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  1 SEP 2017 19:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  1 SEP 2017 22:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1078,12 +1078,12 @@ File: ../figures/SyntheticTesting/2block50t4var4slideEB.png Graphic file (type p
  <use ../figures/SyntheticTesting/2block50t4var4slideEB.png>
 Package pdftex.def Info: ../figures/SyntheticTesting/2block50t4var4slideEB.png used on input line 311.
 (pdftex.def)             Requested size: 433.62001pt x 441.60477pt.
- [18] [19 <../figures/SyntheticTesting/2block50t4var4slideEB.png>] <../figures/SyntheticTesting/2block11t3var3slideEB.png, id=114, 979.66pt x 997.7275pt>
+ [18] [19 <../figures/SyntheticTesting/2block50t4var4slideEB.png>] [20] <../figures/SyntheticTesting/2block11t3var3slideEB.png, id=117, 979.66pt x 997.7275pt>
 File: ../figures/SyntheticTesting/2block11t3var3slideEB.png Graphic file (type png)
  <use ../figures/SyntheticTesting/2block11t3var3slideEB.png>
 Package pdftex.def Info: ../figures/SyntheticTesting/2block11t3var3slideEB.png used on input line 325.
 (pdftex.def)             Requested size: 433.62001pt x 441.60477pt.
- [20] [21 <../figures/SyntheticTesting/2block11t3var3slideEB.png>] <../figures/SyntheticTesting/ramp1000t6var6slideEB.png, id=123, 979.66pt x 997.7275pt>
+ [21 <../figures/SyntheticTesting/2block11t3var3slideEB.png>] <../figures/SyntheticTesting/ramp1000t6var6slideEB.png, id=123, 979.66pt x 997.7275pt>
 File: ../figures/SyntheticTesting/ramp1000t6var6slideEB.png Graphic file (type png)
  <use ../figures/SyntheticTesting/ramp1000t6var6slideEB.png>
 Package pdftex.def Info: ../figures/SyntheticTesting/ramp1000t6var6slideEB.png used on input line 350.
@@ -1099,7 +1099,12 @@ File: ../figures/SyntheticTesting/ramp100t4var4slideEB.png Graphic file (type pn
  <use ../figures/SyntheticTesting/ramp100t4var4slideEB.png>
 Package pdftex.def Info: ../figures/SyntheticTesting/ramp100t4var4slideEB.png used on input line 368.
 (pdftex.def)             Requested size: 433.62001pt x 441.60477pt.
- [24] [25 <../figures/SyntheticTesting/ramp500t5var5slideEB.png>] [26 <../figures/SyntheticTesting/ramp100t4var4slideEB.png>] [27] <../figures/ISFC/ramp300t300var101slideEB.png, id=148, 979.66pt x 997.7275pt>
+ [24] [25 <../figures/SyntheticTesting/ramp500t5var5slideEB.png>] [26 <../figures/SyntheticTesting/ramp100t4var4slideEB.png>]
+Overfull \hbox (3.85089pt too wide) in paragraph at lines 380--381
+\OT1/cmr/m/n/10.95 con-nec-tiv-ity (ISFC) in multi-subject syn-thetic datasets. In prac-ti-cal sce-nar-ios, fMRI datasets
+ []
+
+[27] <../figures/ISFC/ramp300t300var101slideEB.png, id=148, 979.66pt x 997.7275pt>
 File: ../figures/ISFC/ramp300t300var101slideEB.png Graphic file (type png)
  <use ../figures/ISFC/ramp300t300var101slideEB.png>
 Package pdftex.def Info: ../figures/ISFC/ramp300t300var101slideEB.png used on input line 383.
@@ -1116,8 +1121,7 @@ Package pdftex.def Info: ../figures/CircularAnalysis/intact.png used on input li
 (pdftex.def)             Requested size: 433.62001pt x 225.9808pt.
  [33] [34 <../figures/CircularAnalysis/intact.png>] <../figures/CircularAnalysis/paragraph.png, id=176, 972.63374pt x 506.89375pt>
 File: ../figures/CircularAnalysis/paragraph.png Graphic file (type png)
-
-<use ../figures/CircularAnalysis/paragraph.png>
+ <use ../figures/CircularAnalysis/paragraph.png>
 Package pdftex.def Info: ../figures/CircularAnalysis/paragraph.png used on input line 438.
 (pdftex.def)             Requested size: 433.62001pt x 225.9808pt.
  [35 <../figures/CircularAnalysis/paragraph.png>] <../figures/CircularAnalysis/word.png, id=181, 972.63374pt x 506.89375pt>
@@ -1127,7 +1131,8 @@ Package pdftex.def Info: ../figures/CircularAnalysis/word.png used on input line
 (pdftex.def)             Requested size: 433.62001pt x 225.9808pt.
  [36 <../figures/CircularAnalysis/word.png>] <../figures/CircularAnalysis/resting.png, id=186, 972.63374pt x 506.89375pt>
 File: ../figures/CircularAnalysis/resting.png Graphic file (type png)
- <use ../figures/CircularAnalysis/resting.png>
+
+<use ../figures/CircularAnalysis/resting.png>
 Package pdftex.def Info: ../figures/CircularAnalysis/resting.png used on input line 455.
 (pdftex.def)             Requested size: 433.62001pt x 225.9808pt.
  [37 <../figures/CircularAnalysis/resting.png>] <../figures/CircularAnalysis/forrest.png, id=191, 972.63374pt x 506.89375pt>
@@ -1162,7 +1167,7 @@ Here is how much of TeX's memory you used:
  55i,12n,78p,10407b,7578s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/am
 sfonts/cm/cmti10.pfb>
-Output written on ThesisTHC.pdf (58 pages, 2235432 bytes).
+Output written on ThesisTHC.pdf (58 pages, 2234769 bytes).
 PDF statistics:
  276 PDF objects out of 1000 (max. 8388607)
  173 compressed objects within 2 object streams
